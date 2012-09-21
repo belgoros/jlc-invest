@@ -242,3 +242,21 @@ Connecting to database specified by database.yml
   [1m[36m (110.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918201638')[0m
   [1m[35m (110.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120918154117')
   [1m[36m (110.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918153919')[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateAdmins (20120918153919)
+Migrating to CreateClients (20120918154117)
+Migrating to AddIndexToAdminsEmail (20120918201638)
+Migrating to CreateOperations (20120921153618)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "operations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" integer, "type" varchar(255), "value_date" date, "close_date" date, "sum" decimal, "rate" decimal, "duration" integer, "interests" decimal, "total" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120921153618')[0m
+  [1m[35m (216.9ms)[0m  commit transaction
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("admins")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_email')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("clients")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("operations")

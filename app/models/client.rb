@@ -1,4 +1,6 @@
 class Client < ActiveRecord::Base
+  has_many: operations
+
   attr_accessible :box, :city, :country, :firstname, :house, :lastname, :phone, 
   :street, :zipcode
   
