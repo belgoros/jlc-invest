@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe Client do
   before { @client = Client.new(firstname: "Jean", 
-          lastname: "Dupont",
-          phone: "069-123456",
-          street: "Rue du Chateau",
-          house: "37",
-          zipcode: "7500",
-          city: "Tournai",
-          country: "Belgique") }
+      lastname: "Dupont",
+      phone: "069-123456",
+      street: "Rue du Chateau",
+      house: "37",
+      zipcode: "7500",
+      city: "Tournai",
+      country: "Belgique") }
 
   subject { @client }
   
@@ -102,5 +102,22 @@ describe Client do
     before { @client.country = "a" * 11 }
     it { should_not be_valid }
   end
+  
+  describe "operation associations" do
+
+    before { @client.save }
+    
+    
+    it "should destroy associated operations" do
+      operations = @client.operations
+      @client.destroy
+      operations.each do |operation|
+        Operation.find_by_id(operation.id).should be_nil
+      end
+    end  
+    
+    
+  end
+  
   
 end
