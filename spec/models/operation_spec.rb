@@ -43,9 +43,23 @@ describe Operation do
     it { should_not be_valid }
   end
   
-  describe "when duration is not present" do
-    before { @operation.duration = 0 }
+  describe "when duration is not present when deposit" do
+    before do
+      @operation.duration = ''
+      @operation.operation_type = Operation::TRANSACTIONS[0]
+    end
     it { should_not be_valid }
   end
+  
+  describe "when sum is not present" do
+    before { @operation.sum = '' }
+    it { should_not be_valid }
+  end
+  
+  describe "when rate is not present" do
+    before { @operation.rate = '' }
+    it { should_not be_valid }
+  end
+  
   
 end

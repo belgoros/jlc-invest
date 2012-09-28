@@ -10,9 +10,9 @@ class Operation < ActiveRecord::Base
   validates :operation_type, presence: true, inclusion: { in: TRANSACTIONS}
   validates :duration, presence: true, numericality: {greater_than: 0}
   validates :rate, presence: true, format: { with: VALID_DECIMAL_REGEX }, numericality: {greater_than: 0}
-  validates :interests, presence: true, if: Proc.new { |op| op.operation_type == TRANSACTIONS[0] }
+  validates :interests, presence: true, if: Proc.new { |op| op.operation_type == TRANSACTIONS[0] }, numericality: {greater_than: 0}
   validates :sum, presence: true, format: { with: VALID_DECIMAL_REGEX }, numericality: {greater_than: 0}
-  validates :total, presence: true  
+  validates :total, presence: true, numericality: {greater_than: 0}
   validates :value_date, presence: true
   validates :client_id, presence: true  
   
@@ -23,7 +23,10 @@ class Operation < ActiveRecord::Base
   
   private
   
-    def calculate_interests_and_total      
+    def calculate_interests_and_total     
+      self.sum ||= 0
+      self.rate ||= 0
+      self.duration ||= 0
       self.interests = sum * (rate/100 * duration/12)
       self.total = interests + sum    
     end
