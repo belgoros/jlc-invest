@@ -9187,3 +9187,941 @@ Binary data inserted for `string` type on column `password_digest`
   [1m[35mSQL (1.4ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 28 Sep 2012 19:02:33 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$t4Vo/cXNoTq4CbcWFGkl0u.TirxyMPVkdbSK2R2b.6/F17N93pd3e"], ["remember_token", "MMce7uxIMxtHXjNhnRDJIA"], ["updated_at", Fri, 28 Sep 2012 19:02:33 UTC +00:00]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (4.5ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (25.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:49:48 +0200
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (198.7ms)
+Completed 500 Internal Server Error in 392ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:49:48 +0200
+Processing by AdminsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (62.3ms)
+Completed 500 Internal Server Error in 72ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (4.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.6ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = '') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (4.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36mSQL (71.6ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:52:25 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:52:25 UTC +00:00], ["zipcode", "7500"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:52:25 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:52:25 UTC +00:00], ["zipcode", "7500"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "clients" WHERE "clients"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mOperation Load (0.2ms)[0m  [1mSELECT "operations".* FROM "operations" WHERE "operations"."client_id" = 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (8.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 1') AND "clients"."firstname" = 'Fname 1') LIMIT 1[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 1"], ["country", "COUNTRY 1"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 1"], ["house", "11"], ["lastname", "FLASTNAME 1"], ["phone", nil], ["street", "Street 1"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "11"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 2') AND "clients"."firstname" = 'Fname 2') LIMIT 1[0m
+  [1m[35mSQL (7.9ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 2"], ["country", "COUNTRY 2"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 2"], ["house", "12"], ["lastname", "FLASTNAME 2"], ["phone", nil], ["street", "Street 2"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "12"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 3') AND "clients"."firstname" = 'Fname 3') LIMIT 1[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 3"], ["country", "COUNTRY 3"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 3"], ["house", "13"], ["lastname", "FLASTNAME 3"], ["phone", nil], ["street", "Street 3"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "13"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 4') AND "clients"."firstname" = 'Fname 4') LIMIT 1[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 4"], ["country", "COUNTRY 4"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 4"], ["house", "14"], ["lastname", "FLASTNAME 4"], ["phone", nil], ["street", "Street 4"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "14"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 5') AND "clients"."firstname" = 'Fname 5') LIMIT 1[0m
+  [1m[35mSQL (9.4ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 5"], ["country", "COUNTRY 5"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 5"], ["house", "15"], ["lastname", "FLASTNAME 5"], ["phone", nil], ["street", "Street 5"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "15"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 6') AND "clients"."firstname" = 'Fname 6') LIMIT 1[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 6"], ["country", "COUNTRY 6"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 6"], ["house", "16"], ["lastname", "FLASTNAME 6"], ["phone", nil], ["street", "Street 6"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "16"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 7') AND "clients"."firstname" = 'Fname 7') LIMIT 1[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 7"], ["country", "COUNTRY 7"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 7"], ["house", "17"], ["lastname", "FLASTNAME 7"], ["phone", nil], ["street", "Street 7"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "17"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 8') AND "clients"."firstname" = 'Fname 8') LIMIT 1[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 8"], ["country", "COUNTRY 8"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 8"], ["house", "18"], ["lastname", "FLASTNAME 8"], ["phone", nil], ["street", "Street 8"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "18"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 9') AND "clients"."firstname" = 'Fname 9') LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 9"], ["country", "COUNTRY 9"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 9"], ["house", "19"], ["lastname", "FLASTNAME 9"], ["phone", nil], ["street", "Street 9"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "19"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (4.7ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 10') AND "clients"."firstname" = 'Fname 10') LIMIT 1[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 10"], ["country", "COUNTRY 10"], ["created_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["firstname", "Fname 10"], ["house", "110"], ["lastname", "FLASTNAME 10"], ["phone", nil], ["street", "Street 10"], ["updated_at", Tue, 02 Oct 2012 19:52:26 UTC +00:00], ["zipcode", "110"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 11') AND "clients"."firstname" = 'Fname 11') LIMIT 1
+  [1m[36mSQL (11.5ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 11"], ["country", "COUNTRY 11"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 11"], ["house", "111"], ["lastname", "FLASTNAME 11"], ["phone", nil], ["street", "Street 11"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "111"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 12') AND "clients"."firstname" = 'Fname 12') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 12"], ["country", "COUNTRY 12"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 12"], ["house", "112"], ["lastname", "FLASTNAME 12"], ["phone", nil], ["street", "Street 12"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "112"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 13') AND "clients"."firstname" = 'Fname 13') LIMIT 1
+  [1m[36mSQL (20.8ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 13"], ["country", "COUNTRY 13"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 13"], ["house", "113"], ["lastname", "FLASTNAME 13"], ["phone", nil], ["street", "Street 13"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "113"]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (9.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 14') AND "clients"."firstname" = 'Fname 14') LIMIT 1
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 14"], ["country", "COUNTRY 14"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 14"], ["house", "114"], ["lastname", "FLASTNAME 14"], ["phone", nil], ["street", "Street 14"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "114"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 15') AND "clients"."firstname" = 'Fname 15') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 15"], ["country", "COUNTRY 15"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 15"], ["house", "115"], ["lastname", "FLASTNAME 15"], ["phone", nil], ["street", "Street 15"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "115"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 16') AND "clients"."firstname" = 'Fname 16') LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 16"], ["country", "COUNTRY 16"], ["created_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["firstname", "Fname 16"], ["house", "116"], ["lastname", "FLASTNAME 16"], ["phone", nil], ["street", "Street 16"], ["updated_at", Tue, 02 Oct 2012 19:52:27 UTC +00:00], ["zipcode", "116"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (5.0ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER(' ') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo,com') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('example.user@foo.') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo.com') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('A_USER@f.b.org') LIMIT 1
+  [1m[36mAdmin Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('frst.lst@foo.jp') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('a+b@baz.cn') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('ADMIN@SKYNET.BE') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:52:36 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$.s454.ziZp63uiEpZETQaem9yRQM/aoSdc5LDgjNTOkNM.gkPhF8y"], ["remember_token", "ahGpQzPCJ7EQH1MrGE2xzQ"], ["updated_at", Tue, 02 Oct 2012 19:52:36 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:52:37 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$MBhcBX4OKEK4jLLYZD0do.3R1K8MZRIjnuW7L7fwHuv8u82mPtS8m"], ["remember_token", "wKY-b09WIK5QojsuBRzKtg"], ["updated_at", Tue, 02 Oct 2012 19:52:37 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:52:38 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$1zH1GxdiLRwP7Q4R5E5rueZxm.rbVd12Ts/I377IeQl7Rc9Nd.4nS"], ["remember_token", "5nLYl3Ly0E3-j_b6Rr51XA"], ["updated_at", Tue, 02 Oct 2012 19:52:38 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (7.5ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:52:39 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$WNzKfANxeM3xsnVGPvtmL.//Uv9tdGQ7nE11b2c0sFdGZ1vUoLS9u"], ["remember_token", "UlOFUc5W3xn7-b0mmofeNA"], ["updated_at", Tue, 02 Oct 2012 19:52:39 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (6.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:52:40 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$Pi4hcEK0Aex985AkncyoN.4x03pFbUNnCYPtU5hTgNSKlBps8xnFW"], ["remember_token", "-XJQ2MTN2AuEvClhvJuPSw"], ["updated_at", Tue, 02 Oct 2012 19:52:40 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = '') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.4ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:52:41 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:52:41 UTC +00:00], ["zipcode", "7500"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (5.4ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (1.9ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (1.1ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.4ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (16.6ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (2.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (4.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (4.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.8ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER(' ') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo,com') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user_at_foo.org') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('example.user@foo.') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo.com') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('A_USER@f.b.org') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('frst.lst@foo.jp') LIMIT 1
+  [1m[36mAdmin Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('ADMIN@SKYNET.BE') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (7.6ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:52:50 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$UWWlhbRnNtigSwFvA1LZcuWoWW6EPIRiAmoOEVL7S6g9Pqh0CEQw2"], ["remember_token", "2DLCK7uv9L7zqyLyhWhw0A"], ["updated_at", Tue, 02 Oct 2012 19:52:50 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:52:51 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$89zkzlKkDzxfDfWp0bGGGOJBiEgZuOmn2TDYoyA5WJ4Az0gvo7f1G"], ["remember_token", "UXAcEuuazCY79JWMqkgz4A"], ["updated_at", Tue, 02 Oct 2012 19:52:51 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (4.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:52:52 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$yF11EdZqgSLcC8aZEzHjd.q4/htn/v0InN9jNUGcV2Nif5ZJNELVm"], ["remember_token", "uc6shkRlJrgeR4AUaEIhWg"], ["updated_at", Tue, 02 Oct 2012 19:52:52 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (5.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:52:53 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$svKppjgLZ.WJrmb2H6Ut2Om.xPLpYGCxjUC40BnJmedtYAFXWD41u"], ["remember_token", "E8EHXsNQ1DvMG3-lXIR-TA"], ["updated_at", Tue, 02 Oct 2012 19:52:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (4.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:52:54 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$LWSUT1fp.1WvujNBduCjKeYWihxxf.r9PxfHmrnBK9Gg1yI09IVLq"], ["remember_token", "k5VphbawDTnSI98px6ZqTA"], ["updated_at", Tue, 02 Oct 2012 19:52:54 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:52:55 +0200
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (121.8ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 336ms (Views: 335.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:52:56 +0200
+Processing by AdminsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (5.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = '') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (2.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36mSQL (12.6ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:58:00 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:58:00 UTC +00:00], ["zipcode", "7500"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (3.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (6.0ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (3.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:58:00 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:58:00 UTC +00:00], ["zipcode", "7500"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "clients" WHERE "clients"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mOperation Load (0.2ms)[0m  [1mSELECT "operations".* FROM "operations" WHERE "operations"."client_id" = 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 1') AND "clients"."firstname" = 'Fname 1') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 1"], ["country", "COUNTRY 1"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 1"], ["house", "11"], ["lastname", "FLASTNAME 1"], ["phone", nil], ["street", "Street 1"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "11"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 2') AND "clients"."firstname" = 'Fname 2') LIMIT 1[0m
+  [1m[35mSQL (10.8ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 2"], ["country", "COUNTRY 2"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 2"], ["house", "12"], ["lastname", "FLASTNAME 2"], ["phone", nil], ["street", "Street 2"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "12"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 3') AND "clients"."firstname" = 'Fname 3') LIMIT 1[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 3"], ["country", "COUNTRY 3"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 3"], ["house", "13"], ["lastname", "FLASTNAME 3"], ["phone", nil], ["street", "Street 3"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "13"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 4') AND "clients"."firstname" = 'Fname 4') LIMIT 1[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 4"], ["country", "COUNTRY 4"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 4"], ["house", "14"], ["lastname", "FLASTNAME 4"], ["phone", nil], ["street", "Street 4"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "14"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (1.9ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 5') AND "clients"."firstname" = 'Fname 5') LIMIT 1[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 5"], ["country", "COUNTRY 5"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 5"], ["house", "15"], ["lastname", "FLASTNAME 5"], ["phone", nil], ["street", "Street 5"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "15"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 6') AND "clients"."firstname" = 'Fname 6') LIMIT 1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 6"], ["country", "COUNTRY 6"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 6"], ["house", "16"], ["lastname", "FLASTNAME 6"], ["phone", nil], ["street", "Street 6"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "16"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 7') AND "clients"."firstname" = 'Fname 7') LIMIT 1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 7"], ["country", "COUNTRY 7"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 7"], ["house", "17"], ["lastname", "FLASTNAME 7"], ["phone", nil], ["street", "Street 7"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "17"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 8') AND "clients"."firstname" = 'Fname 8') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 8"], ["country", "COUNTRY 8"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 8"], ["house", "18"], ["lastname", "FLASTNAME 8"], ["phone", nil], ["street", "Street 8"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "18"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 9') AND "clients"."firstname" = 'Fname 9') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 9"], ["country", "COUNTRY 9"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 9"], ["house", "19"], ["lastname", "FLASTNAME 9"], ["phone", nil], ["street", "Street 9"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "19"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 10') AND "clients"."firstname" = 'Fname 10') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["box", nil], ["city", "City 10"], ["country", "COUNTRY 10"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 10"], ["house", "110"], ["lastname", "FLASTNAME 10"], ["phone", nil], ["street", "Street 10"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "110"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36m (4.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 11') AND "clients"."firstname" = 'Fname 11') LIMIT 1
+  [1m[36mSQL (8.3ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 11"], ["country", "COUNTRY 11"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 11"], ["house", "111"], ["lastname", "FLASTNAME 11"], ["phone", nil], ["street", "Street 11"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "111"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 12') AND "clients"."firstname" = 'Fname 12') LIMIT 1
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 12"], ["country", "COUNTRY 12"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 12"], ["house", "112"], ["lastname", "FLASTNAME 12"], ["phone", nil], ["street", "Street 12"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "112"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 13') AND "clients"."firstname" = 'Fname 13') LIMIT 1
+  [1m[36mSQL (10.3ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 13"], ["country", "COUNTRY 13"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 13"], ["house", "113"], ["lastname", "FLASTNAME 13"], ["phone", nil], ["street", "Street 13"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "113"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (23.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.5ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 14') AND "clients"."firstname" = 'Fname 14') LIMIT 1
+  [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 14"], ["country", "COUNTRY 14"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 14"], ["house", "114"], ["lastname", "FLASTNAME 14"], ["phone", nil], ["street", "Street 14"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "114"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 15') AND "clients"."firstname" = 'Fname 15') LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 15"], ["country", "COUNTRY 15"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 15"], ["house", "115"], ["lastname", "FLASTNAME 15"], ["phone", nil], ["street", "Street 15"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "115"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('FLASTNAME 16') AND "clients"."firstname" = 'Fname 16') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "City 16"], ["country", "COUNTRY 16"], ["created_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["firstname", "Fname 16"], ["house", "116"], ["lastname", "FLASTNAME 16"], ["phone", nil], ["street", "Street 16"], ["updated_at", Tue, 02 Oct 2012 19:58:01 UTC +00:00], ["zipcode", "116"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (2.6ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER(' ') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo,com') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user_at_foo.org') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('example.user@foo.') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo.com') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('A_USER@f.b.org') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('frst.lst@foo.jp') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('a+b@baz.cn') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('ADMIN@SKYNET.BE') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:58:11 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$tbv4.AZdulYm8lGzPlLM1uIXCOW7Fo/NnNoGtVm8LS2G/UFIh8zqm"], ["remember_token", "MLLasS_rZckhBmi2BctZHQ"], ["updated_at", Tue, 02 Oct 2012 19:58:11 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:58:12 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$xNjd3pw2RQb1w4chIVFdR./X2KbkAIZk/WrYVyhilrFbhxCVuVXMC"], ["remember_token", "_MkB_RYRWkpow3wt2jsa5Q"], ["updated_at", Tue, 02 Oct 2012 19:58:12 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (5.6ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:58:13 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$68h5EhmtnHZJnQ/t1qOlzOlX80zLAfQTc9HjX8bwuDFvENrsGyDHG"], ["remember_token", "EpcMZeYaIBraQPNJWcvi3w"], ["updated_at", Tue, 02 Oct 2012 19:58:13 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (3.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:58:14 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$LlhPkkhP2THtxL0eVi5nvuPIDZv4/1.eFKRloVCzNHm5NcTGmfeF6"], ["remember_token", "AnkKCDTRt8SUdqCS8hVakw"], ["updated_at", Tue, 02 Oct 2012 19:58:14 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:58:15 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$UtypbEnhM0Ib6yzc8XdOsevZr8KFY7pMx.u8/ltcttXw//PDzsrFe"], ["remember_token", "EjYBy9uT7_N-a2iSU0GjSQ"], ["updated_at", Tue, 02 Oct 2012 19:58:15 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (5.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = '') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mClient Exists (1.0ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "clients" ("box", "city", "country", "created_at", "firstname", "house", "lastname", "phone", "street", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["box", nil], ["city", "Tournai"], ["country", "BELGIQUE"], ["created_at", Tue, 02 Oct 2012 19:58:15 UTC +00:00], ["firstname", "Jean"], ["house", "37"], ["lastname", "DUPONT"], ["phone", "069-123456"], ["street", "Rue du chateau"], ["updated_at", Tue, 02 Oct 2012 19:58:15 UTC +00:00], ["zipcode", "7500"]]
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (6.0ms)[0m  rollback transaction
+  [1m[36m (1.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mClient Exists (3.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (4.2ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mClient Exists (0.3ms)[0m  SELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mClient Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "clients" WHERE (LOWER("clients"."lastname") = LOWER('DUPONT') AND "clients"."firstname" = 'Jean') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER(' ') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo,com') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user_at_foo.org') LIMIT 1
+  [1m[36mAdmin Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('example.user@foo.') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('user@foo.com') LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('A_USER@f.b.org') LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('frst.lst@foo.jp') LIMIT 1
+  [1m[36mAdmin Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('ADMIN@SKYNET.BE') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:58:24 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$2b3hRoFvz0GywvtLb0VAR.UK6lDaADDQCwTsuymvNiDB3BIoSAHkS"], ["remember_token", "U1Y8XzFzpuxwHBTcfxrCPQ"], ["updated_at", Tue, 02 Oct 2012 19:58:24 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+  [1m[36m (3.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:58:26 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$x1LdCEghBf/HBSMvqBX3e.rkxX4KW3q.IZUZCr1JHs8C8J9S3m.IO"], ["remember_token", "uVWsnH2pbtsmCky2ENseZA"], ["updated_at", Tue, 02 Oct 2012 19:58:26 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:58:27 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$hNsDqO4YNlz4rNCvHleOjutrUmGD2I/XHQHA0nzR4SBKYpxJv3tLC"], ["remember_token", "np9krHYrZgoH53Dyy4vvFw"], ["updated_at", Tue, 02 Oct 2012 19:58:27 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1[0m
+  [1m[35m (6.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 02 Oct 2012 19:58:28 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$q6AkT0oHjEuYDmaHAfBWZO6HKqkdlh7rwd6rlPw0yr39ItLI5.61G"], ["remember_token", "lfNzRlfycxsu6ghmdr61mA"], ["updated_at", Tue, 02 Oct 2012 19:58:28 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."email" = 'admin@skynet.be' LIMIT 1
+  [1m[36m (3.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT 1 AS one FROM "admins" WHERE LOWER("admins"."email") = LOWER('admin@skynet.be') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (13.1ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "firstname", "lastname", "password_digest", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 02 Oct 2012 19:58:29 UTC +00:00], ["email", "admin@skynet.be"], ["firstname", "Jean"], ["lastname", "DUPONT"], ["password_digest", "$2a$10$ScSu.TH/lKk/lsWF5PuhueVigTabshAqfw6NARcJEeBpoi.A7DIHa"], ["remember_token", "3uM5G4tRmRFAf3bEYb-EKA"], ["updated_at", Tue, 02 Oct 2012 19:58:29 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:58:29 +0200
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (133.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 379ms (Views: 377.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-10-02 21:58:30 +0200
+Processing by AdminsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction

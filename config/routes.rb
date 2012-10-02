@@ -2,6 +2,10 @@ JlcInvest::Application.routes.draw do
   
 
 
+  get "admins/new"
+  
+  match '/signup',  to: 'admins#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
