@@ -1,6 +1,6 @@
 JlcInvest::Application.routes.draw do
   
-
+resources :admins
 
   get "admins/new"
   
