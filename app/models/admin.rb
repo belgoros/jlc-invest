@@ -24,6 +24,10 @@ class Admin < ActiveRecord::Base
   before_save :create_remember_token
   
   
+  def full_name
+    ["#{firstname}", "#{lastname}"].join(' ')
+  end
+  
   
   private
   
