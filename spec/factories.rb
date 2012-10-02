@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory ;admin do
+  factory :admin do
     firstname "Super"
     lastname "Admin"
     email "example@ror.com"
