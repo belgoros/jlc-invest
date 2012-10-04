@@ -2,15 +2,13 @@ class Admin < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessible :email, :firstname, :lastname, :password_digest, :remember_token,
-  :password, :password_confirmation
+  attr_accessible :email, :firstname, :lastname, :password_digest, :remember_token, :password, :password_confirmation
   
   validates :firstname, presence: true, length: { maximum: 50 }
   validates :lastname, presence: true, length: { maximum: 50 }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, 
-            uniqueness: { case_sensitive: false }
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
             
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
@@ -19,7 +17,7 @@ class Admin < ActiveRecord::Base
     user.email = email.downcase.strip
     user.firstname = firstname.capitalize.strip
     user.lastname = lastname.upcase.strip    
-  end
+  end  
   
   before_save :create_remember_token
   
@@ -31,8 +29,8 @@ class Admin < ActiveRecord::Base
   
   private
   
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
     
 end
