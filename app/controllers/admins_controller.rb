@@ -7,8 +7,9 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(params[:admin])
     if @admin.save
+      sign_in @user
       flash[:success] = "User created with success"
-     redirect_to @admin
+      redirect_to @admin
     else
       render "new"
     end
