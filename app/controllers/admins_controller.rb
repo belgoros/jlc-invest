@@ -1,5 +1,9 @@
 class AdminsController < ApplicationController
   
+  def index
+    @admins = Admin.paginate(page: params[:page])    
+  end
+  
   def new
     @admin = Admin.new
   end
