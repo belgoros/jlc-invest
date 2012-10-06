@@ -46,11 +46,47 @@ describe "Admin Pages" do
         it { should have_selector('div.alert.alert-success', text: 'User created') }
         it { should have_link('Sign out') }
       end
-    end
-    
+    end   
     
   end
   
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:admin) }
+    before { visit edit_admin_path(user) }
+
+    describe "page" do
+      it { should have_selector('h1',    text: "Update your profile") }
+      it { should have_selector('title', text: "Edit user") }      
+    end
+
+    describe "with invalid information" do
+      before { click_button "Save changes" }
+
+      it { should have_content('error') }
+    end
+    
+    describe "with valid information" do
+      let(:new_firstname)  { "NewFirstname" }
+      let(:new_lastname)  { "NewLastname" }
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "Firstname",        with: new_firstname
+        fill_in "Lastname",        with: new_lastname
+        fill_in "Email",            with: new_email
+        fill_in "Password",         with: user.password
+        fill_in "Confirm Password", with: user.password
+        click_button "Save changes"
+      end
+
+      it { should have_selector('title', text: new_firstname.capitalize + ' ' + new_lastname.upcase) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign out', href: signout_path) }
+      specify { user.reload.firstname.should  == new_firstname.capitalize }
+      specify { user.reload.lastname.should  == new_lastname.upcase }
+      specify { user.reload.email.should == new_email }
+    end
+    
+  end 
   
     
 end

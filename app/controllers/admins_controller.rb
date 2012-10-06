@@ -23,4 +23,19 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
   end
   
+  def edit
+    @admin = Admin.find(params[:id])
+  end
+  
+   def update
+    @admin = Admin.find(params[:id])
+    if @admin.update_attributes(params[:admin])
+      flash[:success] = "Profile updated"
+      sign_in @admin
+      redirect_to @admin
+    else
+      render 'edit'
+    end
+  end
+  
 end
