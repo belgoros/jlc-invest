@@ -1,5 +1,6 @@
 JlcInvest::Application.routes.draw do
   resources :admins
+  root to: 'admins#index'
     
   
   resources :sessions, only: [:new, :create, :destroy]
