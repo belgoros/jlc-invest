@@ -3,8 +3,46 @@ require 'spec_helper'
 describe "Admin Pages" do
   subject { page }
   
-  describe "profile page" do
-    # Code to make a user variable
+  describe "index" do
+    
+    let(:admin) { FactoryGirl.create(:admin) }
+
+    before(:each) do
+      sign_in admin
+      visit admins_path
+    end
+
+    it { should have_selector('title', text: 'All users') }
+    it { should have_selector('h1',    text: 'All users') }
+    
+    before(:all) { 30.times { FactoryGirl.create(:admin) } }
+    after(:all)  { Admin.delete_all }
+      
+    describe "pagination" do      
+
+      it { should have_selector('div.pagination') }
+      
+      it "should list each user" do
+        Admin.paginate(page: 1).each do |admin|
+          page.should have_selector('li', text: admin.full_name)
+        end
+      end      
+    end
+    
+    describe "delete links" do     
+      it { should have_link('delete') }
+      
+      it { should have_link('delete', href: admin_path(Admin.first)) }
+      it "should be able to delete another user" do
+        expect { click_link('delete') }.to change(Admin, :count).by(-1)
+      end
+      
+      it { should_not have_link('delete', href: admin_path(admin)) }      
+    end
+    
+  end
+  
+  describe "profile page" do    
     let(:admin) { FactoryGirl.create(:admin) }
     before { visit admin_path(admin) }
 
@@ -51,8 +89,11 @@ describe "Admin Pages" do
   end
   
   describe "edit" do
-    let(:user) { FactoryGirl.create(:admin) }
-    before { visit edit_admin_path(user) }
+    let(:admin) { FactoryGirl.create(:admin) }
+    before do 
+      sign_in admin
+      visit edit_admin_path(admin)
+    end
 
     describe "page" do
       it { should have_selector('h1',    text: "Update your profile") }
@@ -73,17 +114,17 @@ describe "Admin Pages" do
         fill_in "Firstname",        with: new_firstname
         fill_in "Lastname",        with: new_lastname
         fill_in "Email",            with: new_email
-        fill_in "Password",         with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "Password",         with: admin.password
+        fill_in "Confirm Password", with: admin.password
         click_button "Save changes"
       end
 
       it { should have_selector('title', text: new_firstname.capitalize + ' ' + new_lastname.upcase) }
       it { should have_selector('div.alert.alert-success') }
       it { should have_link('Sign out', href: signout_path) }
-      specify { user.reload.firstname.should  == new_firstname.capitalize }
-      specify { user.reload.lastname.should  == new_lastname.upcase }
-      specify { user.reload.email.should == new_email }
+      specify { admin.reload.firstname.should  == new_firstname.capitalize }
+      specify { admin.reload.lastname.should  == new_lastname.upcase }
+      specify { admin.reload.email.should == new_email }
     end
     
   end 
