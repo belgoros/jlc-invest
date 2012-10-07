@@ -1,15 +1,15 @@
 FactoryGirl.define do
   factory :admin do
-    firstname "Super"
-    lastname "Admin"
-    email "example@ror.com"
+    sequence(:firstname)  { |n| "firstname #{n}" }
+    sequence(:lastname)  { |n| "lastname #{n}" }
+    sequence(:email) { |n| "person_#{n}@example.com"}    
     password "Admin123"
     password_confirmation "Admin123"
   end
   
   factory :client do
-    sequence(:firstname)  { |n| "Fname #{n}" }
-    sequence(:lastname)  { |n| "FLastName #{n}" }
+    sequence(:firstname)  { |n| "firstname #{n}" }
+    sequence(:lastname)  { |n| "lastname #{n}" }
     sequence(:street)  { |n| "street #{n}" }
     sequence(:house)  { |n| "1#{n}" }
     sequence(:zipcode)  { |n| "1#{n}" }
