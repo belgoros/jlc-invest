@@ -20,6 +20,7 @@ describe Operation do
   it { should respond_to(:interests) }
   it { should respond_to(:total) }
   it { should respond_to(:client_id) }
+  it { should respond_to(:client) }
   
   its(:client) { should == client }
   
