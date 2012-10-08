@@ -61,11 +61,21 @@ describe Operation do
     it { should_not be_valid }
   end
   
-  describe "calculate interests and total" do
-    before {@operation.save}
-    its(:interests) {should eq(@operation.sum * (@operation.rate/100 * @operation.duration/12))}
-    its(:total) {should eq(@operation.sum + @operation.interests)}
+  describe "when rate format is not valid" do
+    rates = %w[0 1,75 azerty -12]
+    rates.each do |valid_rate|
+      before { @operation.rate = valid_rate}
+      it { should_not be_valid }
+    end
   end
+  
+  describe "when sum format is not valid" do
+    sums = %w[0 1,75 azerty -12]
+    sums.each do |valid_sum|
+      before { @operation.sum = valid_sum}
+      it { should_not be_valid }
+    end
+  end 
   
   
 end
