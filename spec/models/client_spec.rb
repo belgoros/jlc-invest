@@ -20,6 +20,7 @@ describe Client do
   it { should respond_to(:zipcode) }
   it { should respond_to(:city) }
   it { should respond_to(:country) }  
+  it { should respond_to(:operations) }  
   
   it { should be_valid }
   
