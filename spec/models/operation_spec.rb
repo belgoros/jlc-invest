@@ -5,8 +5,7 @@ describe Operation do
   let(:client) { FactoryGirl.create(:client) }
   
   before {
-    @operation = client.operations.build(operation_type: Operation::TRANSACTIONS[0],
-        duration: 5, rate: 1.20, sum: 10000)
+    @operation = client.operations.build(operation_type: Operation::TRANSACTIONS[0], duration: 5, rate: 1.20, sum: 10000)
   }
 
   
@@ -60,6 +59,12 @@ describe Operation do
   describe "when rate is not present" do
     before { @operation.rate = '' }
     it { should_not be_valid }
+  end
+  
+  describe "calculate interests and total" do
+    before {@operation.save}
+    its(:interests) {should eq(@operation.sum * (@operation.rate/100 * @operation.duration/12))}
+    its(:total) {should eq(@operation.sum + @operation.interests)}
   end
   
   
