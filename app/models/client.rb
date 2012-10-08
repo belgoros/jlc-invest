@@ -1,6 +1,5 @@
 class Client < ActiveRecord::Base
-  has_many :operations
-
+  has_many :operations, dependent: :destroy
   attr_accessible :firstname, :lastname,:street, :house, :box, :zipcode, :city, :country, :phone
   
   validates :firstname, presence: true, length: { maximum: 50 }
