@@ -3,9 +3,9 @@ class Operation < ActiveRecord::Base
   
   TRANSACTIONS = %w{deposit withdrawal}
   
-  attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date
+  attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date  
   
-  VALID_DECIMAL_REGEX = /^\d+(\.|,)?(\d{0,2})?$/
+  VALID_DECIMAL_REGEX = /^\d+(\.)?(\d{0,2})?$/
   
   validates :operation_type, presence: true, inclusion: { in: TRANSACTIONS}
   validates :duration, presence: true, numericality: {greater_than: 0}
@@ -19,7 +19,7 @@ class Operation < ActiveRecord::Base
   before_validation :calculate_interests_and_total
   before_validation {|op| op.value_date = Date.today}
   
-  before_save :format_decimal_values
+  #before_save :format_decimal_values
   
   private
   
