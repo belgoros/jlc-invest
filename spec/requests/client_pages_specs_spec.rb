@@ -54,7 +54,24 @@ describe "Client Pages" do
     describe "page" do
       it { should have_selector('h1',    text: "Update client profile") }
       it { should have_selector('title', text: "Edit client") }  
-      it { should have_link('back', href: clients_path)}
+      it { should have_link('Back to List', href: clients_path)}
     end    
   end
+  
+  describe "show page" do
+    let(:admin) { FactoryGirl.create(:admin) }
+    let(:client) { FactoryGirl.create(:client) }
+    before do 
+      sign_in admin
+      visit client_path(client)
+    end
+    
+    describe "page" do
+      it { should have_selector('h1',    text: client.full_name) }
+      it { should have_selector('title', text: client.full_name) }  
+      it { should have_link('Back to List', href: clients_path)}
+    end
+    
+  end
+  
 end
