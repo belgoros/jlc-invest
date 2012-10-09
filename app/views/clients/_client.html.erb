@@ -1,0 +1,5 @@
+<li>  
+  <%= link_to client.full_name, client %> |
+  <%= link_to "edit", edit_client_path(client) %> |
+  <%= link_to "delete", client, method: :delete, confirm: "You sure?" %>
+</li>
