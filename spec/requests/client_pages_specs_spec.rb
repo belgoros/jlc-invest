@@ -55,6 +55,6 @@ describe "Client Pages" do
       it { should have_selector('h1',    text: "Update client profile") }
       it { should have_selector('title', text: "Edit client") }  
       it { should have_link('back', href: clients_path)}
-    end
+    end    
   end
 end
