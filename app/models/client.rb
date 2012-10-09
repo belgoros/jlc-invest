@@ -8,7 +8,7 @@ class Client < ActiveRecord::Base
   validates :house, presence: true, length: { maximum: 5 }
   validates :zipcode, presence: true, length: { maximum: 5 }
   validates :city, presence: true, length: { maximum: 50 }
-  validates :country, presence: true, length: { maximum: 10 }
+  validates :country, presence: true, length: { maximum: 50 }
   
   before_validation do |client|
     client.firstname = firstname.capitalize.strip
