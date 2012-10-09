@@ -18,4 +18,8 @@ class Client < ActiveRecord::Base
     client.city = city.capitalize.strip
     client.country = country.upcase.strip    
   end
+  
+  def full_name
+    ["#{firstname}", "#{lastname}"].join(' ')
+  end
 end
