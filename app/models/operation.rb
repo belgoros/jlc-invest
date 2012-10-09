@@ -16,12 +16,14 @@ class Operation < ActiveRecord::Base
   validates :value_date, presence: true
   validates :client_id, presence: true  
   
-  before_validation :calculate_interests_and_total
-  before_validation {|op| op.value_date = Date.today}
+    before_validation :calculate_interests_and_total
+    #before_validation {|op| op.value_date = Date.today}
   
-  #before_save :format_decimal_values
+    default_scope order: 'operations.value_date DESC'
   
-  private
+    #before_save :format_decimal_values
+  
+    private
   
     def calculate_interests_and_total     
       self.sum ||= 0
@@ -36,4 +38,4 @@ class Operation < ActiveRecord::Base
       self.sum = sum.to_s.sub(/,/, '.').to_f    
     end
 
-end
+  end
