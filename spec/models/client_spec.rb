@@ -100,7 +100,7 @@ describe Client do
   end
   
   describe "when country is too long" do
-    before { @client.country = "a" * 11 }
+    before { @client.country = "a" * 51 }
     it { should_not be_valid }
   end
   
