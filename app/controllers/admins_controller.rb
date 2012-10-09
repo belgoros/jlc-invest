@@ -44,14 +44,7 @@ class AdminsController < ApplicationController
     redirect_to admins_url
   end
   
-  private
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
+  private   
 
     def correct_user
       @admin = Admin.find(params[:id])
