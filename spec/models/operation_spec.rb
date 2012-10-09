@@ -5,7 +5,7 @@ describe Operation do
   let(:client) { FactoryGirl.create(:client) }
   
   before {
-    @operation = client.operations.build(operation_type: Operation::TRANSACTIONS[0], duration: 5, rate: 1.20, sum: 10000)
+    @operation = client.operations.build(operation_type: Operation::TRANSACTIONS[0], duration: 5, rate: 1.20, sum: 10000, value_date: Date.today)
   }
 
   
@@ -37,6 +37,12 @@ describe Operation do
     before { @operation.client_id = nil }
     it { should_not be_valid }
   end
+  
+  describe "when operation date is not present" do
+    before { @operation.value_date = ' ' }
+    it { should_not be_valid }
+  end
+  
   
   describe "when operation type is not present" do
     before { @operation.operation_type = nil }
