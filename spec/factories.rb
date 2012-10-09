@@ -19,9 +19,10 @@ FactoryGirl.define do
   
   factory :operation do
     operation_type Operation::TRANSACTIONS[0]    
-    sum 1000
-    duration 3
-    rate 1.5
+    sequence(:sum) { |n| 10 * n }
+    sequence(:duration) { |n| 2 * n }
+    sequence(:rate) { |n| n * 1.5 }
+    sequence(:value_date) { |n | Date.today - n * 2.days}
     client
   end
   
