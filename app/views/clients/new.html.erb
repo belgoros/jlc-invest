@@ -1,0 +1,12 @@
+<% provide(:title, 'New client') %>
+<h1>New client</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@client) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Create client", class: "btn btn-large btn-primary" %>
+    <% end %>
+    <%= link_to 'Back to list', clients_path %>
+  </div>
+  
+</div>
