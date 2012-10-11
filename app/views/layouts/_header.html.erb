@@ -4,8 +4,7 @@
       <%= link_to "JLC Investment", "#", id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", "#" %></li>
-          <li><%= link_to "Help", "#" %></li>
+          <li><%= link_to "Home", root_path %></li>          
           <% if signed_in? %>
             <li><%= link_to "Clients", clients_path %></li>
             <li><%= link_to "Users", admins_path %></li>
