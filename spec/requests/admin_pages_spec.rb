@@ -69,7 +69,7 @@ describe "Admin Pages" do
         fill_in "Lastname", with: "Dupont"
         fill_in "Email", with: "user@example.com"
         fill_in "Password", with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm password", with: "foobar"
       end
 
       it "should create a user" do
@@ -115,7 +115,7 @@ describe "Admin Pages" do
         fill_in "Lastname",        with: new_lastname
         fill_in "Email",            with: new_email
         fill_in "Password",         with: admin.password
-        fill_in "Confirm Password", with: admin.password
+        fill_in "Confirm password", with: admin.password
         click_button "Save changes"
       end
 
