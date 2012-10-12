@@ -103,7 +103,6 @@ describe "Client Pages" do
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:client) { Client.find_by_firstname_and_lastname('Jean', 'Dupont') }
 
         it { should have_selector('title', text: 'All clients') }
         it { should have_selector('div.alert.alert-success', text: 'Client created with success') }
