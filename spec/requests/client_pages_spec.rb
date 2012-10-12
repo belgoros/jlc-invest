@@ -73,5 +73,43 @@ describe "Client Pages" do
     end
     
   end
+
+  describe "new client page" do
+    let(:admin) { FactoryGirl.create(:admin) }
+    let(:submit) { "Create client" }
+    before do
+      sign_in admin
+      visit new_client_path
+    end
+
+    describe "with valid information" do
+      it { should have_selector('h1',    text: "New client") }
+      it { should have_selector('title', text: "New client") }
+      it { should have_link('Back to List', href: clients_path)}
+
+      before do
+        fill_in "Firstname",with: "Jean"
+        fill_in "Lastname", with: "Dupont"
+        fill_in "Street", with: "Rue Crampon"
+        fill_in "House", with: "12A"
+        fill_in "Zipcode", with: "7500"
+        fill_in "City", with: "Tournai"
+        fill_in "Country", with: "Belgique"
+      end
+
+      it "should create a client" do
+        expect { click_button submit }.to change(Client, :count).by(1)
+      end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        let(:client) { Client.find_by_firstname_and_lastname('Jean', 'Dupont') }
+
+        it { should have_selector('title', text: 'All clients') }
+        it { should have_selector('div.alert.alert-success', text: 'Client created with success') }
+        it { should have_link('New client') }
+      end
+    end
+  end
   
 end
