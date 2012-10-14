@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
-  
+
   def index
     @clients = Client.paginate(page: params[:page])
   end
@@ -8,10 +8,10 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
   end
-  
+
   def create
     @client = Client.new(params[:client])
-    if @client.save      
+    if @client.save
       flash[:success] = "Client created with success"
       redirect_to clients_path
     else
@@ -26,17 +26,17 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
   end
-  
-  def update    
+
+  def update
     @client = Client.find(params[:id])
     if @client.update_attributes(params[:client])
-      flash[:success] = "Profile updated"      
+      flash[:success] = "Profile updated"
       redirect_to @client
     else
       render 'edit'
     end
   end
-  
+
   def destroy
     Client.find(params[:id]).destroy
     flash[:success] = "Client destroyed."
