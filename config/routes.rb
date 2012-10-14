@@ -1,16 +1,16 @@
-JlcInvest::Application.routes.draw do  
+JlcInvest::Application.routes.draw do
 
   resources :admins
   root to: 'admins#index'
-  
+
   resources :clients
-    
-  
+
+
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'admins#new'  
-  match '/signin',   to: 'sessions#new'
-  match '/signout',  to: 'sessions#destroy', via: :delete
+  match '/signup', to: 'admins#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
