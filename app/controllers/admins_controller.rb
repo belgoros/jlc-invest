@@ -1,11 +1,11 @@
 class AdminsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user,   only: [:edit, :update]
-  
+  before_filter :correct_user, only: [:edit, :update]
+
   def index
-    @admins = Admin.paginate(page: params[:page])    
+    @admins = Admin.paginate(page: params[:page])
   end
-  
+
   def new
     @admin = Admin.new
   end
@@ -20,15 +20,15 @@ class AdminsController < ApplicationController
       render "new"
     end
   end
-  
+
   def show
     @admin = Admin.find(params[:id])
   end
-  
-  def edit    
+
+  def edit
   end
-  
-  def update    
+
+  def update
     if @admin.update_attributes(params[:admin])
       flash[:success] = "Profile updated"
       sign_in @admin
@@ -37,18 +37,18 @@ class AdminsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     Admin.find(params[:id]).destroy
     flash[:success] = "User destroyed."
     redirect_to admins_url
   end
-  
-  private   
 
-    def correct_user
-      @admin = Admin.find(params[:id])
-      redirect_to(root_path) unless current_user?(@admin)
-    end
-  
+  private
+
+  def correct_user
+    @admin = Admin.find(params[:id])
+    redirect_to(root_path) unless current_user?(@admin)
+  end
+
 end
