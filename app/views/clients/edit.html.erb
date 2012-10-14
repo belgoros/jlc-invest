@@ -1,14 +1,14 @@
-<% provide(:title, "Edit client") %> 
+<% provide(:title, "Edit client") %>
 <h1>Update client profile</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@client) do |f| %> 
+    <%= form_for(@client) do |f| %>
 
-      <%= render 'fields', f: f %>
+        <%= render 'fields', f: f %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-      <% end %>
-      <%= link_to 'Back to List', clients_path %>
-    </div>
+        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+    <%= link_to 'Back to List', clients_path %>
   </div>
+</div>
