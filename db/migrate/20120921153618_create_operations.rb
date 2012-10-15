@@ -3,7 +3,7 @@ class CreateOperations < ActiveRecord::Migration
     create_table :operations do |t|
       t.integer :client_id
       t.string :operation_type
-      t.date :value_date      
+      t.date :value_date
       t.decimal :sum, precision: 10, scale: 2
       t.decimal :rate, precision: 5, scale: 2
       t.integer :duration
