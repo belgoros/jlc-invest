@@ -88,26 +88,20 @@ describe Operation do
     its(:interests) { should_not be_blank }
   end
   
-  describe "withdrawal a valid ammount" do
-    before do 
-      @operation.save
-      @withdrawal = FactoryGirl.build(:withdrawal, client: client)
-    end
-    subject { @withdrawal }
-    it { should be_valid } 
+  describe "withdrawal operation" do
+    before(:each) {@operation.save }
     
-  end
-  
-  describe "withdrawal invalid ammount" do
-    before do 
-      @operation.save
-      @withdrawal = FactoryGirl.build(:withdrawal, sum:5000, client: client)
+    context "when requested sum does not exceed the balance" do
+       let(:withdrawal) { FactoryGirl.build(:withdrawal, client: client) }
+       subject { withdrawal }
+       it { should be_valid }
     end
-    subject { @withdrawal }
-    it { should_not be_valid } 
-    
-  end
-
-  
+     
+    context "when requested sum exceeds the balance" do
+      let(:withdrawal) { FactoryGirl.build(:withdrawal, sum:5000, client: client) }
+      subject { withdrawal }
+      it { should_not be_valid }
+    end
+  end  
 
 end
