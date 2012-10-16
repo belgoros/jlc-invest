@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Operation do
 
-  let(:client) { FactoryGirl.create(:client) }
+  let(:client) { FactoryGirl.create(:client, firstname: 'Jean', lastname: 'Dupont') }
 
   before {
     @operation = FactoryGirl.build(:operation, client: client)
