@@ -3,7 +3,7 @@ class Operation < ActiveRecord::Base
 
   default_scope order: 'operations.value_date DESC'
 
-  TRANSACTIONS = %w{deposit withdrawal}
+  TRANSACTIONS = %w(deposit withdrawal)
 
   attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date
 
