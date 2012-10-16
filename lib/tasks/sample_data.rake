@@ -27,7 +27,7 @@ end
 
 
 def make_clients
-  Faker::Config.locale = :fr
+  #Faker::Config.locale = :fr
 
   50.times do |n|
     firstname = Faker::Name.first_name
