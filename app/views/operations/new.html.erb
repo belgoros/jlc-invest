@@ -1,0 +1,12 @@
+<% provide(:title, 'New operation') %>
+<h1>New operation</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for([@client, @operation]) do |f| %>
+        <%= render 'fields', f: f %>
+        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    <% end %>
+    <%= link_to 'Back', @client %>
+  </div>
+
+</div>

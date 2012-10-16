@@ -1,0 +1,9 @@
+<%= provide(:title, 'All operations') %>
+<h1>All operations</h1>
+
+<%= will_paginate %>
+<table class="table table-striped">
+  <%= render partial: :operations_list, collection: @operations %>
+</table>
+
+<%= will_paginate %>
