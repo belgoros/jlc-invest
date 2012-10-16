@@ -6,9 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '~> 1.1.2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.8'
-
-
-gem 'sqlite3'
+gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
@@ -16,9 +14,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
 group :test, :development do
+  gem 'pg', '~> 0.14.1'
   gem 'mongrel', '~> 1.2.0pre2'
   gem 'rspec-rails', '~>2.11.0'
   gem 'guard-rspec', '1.2.1'
@@ -35,5 +32,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.14.1'
+  gem 'pg', '~> 0.14.1'
 end
