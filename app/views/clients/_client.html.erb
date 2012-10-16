@@ -1,5 +1,6 @@
-<li>
-  <%= link_to client.full_name, client %> |
-  <%= link_to "edit", edit_client_path(client) %> |
-  <%= link_to "delete", client, method: :delete, confirm: "You sure?" %>
-</li>
+<tr>
+  <td><%= client.full_name %></td>
+  <td><%= link_to "operations", client %></td>
+  <td><%= link_to "edit", edit_client_path(client) %></td>
+  <td><%= link_to "delete", client, method: :delete, confirm: "You sure?" %></td>
+</tr>

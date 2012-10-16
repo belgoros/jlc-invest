@@ -1,4 +1,12 @@
 <% provide(:title, @client.full_name) %>
 <h1><%= @client.full_name %></h1>
 
-<p><%= link_to "Back to List", clients_path %></p>
+<% if @client.operations.any? %>
+  <h3>Operations list</h3>
+  <table class="table table-striped">
+    <%= render @operations %>
+  </table>
+  <%= will_paginate @operations %>  
+<%end%>
+
+<p><%= link_to "New operation", new_client_operation_path(@client) %>|<%= link_to "Back to List", clients_path %></p>
