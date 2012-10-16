@@ -24,7 +24,7 @@ describe "Client Pages" do
 
       it "should list each client" do
         Client.paginate(page: 1).each do |client|
-          page.should have_selector('li', text: client.full_name)
+          page.should have_selector('td', text: client.full_name)
         end
       end
     end
@@ -40,6 +40,10 @@ describe "Client Pages" do
 
     describe "edit links" do
       it { should have_link('edit') }
+    end
+    
+    describe "operations links" do
+      it { should have_link('operations') }
     end
   end
 
@@ -58,18 +62,34 @@ describe "Client Pages" do
     end
   end
 
-  describe "show page" do
+  describe "client operations page" do
     let(:admin) { FactoryGirl.create(:admin) }
     let(:client) { FactoryGirl.create(:client) }
+    let(:operation) {FactoryGirl.create(:operation, client: client) }
     before do
       sign_in admin
-      visit client_path(client)
+      31.times { FactoryGirl.create(:operation, client: client) }
+      visit client_path(client)      
     end
+    
+    after { client.operations.delete_all}
 
     describe "page" do
       it { should have_selector('h1', text: client.full_name) }
       it { should have_selector('title', text: client.full_name) }
       it { should have_link('Back to List', href: clients_path) }
+    end
+    
+    describe "operations pagination" do
+      it { should have_selector('div.pagination') }
+
+      it "should list each operation" do
+        Operation.paginate(page: 1).each do |operation|
+          page.should have_selector('td', text: operation.sum.to_s)
+          page.should have_link('edit', href: edit_client_operation_path(client, operation))
+          page.should have_link('delete', href: client_operation_path(client, operation))
+        end
+      end      
     end
 
   end
