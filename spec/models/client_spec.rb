@@ -90,7 +90,7 @@ describe Client do
   end
 
   describe "when zip code is too long" do
-    before { @client.zipcode = "1" * 6 }
+    before { @client.zipcode = "1" * 16 }
     it { should_not be_valid }
   end
 
