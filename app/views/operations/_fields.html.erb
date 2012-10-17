@@ -1,4 +1,12 @@
+<script>
+  $(function() {
+    $("#operation_value_date" ).datepicker();
+  });
+</script>
 <%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :value_date %>
+<%= f.text_field :value_date %>
 
 <%= f.label :operation_type %>
 <%= f.select :operation_type, Operation::TRANSACTIONS, :prompt => 'Select operation' %>
