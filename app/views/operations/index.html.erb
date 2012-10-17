@@ -3,6 +3,19 @@
 
 <%= will_paginate %>
 <table class="table table-striped">
+  <thead>
+      <tr>        
+        <th>Date</th>
+        <th>Operation</th>
+        <th>Sum</th>
+        <th>Duration</th>
+        <th>Rate</th>
+        <th>Interests</th>
+        <th>Total</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
   <%= render @operations || 'There are no operations available'%>
 </table>
 

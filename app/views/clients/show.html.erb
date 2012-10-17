@@ -4,6 +4,19 @@
 <% if @client.operations.any? %>
   <h3>Operations list</h3>
   <table class="table table-striped">
+    <thead>
+      <tr>        
+        <th>Date</th>
+        <th>Operation</th>
+        <th>Sum</th>
+        <th>Duration</th>
+        <th>Rate</th>
+        <th>Interests</th>
+        <th>Total</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
     <%= render :partial => 'client_operation', :collection => @operations, as: :operation || 'There are no operations available for this Client.' %>
   </table>
   <%= will_paginate @operations %>  
