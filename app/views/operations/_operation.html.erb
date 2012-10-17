@@ -1,11 +1,9 @@
 <tr>
-  <td><%= operation.value_date%></td>
+  <td><%= operation.created_at.to_date%></td>
   <td><%= operation.operation_type%></td>
   <td><%= operation.sum %></td>
   <td><%= operation.duration%></td>
   <td><%= operation.rate%></td>
   <td><%= operation.interests%></td>
-  <td><%= operation.total%></td>  
-  <td><%= link_to "edit", edit_client_operation_path(operation.client, operation)%></td>
-  <td><%= link_to "delete", client_operation_path(operation.client, operation), method: :delete, confirm: "You sure?"%></td>    
+  <td><%= operation.total%></td>
 </tr>

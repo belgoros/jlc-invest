@@ -1,10 +1,7 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :value_date %>
-<%= f.date_select :value_date %>
-
 <%= f.label :operation_type %>
-    <%= f.select :operation_type, Operation::TRANSACTIONS, :prompt => 'Select operation' %>
+<%= f.select :operation_type, Operation::TRANSACTIONS, :prompt => 'Select operation' %>
 
 <%= f.label :sum %>
 <%= f.text_field :sum %>

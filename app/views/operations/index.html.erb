@@ -3,7 +3,7 @@
 
 <%= will_paginate %>
 <table class="table table-striped">
-  <%= render partial: :operations_list, collection: @operations %>
+  <%= render @operations || 'There are no operations available'%>
 </table>
 
 <%= will_paginate %>
