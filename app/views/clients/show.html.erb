@@ -4,7 +4,7 @@
 <% if @client.operations.any? %>
   <h3>Operations list</h3>
   <table class="table table-striped">
-    <%= render @operations %>
+    <%= render :partial => 'client_operation', :collection => @operations, as: :operation || 'There are no operations available for this Client.' %>
   </table>
   <%= will_paginate @operations %>  
 <%end%>
