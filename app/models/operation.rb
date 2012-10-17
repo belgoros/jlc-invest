@@ -16,7 +16,7 @@ class Operation < ActiveRecord::Base
 
   validates :sum, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}
   validates :total, presence: true, numericality: true
-  validates :value_date, presence: true
+  #validates :value_date, presence: true
   validates :client_id, presence: true
 
   before_validation :calculate_interests_and_total
