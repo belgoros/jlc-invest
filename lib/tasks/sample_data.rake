@@ -13,7 +13,7 @@ def make_users
                 password_confirmation: 'admin123')
 
   50.times do |n|
-    firstname = Faker::Name.first_name
+    firstname = Faker::Name.first_name + "_#{n}"
     lastname = Faker::Name.last_name
     email = "example-#{n+1}@railstutorial.org"
     password = "password"
@@ -27,16 +27,16 @@ end
 
 
 def make_clients
-  #Faker::Config.locale = :fr
+  Faker::Config.locale = :fr
 
   50.times do |n|
-    firstname = Faker::Name.first_name
+    firstname = Faker::Name.first_name + "_#{n}"
     lastname = Faker::Name.last_name
     street = Faker::Address.street_name
     house = Faker::Address.building_number
     city = Faker::Address.city
     zipcode = Faker::Address.zip_code
-    country = Faker::Address.country
+    country = Faker::Address.default_country
     Client.create!(firstname: firstname,
                    lastname: lastname,
                    street: street,
