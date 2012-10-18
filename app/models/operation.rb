@@ -3,7 +3,7 @@ class Operation < ActiveRecord::Base
 
   default_scope order: 'operations.value_date DESC'
 
-  TRANSACTIONS = %w(deposit withdrawal)
+  TRANSACTIONS = %w(deposit withdrawal remission)
 
   attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date
 
@@ -16,7 +16,8 @@ class Operation < ActiveRecord::Base
 
   validates :sum, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}
   validates :total, presence: true, numericality: true
-  #validates :value_date, presence: true
+  validates :value_date, presence: true
+  validates :close_date, presence: true, unless: Proc.new { |op| op.operation_type == TRANSACTIONS[1] }
   validates :client_id, presence: true
 
   before_validation :calculate_interests_and_total
@@ -37,16 +38,14 @@ class Operation < ActiveRecord::Base
     self.duration ||= 0
     self.rate ||= 0
     self.sum ||= 0
-    if operation_type == TRANSACTIONS[0]
+    #if not withdrawal
+    if operation_type != TRANSACTIONS[1] 
       self.interests = sum * (rate/100.to_f * duration/12).round(2)
-    end
-    if operation_type == TRANSACTIONS[0]
       self.total = interests + sum
     else
       check_balance
       self.total = -sum
     end
-
   end
 
   def check_balance
