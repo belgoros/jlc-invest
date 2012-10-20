@@ -1,6 +1,9 @@
 <script>
   $(function() {
-    $("#operation_value_date" ).datepicker();
+    $("#operation_value_date" ).datepicker({altField: '#operation_value_date',altFormat: 'dd-mm-yy' });
+  });
+  $(function() {
+      $("#operation_close_date" ).datepicker({altField: '#operation_close_date',altFormat: 'dd-mm-yy' });
   });
 </script>
 <%= render 'shared/error_messages', object: f.object %>
@@ -14,8 +17,8 @@
 <%= f.label :sum %>
 <%= f.text_field :sum %>
 
-<%= f.label :duration %>
-<%= f.text_field :duration %>
-
 <%= f.label :rate %>
 <%= f.text_field :rate %>
+
+<%= f.label :close_date %>
+<%= f.text_field :close_date %>
