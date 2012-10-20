@@ -33,7 +33,7 @@ class Operation < ActiveRecord::Base
     def calculate_total      
        if operation_type != WITHDRAWAL
          calculate_duration
-         self.interests = sum.to_f * duration/365 * (rate.to_f/100).round(2)
+         self.interests = sum.to_f * duration/365 * (rate.to_f/100)
          self.total = interests + sum
        else
          self.total = -sum
