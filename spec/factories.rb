@@ -15,6 +15,7 @@ FactoryGirl.define do
     sequence(:zipcode) { |n| "1#{n}" }
     sequence(:city) { |n| "city_#{n}" }
     sequence(:country) { |n| "country_#{n}" }
+    sequence(:phone) { |n| "078-#{n}" }
   end
 
   factory :operation do
