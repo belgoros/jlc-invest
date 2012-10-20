@@ -37,13 +37,15 @@ def make_clients
     city = Faker::Address.city
     zipcode = Faker::Address.zip_code
     country = Faker::Address.default_country
+    phone = Faker::PhoneNumber.phone_number
     Client.create!(firstname: firstname,
                    lastname: lastname,
                    street: street,
                    house: house,
                    zipcode: zipcode,
                    city: city,
-                   country: country)
+                   country: country,
+                   phone: phone)
   end
 
 end

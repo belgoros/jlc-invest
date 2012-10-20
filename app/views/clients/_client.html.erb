@@ -1,6 +1,7 @@
 <tr>
   <td><%= client.firstname %></td>
   <td><%= client.lastname %></td>
+  <td><%= client.phone %></td>
   <td><%= link_to "operations", client %></td>
   <td><%= link_to "edit", edit_client_path(client) %></td>
   <td><%= link_to "delete", client, method: :delete, confirm: "You sure?" %></td>

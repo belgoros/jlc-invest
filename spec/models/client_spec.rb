@@ -104,6 +104,11 @@ describe Client do
     it { should_not be_valid }
   end
 
+  describe "when phone number is too long" do
+    before { @client.phone = "a" * 51 }
+    it { should_not be_valid }
+  end
+
   describe "operation associations" do
 
     before { @client.save }

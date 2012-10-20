@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
   validates :zipcode, presence: true, length: {maximum: 5}
   validates :city, presence: true, length: {maximum: 50}
   validates :country, presence: true, length: {maximum: 50}
+  validates :phone, length: {maximum: 50}
 
   before_validation do |client|
     client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
@@ -18,6 +19,7 @@ class Client < ActiveRecord::Base
     client.zipcode = zipcode.strip
     client.city = city.capitalize.strip
     client.country = country.upcase.strip
+    client.phone = phone.strip
   end
 
   def full_name
