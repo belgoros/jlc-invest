@@ -4,8 +4,8 @@ describe "Client Pages" do
   subject { page }
 
   describe "index" do
-    let(:admin) { FactoryGirl.create(:admin) }
-    let(:client) { FactoryGirl.create(:client) }
+    let(:admin) { create(:admin) }
+    let(:client) { create(:client) }
 
     before(:each) do
       sign_in admin
@@ -15,7 +15,7 @@ describe "Client Pages" do
     it { should have_selector('title', text: 'All clients') }
     it { should have_selector('h1', text: 'All clients') }
 
-    before(:all) { 31.times { FactoryGirl.create(:client) } }
+    before(:all) { 31.times { create(:client) } }
     after(:all) { Client.delete_all }
 
     describe "pagination" do
@@ -24,7 +24,8 @@ describe "Client Pages" do
 
       it "should list each client" do
         Client.paginate(page: 1).each do |client|
-          page.should have_selector('td', text: client.full_name)
+          page.should have_selector('td', text: client.firstname)
+          page.should have_selector('td', text: client.lastname)
         end
       end
     end
@@ -48,8 +49,8 @@ describe "Client Pages" do
   end
 
   describe "edit" do
-    let(:admin) { FactoryGirl.create(:admin) }
-    let(:client) { FactoryGirl.create(:client) }
+    let(:admin) { create(:admin) }
+    let(:client) { create(:client) }
     before do
       sign_in admin
       visit edit_client_path(client)
@@ -63,12 +64,12 @@ describe "Client Pages" do
   end
 
   describe "client operations page" do
-    let(:admin) { FactoryGirl.create(:admin) }
-    let(:client) { FactoryGirl.create(:client) }
-    let(:operation) {FactoryGirl.create(:operation, client: client) }
+    let(:admin) { create(:admin) }
+    let(:client) { create(:client) }
+    let(:deposit) { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2) }
     before do
       sign_in admin
-      31.times { FactoryGirl.create(:operation, client: client) }
+      31.times { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2) }
       visit client_path(client)      
     end
     
@@ -95,7 +96,7 @@ describe "Client Pages" do
   end
 
   describe "new client page" do
-    let(:admin) { FactoryGirl.create(:admin) }
+    let(:admin) { create(:admin) }
     let(:submit) { "Create client" }
     before do
       sign_in admin

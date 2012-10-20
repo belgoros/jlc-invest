@@ -4,9 +4,9 @@ describe Operation do
 
   let(:client) { create(:client, firstname: 'Jean', lastname: 'Dupont') }
 
-  before { @operation = build(:deposit, client: client) }
+  before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000, rate: 12) }
 
-  subject { @operation }
+  subject { @deposit_operation }
 
   it { should respond_to(:operation_type) }
   it { should respond_to(:duration) }
@@ -32,79 +32,89 @@ describe Operation do
   end
 
   describe "when client_id is not present" do
-    before { @operation.client_id = nil }
+    before { @deposit_operation.client_id = nil }
     it { should_not be_valid }
   end
   
-  describe "when deposit or remission" do
-    describe "if duration is not present" do
-      before { @operation.duration = nil }      
-      it { should_not be_valid }
-    end
-    
-    describe "when rate is not present" do
-      before { @operation.rate = nil }
-      it { should_not be_valid }
-    end
-    
-    describe "when close date is not present" do
-      before { @operation.close_date = nil }
-      it { should_not be_valid }
-    end   
-    
-    describe "when rate format is not valid" do
-      rates = %w[0 1,75 azerty -12]
-      rates.each do |valid_rate|
-        before { @operation.rate = valid_rate }
-        it { should_not be_valid }
-      end
-    end 
-    
-    describe "calculates interests" do
-      before { @operation.save }
-      its(:total) { should_not be_blank }
-      its(:interests) { should_not be_blank }
-    end    
-  end
-
   describe "when value date is not present" do
-    before { @operation.value_date = nil }
+    before { @deposit_operation.value_date = nil }
     it { should_not be_valid }
   end
 
   describe "when operation type is not present" do
-    before { @operation.operation_type = nil }
+    before { @deposit_operation.operation_type = nil }
     it { should_not be_valid }
   end  
 
   describe "when sum is not present" do
-    before { @operation.sum = '' }
+    before { @deposit_operation.sum = '' }
     it { should_not be_valid }
   end  
 
   describe "when sum format is not valid" do
     sums = %w[0 1,75 azerty -12]
     sums.each do |wrong_sum|
-      before { @operation.sum = wrong_sum }
+      before { @deposit_operation.sum = wrong_sum }
       it { should_not be_valid }
     end
   end  
   
+  #Deposit or Remission operation
+  
+  describe "when deposit or remission" do
+    context "calculates the duration after save" do
+      subject { create(:deposit, sum: 1000, rate: 12, client: client, value_date: Date.today, close_date: Date.today + 6.months )}
+      its(:duration) { should == 182 }
+    end
+    
+    context "when rate is not present" do
+      before { @deposit_operation.rate = nil }
+      it { should_not be_valid }
+    end
+    
+    context "when close date is not present" do
+      before { @deposit_operation.close_date = nil }
+      it { should_not be_valid }
+    end   
+    
+    context "when rate format is not valid" do
+      rates = %w[0 1,75 azerty -12]
+      rates.each do |rate|
+        before { @deposit_operation.rate = rate }
+        it { should_not be_valid }
+      end
+    end 
+    
+    context "calculates interests" do
+      subject { create(:deposit, client: client, sum: 1000, rate: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      its(:total) { should_not be_blank }
+      its(:interests) { should_not be_blank }
+    end
+
+    context "calculate interests and total correctly" do
+      subject { create(:deposit, client: client, sum: 1000, rate: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      its(:interests) {should be_within(0.01).of(59.83)}
+      its(:total) {should be_within(0.01).of(1059.83)}
+    end
+  end
+  
+  #  Withdrawal operation
+  
   describe "withdrawal operation" do
-    before(:each) {@operation.save }
+    before(:each) {@deposit_operation.save }
     
     context "when requested sum does not exceed the balance" do
-      subject { build(:withdrawal, client: client) }
+      subject { build(:withdrawal, client: client, sum: 500) }
       it { should be_valid }
     end
     
     context "interests should not be calculated" do
-      subject { build(:withdrawal, client: client) }
+      subject { build(:withdrawal, client: client, sum: 500) }
       its(:interests) { should be_nil }
     end
      
-    context "when requested sum exceeds the balance" do
-      subject { build(:withdrawal, client: client, sum: 5000) }
+    context "when requested sum exceeds the balance" do      
+      subject { build(:withdrawal, client: client, sum: 10000) }
       it { should_not be_valid }
     end
   end  

@@ -109,16 +109,15 @@ describe Client do
     before { @client.save }
 
     let!(:older_operation) do
-      FactoryGirl.create(:operation, client: @client, value_date: 3.days.ago)
+      create(:deposit, client: @client, value_date: 10.days.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12)
     end
     let!(:newer_operation) do
-      FactoryGirl.create(:operation, client: @client, value_date: 1.hour.ago)
+      create(:deposit, client: @client, value_date: 1.day.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12)
     end
 
     it "should have the right operations in the right order" do
       @client.operations.should == [newer_operation, older_operation]
     end
-
 
     it "should destroy associated operations" do
       operations = @client.operations
@@ -127,8 +126,6 @@ describe Client do
         Operation.find_by_id(operation.id).should be_nil
       end
     end
-
-
   end
 
 

@@ -11,45 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921153618) do
+ActiveRecord::Schema.define(:version => 20121017202820) do
 
   create_table "admins", :force => true do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "email"
-    t.string "password_digest"
-    t.string "remember_token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
 
   create_table "clients", :force => true do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "phone"
-    t.string "street"
-    t.string "house"
-    t.string "box"
-    t.string "zipcode"
-    t.string "city"
-    t.string "country"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "street"
+    t.string   "house"
+    t.string   "box"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "operations", :force => true do |t|
-    t.integer "client_id"
-    t.string "operation_type"
-    t.date "value_date"
-    t.decimal "sum", :precision => 10, :scale => 2
-    t.decimal "rate", :precision => 5, :scale => 2
-    t.integer "duration"
-    t.decimal "interests", :precision => 10, :scale => 2
-    t.decimal "total", :precision => 10, :scale => 2
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "client_id"
+    t.string   "operation_type"
+    t.date     "value_date"
+    t.decimal  "sum",            :precision => 10, :scale => 2
+    t.decimal  "rate",           :precision => 5,  :scale => 2
+    t.integer  "duration"
+    t.decimal  "interests",      :precision => 10, :scale => 2
+    t.decimal  "total",          :precision => 10, :scale => 2
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.date     "close_date"
   end
 
 end

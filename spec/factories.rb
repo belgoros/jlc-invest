@@ -18,28 +18,20 @@ FactoryGirl.define do
   end
 
   factory :operation do
-    value_date Date.today
-    sum 1000
-    duration 6
-    rate 12
-    close_date Date.today + 6.months
+    value_date Date.today        
     client
     
     factory :deposit do
-      operation_type Operation::TRANSACTIONS[0]      
+      operation_type Operation::DEPOSIT   
     end
     
     factory :remission do
-      operation_type Operation::TRANSACTIONS[2]
+      operation_type Operation::REMISSION
     end
     
     factory :withdrawal do
-      operation_type Operation::TRANSACTIONS[1]
-      sum 1000
-      duration nil
-      rate nil
-    end
-    
+      operation_type Operation::WITHDRAWAL           
+    end   
     
   end 
 
