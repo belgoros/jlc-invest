@@ -2,11 +2,12 @@
 <h1><%= @client.full_name %></h1>
 
 <% if @client.operations.any? %>
-  <h3>Operations list</h3>
+  <h2>Operations list</h2>
   <table class="table table-striped">
     <thead>
       <tr>        
         <th>Date</th>
+        <th>Close date</th>
         <th>Operation</th>
         <th>Sum</th>
         <th>Duration</th>
@@ -17,7 +18,9 @@
         <th></th>
       </tr>
     </thead>
-    <%= render :partial => 'client_operation', :collection => @operations, as: :operation || 'There are no operations available for this Client.' %>
+    <tbody>
+      <%= render :partial => 'client_operation', :collection => @operations, as: :operation || 'There are no operations available for this Client.' %>
+    </tbody>
   </table>
   <%= will_paginate @operations %>  
 <%end%>

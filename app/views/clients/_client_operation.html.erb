@@ -1,11 +1,12 @@
 <tr>
-  <td><%= operation.created_at.to_date%></td>
+  <td><%= operation.value_date.to_date%></td>
+  <td><%= operation.close_date.to_date if operation.close_date %></td>
   <td><%= operation.operation_type%></td>
-  <td><%= operation.sum %></td>
+  <td><%= number_with_precision(operation.sum, precision: 2) %></td>
   <td><%= operation.duration%></td>
-  <td><%= operation.rate%></td>
-  <td><%= operation.interests%></td>
-  <td><%= operation.total%></td>  
+  <td><%= number_with_precision(operation.rate, precision: 2)%></td>
+  <td><%= number_with_precision(operation.interests, precision: 2)%></td>
+  <td><%= number_with_precision(operation.total, precision: 2)%></td>
   <td><%= link_to "edit", edit_client_operation_path(operation.client, operation)%></td>
   <td><%= link_to "delete", client_operation_path(operation.client, operation), method: :delete, confirm: "You sure?"%></td>    
 </tr>
