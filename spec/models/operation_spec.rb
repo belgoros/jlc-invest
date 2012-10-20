@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Operation do
 
-  let(:client) { create(:client, firstname: 'Jean', lastname: 'Dupont') }
+  let(:client) { create(:client) }
 
   before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000, rate: 12) }
 
@@ -93,8 +93,8 @@ describe Operation do
 
     context "calculate interests and total correctly" do
       subject { create(:deposit, client: client, sum: 1000, rate: 12, value_date: Date.today, close_date: Date.today + 6.months )}
-      its(:interests) {should be_within(0.01).of(59.83)}
-      its(:total) {should be_within(0.01).of(1059.83)}
+      its(:interests) {should be_within(0.01).of(59.84)}
+      its(:total) {should be_within(0.01).of(1059.84)}
     end
   end
   
