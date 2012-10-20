@@ -25,7 +25,6 @@ describe "Authentication" do
 
         it { should have_selector('title', text: admin.full_name) }
         it { should have_link('Operations', href: operations_path) }
-        it { should have_link('Users', href: admins_path) }
         it { should have_link('Profile', href: admin_path(admin)) }
         it { should have_link('Settings', href: edit_admin_path(admin)) }
         it { should have_link('Sign out', href: signout_path) }
