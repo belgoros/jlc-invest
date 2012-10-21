@@ -46,9 +46,13 @@ class Operation < ActiveRecord::Base
     end
 
     def check_balance      
-      if client.operations.empty? || sum > client.operations.map(&:total).inject(:+)
+      if client.operations.empty? || sum > account_balance
         errors.add(:sum, "#{sum} exceeds the actual balance") 
       end      
+    end
+    
+    def account_balance
+      client.operations.map(&:total).inject(:+)
     end
 
 
