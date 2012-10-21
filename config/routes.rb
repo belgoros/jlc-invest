@@ -1,7 +1,7 @@
 JlcInvest::Application.routes.draw do  
 
   resources :admins
-  root to: 'admins#index'
+  root to: 'clients#index'
 
   resources :clients do    
     resources :operations, only: [:new, :create, :edit, :update, :destroy, :show]
