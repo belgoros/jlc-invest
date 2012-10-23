@@ -67027,3 +67027,660 @@ Served asset /jquery-ui-1.9.0.custom.min.js - 304 Not Modified (1ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-23 22:13:08 +0200
 Served asset /application.js - 304 Not Modified (34ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mClient Load (1.2ms)[0m  [1mSELECT "clients".* FROM "clients" ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (26.8ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Oct 2012], ["created_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["duration", 0], ["interests", #<BigDecimal:9e41ebc,'0.0',9(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:9e42998,'0.1E1',9(45)>], ["sum", #<BigDecimal:a8431a4,'0.1E4',9(45)>], ["total", #<BigDecimal:9caa9c8,'0.1E4',9(27)>], ["updated_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (135.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Fri, 23 Nov 2012], ["created_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["duration", 31], ["interests", #<BigDecimal:ab37310,'0.9435890410 958906E0',18(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ab37cac,'0.11E1',18(45)>], ["sum", #<BigDecimal:ab384a4,'0.101E4',9(45)>], ["total", #<BigDecimal:a9fe020,'0.1010943589 0410958906E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (99.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sun, 23 Dec 2012], ["created_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["duration", 61], ["interests", #<BigDecimal:ab68d70,'0.2045589041 09589E1',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ab692d4,'0.12E1',18(45)>], ["sum", #<BigDecimal:ab696a8,'0.102E4',9(45)>], ["total", #<BigDecimal:ab6aff8,'0.1022045589 04109589E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Wed, 23 Jan 2013], ["created_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["duration", 92], ["interests", #<BigDecimal:a9c291c,'0.3375013698 630137E1',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a9c2e44,'0.13E1',18(45)>], ["sum", #<BigDecimal:a9c3218,'0.103E4',9(45)>], ["total", #<BigDecimal:a9c4f64,'0.1033375013 698630137E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:12 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (81.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sat, 23 Feb 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 123], ["interests", #<BigDecimal:a806c68,'0.4906520547 945205E1',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a807348,'0.14E1',18(45)>], ["sum", #<BigDecimal:a80776c,'0.104E4',9(45)>], ["total", #<BigDecimal:a05f4b0,'0.1044906520 547945205E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (79.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sat, 23 Mar 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 151], ["interests", #<BigDecimal:abecc9c,'0.6515753424 657534E1',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:abed1b0,'0.15E1',18(45)>], ["sum", #<BigDecimal:abed41c,'0.105E4',9(45)>], ["total", #<BigDecimal:abe6c48,'0.1056515753 424657534E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (115.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Apr 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 182], ["interests", #<BigDecimal:a6168b8,'0.8456767123 287671E1',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a616cf0,'0.16E1',18(45)>], ["sum", #<BigDecimal:a61704c,'0.106E4',9(45)>], ["total", #<BigDecimal:a6184ec,'0.1068456767 123287671E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (91.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Thu, 23 May 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 212], ["interests", #<BigDecimal:a923394,'0.1056515068 493151E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a923a4c,'0.17E1',18(45)>], ["sum", #<BigDecimal:a923d58,'0.107E4',9(45)>], ["total", #<BigDecimal:a925234,'0.1080565150 68493151E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (89.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sun, 23 Jun 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 243], ["interests", #<BigDecimal:ae221b0,'0.1294224657 534247E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ae2296c,'0.18E1',18(45)>], ["sum", #<BigDecimal:ae22c3c,'0.108E4',9(45)>], ["total", #<BigDecimal:a62a5c0,'0.1092942246 57534247E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (80.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Tue, 23 Jul 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 273], ["interests", #<BigDecimal:ac529ac,'0.1548994520 547945E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b073630,'0.19E1',18(45)>], ["sum", #<BigDecimal:b07393c,'0.109E4',9(45)>], ["total", #<BigDecimal:b075110,'0.1105489945 20547945E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (81.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Fri, 23 Aug 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 304], ["interests", #<BigDecimal:ae52dd8,'0.1832328767 123288E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ae531e8,'0.2E1',9(45)>], ["sum", #<BigDecimal:ae53404,'0.11E4',9(45)>], ["total", #<BigDecimal:ae54a98,'0.1118323287 67123288E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (80.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Mon, 23 Sep 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 335], ["interests", #<BigDecimal:a9db214,'0.2139410958 90411E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a9db688,'0.21E1',18(45)>], ["sum", #<BigDecimal:a9db958,'0.111E4',9(45)>], ["total", #<BigDecimal:b083a58,'0.1131394109 5890411E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (80.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Wed, 23 Oct 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 365], ["interests", #<BigDecimal:ade2c04,'0.2464E2',18(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ade3000,'0.22E1',18(45)>], ["sum", #<BigDecimal:ade32d0,'0.112E4',9(45)>], ["total", #<BigDecimal:ade4798,'0.114464E4',18(36)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (80.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sat, 23 Nov 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 396], ["interests", #<BigDecimal:a489540,'0.2819736986 30137E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a489888,'0.23E1',18(45)>], ["sum", #<BigDecimal:a489b94,'0.113E4',9(45)>], ["total", #<BigDecimal:b0e8318,'0.1158197369 8630137E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (76.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Mon, 23 Dec 2013], ["created_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["duration", 426], ["interests", #<BigDecimal:9e2af00,'0.3193249315 068493E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:9e2b3b0,'0.24E1',18(45)>], ["sum", #<BigDecimal:9e2b6bc,'0.114E4',9(45)>], ["total", #<BigDecimal:9e2caf8,'0.1171932493 15068493E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:13 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (92.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Thu, 23 Jan 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 457], ["interests", #<BigDecimal:aaf7e2c,'0.3599657534 246575E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:aaf8110,'0.25E1',18(45)>], ["sum", #<BigDecimal:aaf8368,'0.115E4',9(45)>], ["total", #<BigDecimal:aaf99e8,'0.1185996575 34246575E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (79.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sun, 23 Feb 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 488], ["interests", #<BigDecimal:a946074,'0.4032350684 931507E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a946470,'0.26E1',18(45)>], ["sum", #<BigDecimal:a9467b8,'0.116E4',9(45)>], ["total", #<BigDecimal:abf2bb0,'0.1200323506 84931507E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (80.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sun, 23 Mar 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 516], ["interests", #<BigDecimal:aedff80,'0.4465873972 602741E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:aee04a8,'0.27E1',18(45)>], ["sum", #<BigDecimal:aee07f0,'0.117E4',9(45)>], ["total", #<BigDecimal:aee1de4,'0.1214658739 72602741E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (79.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Wed, 23 Apr 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 547], ["interests", #<BigDecimal:b28e7a8,'0.4951473972 602739E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b28ec58,'0.28E1',18(45)>], ["sum", #<BigDecimal:b28ef64,'0.118E4',9(45)>], ["total", #<BigDecimal:b2903f0,'0.1229514739 72602739E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (78.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Fri, 23 May 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 577], ["interests", #<BigDecimal:b03b9b0,'0.5455416438 356163E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b03bf64,'0.29E1',18(45)>], ["sum", #<BigDecimal:b03c298,'0.119E4',9(45)>], ["total", #<BigDecimal:b19cf70,'0.1244554164 38356163E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (81.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Mon, 23 Jun 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 608], ["interests", #<BigDecimal:b17d350,'0.5996712328 767123E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b17d6e8,'0.3E1',9(45)>], ["sum", #<BigDecimal:b17d904,'0.12E4',9(45)>], ["total", #<BigDecimal:b17ed40,'0.1259967123 28767123E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (90.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Wed, 23 Jul 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 638], ["interests", #<BigDecimal:afe9804,'0.6556542465 753424E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:afe9d04,'0.31E1',18(45)>], ["sum", #<BigDecimal:afe9fd4,'0.121E4',9(45)>], ["total", #<BigDecimal:b0f59c8,'0.1275565424 65753424E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (91.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sat, 23 Aug 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 669], ["interests", #<BigDecimal:af07c4c,'0.7155550684 931508E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:af08048,'0.32E1',18(45)>], ["sum", #<BigDecimal:af08318,'0.122E4',9(45)>], ["total", #<BigDecimal:af09754,'0.1291555506 84931508E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (81.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Tue, 23 Sep 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 700], ["interests", #<BigDecimal:af35480,'0.7784383561 643835E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:af35840,'0.33E1',18(45)>], ["sum", #<BigDecimal:af35b4c,'0.123E4',9(45)>], ["total", #<BigDecimal:b20834c,'0.1307843835 61643835E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (78.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Thu, 23 Oct 2014], ["created_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["duration", 730], ["interests", #<BigDecimal:af44bc4,'0.8432000000 000001E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:af44ed0,'0.34E1',18(45)>], ["sum", #<BigDecimal:af451dc,'0.124E4',9(45)>], ["total", #<BigDecimal:af46618,'0.1324320000 00000001E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:14 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (77.9ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sun, 23 Nov 2014], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 761], ["interests", #<BigDecimal:b33a5f8,'0.9121575342 465754E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b33aa44,'0.35E1',18(45)>], ["sum", #<BigDecimal:b33ac9c,'0.125E4',9(45)>], ["total", #<BigDecimal:ace868c,'0.1341215753 42465754E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (78.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Dec 2014], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 791], ["interests", #<BigDecimal:b2f2dac,'0.9830071232 876713E2',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b2f3298,'0.36E1',18(45)>], ["sum", #<BigDecimal:b2f35e0,'0.126E4',9(45)>], ["total", #<BigDecimal:b2f4a1c,'0.1358300712 32876713E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (80.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Fri, 23 Jan 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 822], ["interests", #<BigDecimal:b13783c,'0.1058240547 945206E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b137d00,'0.37E1',18(45)>], ["sum", #<BigDecimal:b138048,'0.127E4',9(45)>], ["total", #<BigDecimal:b139484,'0.1375824054 7945206E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (92.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Mon, 23 Feb 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 853], ["interests", #<BigDecimal:b42c6f0,'0.1136710136 986301E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b41b508,'0.38E1',18(45)>], ["sum", #<BigDecimal:b41b814,'0.128E4',9(45)>], ["total", #<BigDecimal:b41cc50,'0.1393671013 6986301E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (90.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Mon, 23 Mar 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 881], ["interests", #<BigDecimal:b43aae8,'0.1214331780 821918E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b43af0c,'0.39E1',18(45)>], ["sum", #<BigDecimal:b43b218,'0.129E4',9(45)>], ["total", #<BigDecimal:b43c654,'0.1411433178 0821918E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (80.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Thu, 23 Apr 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 912], ["interests", #<BigDecimal:b461b48,'0.1299287671 232877E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b450334,'0.4E1',9(45)>], ["sum", #<BigDecimal:b450550,'0.13E4',9(45)>], ["total", #<BigDecimal:b45198c,'0.1429928767 1232877E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (79.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sat, 23 May 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 942], ["interests", #<BigDecimal:b46ff2c,'0.1386159452 054794E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b4704a4,'0.41E1',18(45)>], ["sum", #<BigDecimal:b470738,'0.131E4',9(45)>], ["total", #<BigDecimal:b471b74,'0.1448615945 2054794E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (79.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Jun 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 973], ["interests", #<BigDecimal:b45f3e8,'0.1477893698 630137E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b4679e4,'0.42E1',18(45)>], ["sum", #<BigDecimal:b4817cc,'0.132E4',9(45)>], ["total", #<BigDecimal:b486344,'0.1467789369 8630137E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (83.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Thu, 23 Jul 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 1003], ["interests", #<BigDecimal:ac4ac5c,'0.1571549863 013699E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ae84234,'0.43E1',18(45)>], ["sum", #<BigDecimal:b085808,'0.133E4',9(45)>], ["total", #<BigDecimal:a487524,'0.1487154986 3013699E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (81.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sun, 23 Aug 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 1034], ["interests", #<BigDecimal:a845404,'0.1670264109 589041E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a723da0,'0.44E1',18(45)>], ["sum", #<BigDecimal:a7251a0,'0.134E4',9(45)>], ["total", #<BigDecimal:9ca3024,'0.1507026410 9589041E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (90.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Wed, 23 Sep 2015], ["created_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["duration", 1065], ["interests", #<BigDecimal:a91134c,'0.1772568493 150685E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a911c20,'0.45E1',18(45)>], ["sum", #<BigDecimal:a91201c,'0.135E4',9(45)>], ["total", #<BigDecimal:a80ce4c,'0.1527256849 3150685E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:15 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (80.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Fri, 23 Oct 2015], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1095], ["interests", #<BigDecimal:a58f5ac,'0.18768E3',18(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a58fbec,'0.46E1',18(45)>], ["sum", #<BigDecimal:a5901dc,'0.136E4',9(45)>], ["total", #<BigDecimal:a4f3788,'0.154768E4',18(36)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (79.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Mon, 23 Nov 2015], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1126], ["interests", #<BigDecimal:ab1b4e4,'0.1986387397 260274E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ab1bc50,'0.47E1',18(45)>], ["sum", #<BigDecimal:ab1c178,'0.137E4',9(45)>], ["total", #<BigDecimal:ab1deb0,'0.1568638739 7260274E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (118.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Wed, 23 Dec 2015], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1156], ["interests", #<BigDecimal:a8876c4,'0.2097902465 753425E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a8883a8,'0.48E1',18(45)>], ["sum", #<BigDecimal:a888a10,'0.138E4',9(45)>], ["total", #<BigDecimal:abfd074,'0.1589790246 5753425E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (96.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sat, 23 Jan 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1187], ["interests", #<BigDecimal:a95ec28,'0.2214974520 547945E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a95f6b4,'0.49E1',18(45)>], ["sum", #<BigDecimal:a95fb3c,'0.139E4',9(45)>], ["total", #<BigDecimal:a96139c,'0.1611497452 0547945E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (92.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Feb 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1218], ["interests", #<BigDecimal:a6d94a8,'0.2335890410 958904E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a6d9ae8,'0.5E1',9(45)>], ["sum", #<BigDecimal:a6d9d2c,'0.14E4',9(45)>], ["total", #<BigDecimal:ac320bc,'0.1633589041 0958904E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (101.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Wed, 23 Mar 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1247], ["interests", #<BigDecimal:ac36108,'0.2456760821 917808E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ac365cc,'0.51E1',18(45)>], ["sum", #<BigDecimal:ac36860,'0.141E4',9(45)>], ["total", #<BigDecimal:ac38458,'0.1655676082 1917808E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (91.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sat, 23 Apr 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1278], ["interests", #<BigDecimal:a603e34,'0.2585411506 849316E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:a604474,'0.52E1',18(45)>], ["sum", #<BigDecimal:a6047d0,'0.142E4',9(45)>], ["total", #<BigDecimal:a60606c,'0.1678541150 6849316E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (92.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Mon, 23 May 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1308], ["interests", #<BigDecimal:aed5170,'0.2715981369 863014E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:aed55bc,'0.53E1',18(45)>], ["sum", #<BigDecimal:aed5904,'0.143E4',9(45)>], ["total", #<BigDecimal:aed7150,'0.1701598136 9863014E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (90.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Thu, 23 Jun 2016], ["created_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["duration", 1339], ["interests", #<BigDecimal:af515a4,'0.2852620273 972603E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:af51a7c,'0.54E1',18(45)>], ["sum", #<BigDecimal:af51db0,'0.144E4',9(45)>], ["total", #<BigDecimal:af533b8,'0.1725262027 3972603E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:16 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (91.2ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Sat, 23 Jul 2016], ["created_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["duration", 1369], ["interests", #<BigDecimal:ac4c2dc,'0.2991171232 876712E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:ac4c6b0,'0.55E1',18(45)>], ["sum", #<BigDecimal:ac4c91c,'0.145E4',9(45)>], ["total", #<BigDecimal:ac4ee74,'0.1749117123 2876712E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (91.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Tue, 23 Aug 2016], ["created_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["duration", 1400], ["interests", #<BigDecimal:b085d1c,'0.3136E3',18(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b0860b4,'0.56E1',18(45)>], ["sum", #<BigDecimal:b0863c0,'0.146E4',9(45)>], ["total", #<BigDecimal:ae8222c,'0.17736E4',18(36)>], ["updated_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (90.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Fri, 23 Sep 2016], ["created_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["duration", 1431], ["interests", #<BigDecimal:add9834,'0.3285027123 287671E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:add9cbc,'0.57E1',18(45)>], ["sum", #<BigDecimal:adda054,'0.147E4',9(45)>], ["total", #<BigDecimal:addb634,'0.1798502712 3287671E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (102.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_id", 1], ["close_date", Sun, 23 Oct 2016], ["created_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["duration", 1461], ["interests", #<BigDecimal:b0e841c,'0.3435951780 821918E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:b0e89d0,'0.58E1',18(45)>], ["sum", #<BigDecimal:b0e8d40,'0.148E4',9(45)>], ["total", #<BigDecimal:b0ea49c,'0.1823595178 0821918E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[35m (91.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "operations" ("client_id", "close_date", "created_at", "duration", "interests", "operation_type", "rate", "sum", "total", "updated_at", "value_date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_id", 1], ["close_date", Wed, 23 Nov 2016], ["created_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["duration", 1492], ["interests", #<BigDecimal:9e2bd74,'0.3593471780 821918E3',27(45)>], ["operation_type", "deposit"], ["rate", #<BigDecimal:9e2c238,'0.59E1',18(45)>], ["sum", #<BigDecimal:9e2c508,'0.149E4',9(45)>], ["total", #<BigDecimal:9e2db4c,'0.1849347178 0821918E4',27(45)>], ["updated_at", Tue, 23 Oct 2012 20:42:17 UTC +00:00], ["value_date", Tue, 23 Oct 2012]]
+  [1m[36m (91.0ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (129.6ms)[0m  [1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "firstname" varchar(255), "lastname" varchar(255), "email" varchar(255), "password_digest" varchar(255), "remember_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36m (79.8ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (130.3ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "firstname" varchar(255), "lastname" varchar(255), "phone" varchar(255), "street" varchar(255), "house" varchar(255), "box" varchar(255), "zipcode" varchar(255), "city" varchar(255), "country" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (93.7ms)[0m  [1mCREATE TABLE "operations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" integer, "operation_type" varchar(255), "value_date" date, "sum" decimal(10,2), "rate" decimal(5,2), "duration" integer, "interests" decimal(10,2), "total" decimal(10,2), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "close_date" date) [0m
+  [1m[35m (115.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (94.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (86.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121017202820')
+  [1m[36m (77.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918154117')[0m
+  [1m[35m (77.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120921153618')
+  [1m[36m (88.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918153919')[0m
+  [1m[35m (88.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120918201638')
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-23 22:44:05 +0200
+Connecting to database specified by database.yml
+Processing by ClientsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."remember_token" = 'Sag_4xdm47NtCpheidZvCQ' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "clients" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "clients" [0m
+  [1m[35mClient Load (1.4ms)[0m  SELECT "clients".* FROM "clients" ORDER BY clients.lastname LIMIT 30 OFFSET 0
+  Rendered clients/_client.html.erb (53.8ms)
+  Rendered clients/index.html.erb within layouts/application (4902.5ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (10.4ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 13600ms (Views: 12233.7ms | ActiveRecord: 83.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:39 +0200
+Served asset /application.css - 304 Not Modified (102ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:39 +0200
+Served asset /jquery-ui-1.9.0.custom.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:39 +0200
+Served asset /custom.css - 304 Not Modified (96ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:39 +0200
+Served asset /jquery.js - 304 Not Modified (68ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-transition.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-affix.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-alert.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-button.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-carousel.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-collapse.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-modal.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-tab.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-tooltip.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap-typeahead.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /bootstrap.js - 304 Not Modified (21ms)
+
+
+Started GET "/assets/jquery-1.8.2.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /jquery-1.8.2.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /application.js - 304 Not Modified (118ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:40 +0200
+Served asset /jquery-ui-1.9.0.custom.min.js - 304 Not Modified (6ms)
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2012-10-23 22:44:47 +0200
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (10.8ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? ORDER BY clients.lastname LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (27.8ms)[0m  SELECT COUNT(*) FROM "operations" WHERE "operations"."client_id" = 1
+  [1m[36mOperation Load (1.2ms)[0m  [1mSELECT "operations".* FROM "operations" WHERE "operations"."client_id" = 1 ORDER BY operations.value_date DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "operations" WHERE "operations"."client_id" = 1
+  [1m[36mClient Load (2.9ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  Rendered clients/_client_operation.html.erb (265.3ms)
+  Rendered clients/show.html.erb within layouts/application (363.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."remember_token" = 'Sag_4xdm47NtCpheidZvCQ' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 708ms (Views: 423.7ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /application.css - 304 Not Modified (109ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /custom.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.css?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /jquery-ui-1.9.0.custom.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-alert.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-collapse.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-tooltip.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-tab.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /jquery-ui-1.9.0.custom.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-1.8.2.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /jquery-1.8.2.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-23 22:44:48 +0200
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started DELETE "/clients/1/operations/4" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Processing by OperationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"otQ9unTbP2QjGzNWEYY7BoSm6zvhStWTcPPU+WMXJ8E=", "client_id"=>"1", "id"=>"4"}
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."remember_token" = 'Sag_4xdm47NtCpheidZvCQ' LIMIT 1
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? ORDER BY clients.lastname LIMIT 1[0m  [["id", "1"]]
+  [1m[35mOperation Load (0.2ms)[0m  SELECT "operations".* FROM "operations" WHERE "operations"."client_id" = 1 AND "operations"."id" = ? ORDER BY operations.value_date DESC LIMIT 1  [["id", "4"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (129.7ms)[0m  DELETE FROM "operations" WHERE "operations"."id" = ?  [["id", 4]]
+  [1m[36m (129.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/clients/1
+Completed 302 Found in 290ms (ActiveRecord: 260.2ms)
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? ORDER BY clients.lastname LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "operations" WHERE "operations"."client_id" = 1[0m
+  [1m[35mOperation Load (6.0ms)[0m  SELECT "operations".* FROM "operations" WHERE "operations"."client_id" = 1 ORDER BY operations.value_date DESC LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "operations" WHERE "operations"."client_id" = 1[0m
+  [1m[35mClient Load (0.6ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1[0m
+  Rendered clients/_client_operation.html.erb (102.7ms)
+  Rendered clients/show.html.erb within layouts/application (122.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."remember_token" = 'Sag_4xdm47NtCpheidZvCQ' LIMIT 1
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 180ms (Views: 159.8ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /application.css - 304 Not Modified (92ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /custom.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /jquery-ui-1.9.0.custom.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-alert.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-carousel.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-tooltip.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.2.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /jquery-1.8.2.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /bootstrap.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /jquery-ui-1.9.0.custom.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:04 +0200
+Served asset /application.js - 304 Not Modified (17ms)
+
+
+Started GET "/operations" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Processing by OperationsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."remember_token" = 'Sag_4xdm47NtCpheidZvCQ' LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) AS count_all, client_id AS client_id FROM "operations" GROUP BY client_id ORDER BY operations.value_date DESC
+  [1m[36mOperation Load (18.9ms)[0m  [1mSELECT client_id, sum(total) as total FROM "operations" GROUP BY client_id ORDER BY operations.value_date DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 ORDER BY clients.lastname LIMIT 1
+  Rendered operations/_operation.html.erb (3.5ms)
+  Rendered operations/index.html.erb within layouts/application (55.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 211ms (Views: 188.2ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /application.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /jquery-ui-1.9.0.custom.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /custom.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:25 +0200
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-tooltip.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery-1.8.2.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /jquery-1.8.2.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /bootstrap.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-ui-1.9.0.custom.min.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /jquery-ui-1.9.0.custom.min.js - 304 Not Modified (110ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-23 22:45:26 +0200
+Served asset /application.js - 304 Not Modified (20ms)
+Connecting to database specified by database.yml

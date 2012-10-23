@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_clients
+    make_operations
   end
 end
 
@@ -48,4 +49,17 @@ def make_clients
                    phone: phone)
   end
 
+end
+
+def make_operations
+  clients = Cleint.all(limit: 6)
+  50.times do
+    clients.each do |client|
+      client.operations.create!(value_date: Date.today,
+      operation_type: Operation::DEPOSIT,
+      sum: 1000.0 + 2*client.id,
+      rate: client.id/10.0+1,
+      close_date: Date.today + client.id.months)
+    end
+  end  
 end
