@@ -9,32 +9,31 @@ describe "Operation Pages" do
   before(:each) { sign_in admin }
   
   describe "index" do
-    before { visit operations_path }    
-    
-    it { should have_selector('title', text: 'All operations') }
-    it { should have_selector('h1', text: 'All operations') }
+    before { visit operations_path }
 
-    
-=begin
-    before(:all) do
-      35.times do
-        create(:deposit, client: client, value_date: Date.today, close_date: Date.today + 3.months,
-               sum: 1000,rate:1.25)
-      end
+
+    before do
+      50.times { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2) }
     end
-    after(:all) { client.operations.delete_all }
 
-    describe "pagination" do
+    after { client.operations.delete_all}
 
-      it { should have_selector('div.pagination') }
-
-      it "should list each operation" do
-        Operation.paginate(page: 1).each do |operation|
-          page.should have_selector('td', text: operation.value_date.to_s)
-        end
-      end
+    describe "page" do
+      it { should have_selector('title', text: 'All operations') }
+      it { should have_selector('h1', text: 'All operations') }
     end
-=end
-  end
+
+    #FIX ME
+    #describe "operations pagination" do
+     # it { should have_selector('div.pagination') }
+
+      #it "should list each operation" do
+      #  Operation.paginate(page: 1).each do |operation|
+      #    page.should have_selector('td', text: operation.client.firstname)
+      #    page.should have_selector('td', text: operation.client.lastname)
+      #  end
+      #end
+    end
+  #end
   
 end
