@@ -1,7 +1,5 @@
 class Operation < ActiveRecord::Base
-  belongs_to :client
-
-  default_scope order: 'operations.value_date DESC'
+  belongs_to :client  
   
   DEPOSIT = 'deposit'
   REMISSION = 'remission'
