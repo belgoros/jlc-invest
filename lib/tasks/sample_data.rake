@@ -14,9 +14,9 @@ def make_users
                 password_confirmation: 'admin123')
 
   50.times do |n|
-    firstname = Faker::Name.first_name + "_#{n}"
+    firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
-    email = "example-#{n+1}@railstutorial.org"
+    email = "example-#{n+1}@jlc-invset.com"
     password = "password"
     Admin.create!(firstname: firstname,
                   lastname: lastname,
@@ -31,7 +31,7 @@ def make_clients
   Faker::Config.locale = :fr
 
   50.times do |n|
-    firstname = Faker::Name.first_name + "_#{n}"
+    firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
     street = Faker::Address.street_name
     house = Faker::Address.building_number
@@ -51,14 +51,14 @@ def make_clients
 
 end
 
-def make_operations
-  clients = Cleint.all(limit: 6)
-  50.times do
+def make_operations  
+  clients = Client.all(limit: 35)
+  3.times do
     clients.each do |client|
-      client.operations.create!(value_date: Date.today,
+      client.operations.create!(value_date: Date.today - (client.id.days),
       operation_type: Operation::DEPOSIT,
-      sum: 1000.0 + 2*client.id,
-      rate: client.id/10.0+1,
+      sum: 1000.0 + 2 * client.id,
+      rate: client.id/10.0 + 1,
       close_date: Date.today + client.id.months)
     end
   end  
