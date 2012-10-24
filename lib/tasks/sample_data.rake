@@ -55,9 +55,9 @@ def make_operations
   clients = Client.all(limit: 35)
   3.times do
     clients.each do |client|
-      client.operations.create!(value_date: Date.today - (client.id.days),
+      client.operations.create!(value_date: Date.today,
       operation_type: Operation::DEPOSIT,
-      sum: 1000.0 + 2 * client.id,
+      sum: 1000.0 + 20 * client.id,
       rate: client.id/10.0 + 1,
       close_date: Date.today + client.id.months)
     end
