@@ -4,7 +4,7 @@ class OperationsController < ApplicationController
   
   def index
     #@operations = Operation.paginate(page: params[:page])
-    @operations = Operation.select("client_id, sum(total) as total").group("client_id").paginate(page: params[:page])
+    @operations = Operation.unscoped.select("client_id, sum(total) as total").group("client_id").paginate(page: params[:page])
   end  
   
   def new
