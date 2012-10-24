@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-    @operations = @client.operations.order("operations.value_date DESC").paginate(page: params[:page])    
+    @operations = @client.operations.paginate(page: params[:page])    
   end
 
   def update
