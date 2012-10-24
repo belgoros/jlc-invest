@@ -6,6 +6,8 @@ class Operation < ActiveRecord::Base
   WITHDRAWAL = 'withdrawal'
 
   TRANSACTIONS = [DEPOSIT, WITHDRAWAL, REMISSION]
+  
+  default_scope order: 'operations.value_date DESC'
 
   attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date
 
