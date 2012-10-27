@@ -9,7 +9,7 @@ class Operation < ActiveRecord::Base
   
   default_scope order: 'operations.value_date DESC'
 
-  attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date
+  attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date, :withholding
 
   VALID_DECIMAL_REGEX = /^\d+(\.)?(\d{0,2})?$/
 
@@ -21,9 +21,8 @@ class Operation < ActiveRecord::Base
   validates :sum, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}
   validates :value_date, presence: true
   validates :close_date, presence: true, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
+  validates :withholding, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
   validates :client_id, presence: true
-  
-  
   
   before_validation :check_balance, if: Proc.new { |op| op.operation_type == WITHDRAWAL }
   before_save :calculate_total  
@@ -33,11 +32,15 @@ class Operation < ActiveRecord::Base
     def calculate_total      
        if operation_type != WITHDRAWAL
          calculate_duration
-         self.interests = sum.to_f * duration/365 * (rate.to_f/100)
+         calculate_interests
          self.total = interests + sum
        else
          self.total = -sum
        end
+    end
+    
+    def calculate_interests
+      self.interests = sum.to_f * duration/365 * (rate.to_f/100) * (withholding.to_f/100)
     end
 
 
