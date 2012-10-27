@@ -59,6 +59,7 @@ def make_operations
       operation_type: Operation::DEPOSIT,
       sum: 1000.0 + 20 * client.id,
       rate: client.id/10.0 + 1,
+      withholding: 12,
       close_date: Date.today + client.id.months)
     end
   end  

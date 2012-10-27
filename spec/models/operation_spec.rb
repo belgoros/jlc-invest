@@ -4,7 +4,8 @@ describe Operation do
 
   let(:client) { create(:client) }
 
-  before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000, rate: 12) }
+  before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000,
+                                      rate: 12, interests_tax: 12) }
 
   subject { @deposit_operation }
 
@@ -18,6 +19,7 @@ describe Operation do
   it { should respond_to(:client_id) }
   it { should respond_to(:client) }
   it { should respond_to(:close_date) }
+  it { should respond_to(:withholding) }
 
   its(:client) { should == client }
 
@@ -72,6 +74,11 @@ describe Operation do
       it { should_not be_valid }
     end
     
+    context "when withholding is not present" do
+      before { @deposit_operation.withholding = nil }
+      it { should_not be_valid }
+    end
+    
     context "when close date is not present" do
       before { @deposit_operation.close_date = nil }
       it { should_not be_valid }
@@ -85,8 +92,17 @@ describe Operation do
       end
     end 
     
+    context "when withholding format is not valid" do
+      values = %w[0 1,75 azerty -12]
+      values.each do |value|
+        before { @deposit_operation.withholding = value }
+        it { should_not be_valid }
+      end
+    end 
+    
     context "calculates interests" do
-      subject { create(:deposit, client: client, sum: 1000, rate: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      subject { create(:deposit, client: client, sum: 1000, rate: 12, interests_tax: 12, 
+            value_date: Date.today, close_date: Date.today + 6.months )}
       its(:total) { should_not be_blank }
       its(:interests) { should_not be_blank }
     end

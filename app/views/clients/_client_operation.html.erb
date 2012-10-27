@@ -6,6 +6,7 @@
   <td><%= operation.close_date.to_date if operation.close_date %></td>
   <td><%= operation.duration%></td>
   <td><%= number_with_precision(operation.interests, precision: 2)%></td>
+  <td><%= number_with_precision(operation.withholding, precision: 2)%></td>
   <td><%= number_with_precision(operation.total, precision: 2)%></td>
   <td><%= link_to "edit", edit_client_operation_path(operation.client, operation)%></td>
   <td><%= link_to "delete", client_operation_path(operation.client, operation), method: :delete, confirm: "You sure?"%></td>    
