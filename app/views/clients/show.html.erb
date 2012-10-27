@@ -7,11 +7,11 @@
     <thead>
       <tr>        
         <th>Date</th>
-        <th>Close date</th>
         <th>Operation</th>
         <th>Sum</th>
-        <th>Duration</th>
         <th>Rate</th>
+        <th>Close date</th>
+        <th>Duration</th>
         <th>Interests</th>
         <th>Total</th>
         <th></th>
@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render :partial => 'client_operation', :collection => @operations, as: :operation || 'There are no operations available for this Client.' %>
+      <%= render :partial => 'client_operation', :collection => @operations, as: :operation %>
     </tbody>
   </table>
   <%= will_paginate @operations %>  
