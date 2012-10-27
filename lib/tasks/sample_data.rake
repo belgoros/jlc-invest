@@ -57,7 +57,7 @@ def make_operations
     clients.each do |client|
       client.operations.create!(value_date: Date.today,
       operation_type: Operation::DEPOSIT,
-      sum: 1000.0 + 20 * client.id,
+      sum: 1000.0 + 20.0 * client.id,
       rate: client.id/10.0 + 1,
       withholding: 12,
       close_date: Date.today + client.id.months)
