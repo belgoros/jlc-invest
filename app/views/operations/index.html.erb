@@ -12,7 +12,7 @@
       </tr>
     </thead>
   <tbody>
-    <%= render @operations %>
+  <%= render :partial => "client", :collection => @operations, :as => :client %>
   </tbody>
 </table>
 
