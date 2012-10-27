@@ -114,10 +114,10 @@ describe Client do
     before { @client.save }
 
     let!(:older_operation) do
-      create(:deposit, client: @client, value_date: 10.days.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12)
+      create(:deposit, client: @client, value_date: 10.days.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12, withholding: 12)
     end
     let!(:newer_operation) do
-      create(:deposit, client: @client, value_date: 1.day.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12)
+      create(:deposit, client: @client, value_date: 1.day.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12, withholding: 12)
     end
 
     it "should have the right operations in the right order" do

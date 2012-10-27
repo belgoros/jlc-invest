@@ -40,7 +40,12 @@ class Operation < ActiveRecord::Base
     end
     
     def calculate_interests
-      self.interests = sum.to_f * duration/365 * (rate.to_f/100) * (withholding.to_f/100)
+      withholding_off = interest_without_withholding
+      self.interests = withholding_off - withholding_off * withholding.to_f/100
+    end
+
+    def interest_without_withholding
+      sum.to_f * duration/365 * (rate.to_f/100)
     end
 
 

@@ -66,10 +66,10 @@ describe "Client Pages" do
   describe "client operations page" do
     let(:admin) { create(:admin) }
     let(:client) { create(:client) }
-    let(:deposit) { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2) }
+    let(:deposit) { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2, withholding: 12) }
     before do
       sign_in admin
-      31.times { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2) }
+      31.times { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2, withholding: 12) }
       visit client_path(client)      
     end
     

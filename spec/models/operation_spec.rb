@@ -5,7 +5,7 @@ describe Operation do
   let(:client) { create(:client) }
 
   before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000,
-                                      rate: 12, interests_tax: 12) }
+                                      rate: 12, withholding: 12) }
 
   subject { @deposit_operation }
 
@@ -65,7 +65,7 @@ describe Operation do
   
   describe "when deposit or remission" do
     context "calculates the duration after save" do
-      subject { create(:deposit, sum: 1000, rate: 12, client: client, value_date: Date.today, close_date: Date.today + 6.months )}
+      subject { create(:deposit, sum: 1000, rate: 12, withholding: 12, client: client, value_date: Date.today, close_date: Date.today + 6.months )}
       its(:duration) { should == 182 }
     end
     
@@ -101,16 +101,16 @@ describe Operation do
     end 
     
     context "calculates interests" do
-      subject { create(:deposit, client: client, sum: 1000, rate: 12, interests_tax: 12, 
+      subject { create(:deposit, client: client, sum: 1000, rate: 12, withholding: 12,
             value_date: Date.today, close_date: Date.today + 6.months )}
       its(:total) { should_not be_blank }
       its(:interests) { should_not be_blank }
     end
 
     context "calculate interests and total correctly" do
-      subject { create(:deposit, client: client, sum: 1000, rate: 12, value_date: Date.today, close_date: Date.today + 6.months )}
-      its(:interests) {should be_within(0.01).of(59.84)}
-      its(:total) {should be_within(0.01).of(1059.84)}
+      subject { create(:deposit, client: client, sum: 1000, rate: 12, withholding: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      its(:interests) {should be_within(0.01).of(52.66)}
+      its(:total) {should be_within(0.01).of(1052.66)}
     end
   end
   
