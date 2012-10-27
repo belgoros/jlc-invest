@@ -1,31 +1,29 @@
 class OperationsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
   before_filter :find_client, except: :index
-  
+
   def index
-    @operations = Operation.paginate(page: params[:page])
-    #@operations = Operation.unscoped.select("client_id, sum(total) as total").group("client_id").paginate(page: params[:page])
-    #@operations = Operation.unscoped.includes(:client).order("clients.lastname").select("client_id, sum(total) as total").group("client_id").paginate(page: params[:page])
-  end  
-  
+    @operations = Client.joins(:operations).select('clients.id,firstname, lastname, sum(total) as total').group('clients.id, firstname,lastname,total').paginate(page: params[:page])
+  end
+
   def new
     @operation = @client.operations.new
   end
-  
+
   def create
-    @operation = @client.operations.new(params[:operation])    
+    @operation = @client.operations.new(params[:operation])
     if @operation.save
       flash[:success] = "Operation created with success"
       redirect_to @client
     else
       render "new"
-    end    
-  end  
-  
+    end
+  end
+
   def edit
     @operation = @client.operations.find(params[:id])
   end
-  
+
   def show
     @operation = @client.operations.find(params[:id])
   end
@@ -36,8 +34,8 @@ class OperationsController < ApplicationController
       flash[:success] = "Operation updated"
       redirect_to @client
     else
-      render 'edit'      
-    end    
+      render 'edit'
+    end
   end
 
   def destroy
@@ -45,8 +43,8 @@ class OperationsController < ApplicationController
     flash[:success] = "Operation destroyed."
     redirect_to @client
   end
-  
-  
+
+
   private
   def find_client
     @client = Client.find(params[:client_id])
