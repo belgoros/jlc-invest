@@ -3,7 +3,7 @@ class OperationsController < ApplicationController
   before_filter :find_client, except: :index
 
   def index
-    @operations = Client.joins(:operations).select('clients.id,firstname, lastname, sum(total) as total').group('clients.id, firstname,lastname,total').paginate(page: params[:page])
+    @operations = Client.joins(:operations).select('firstname, lastname, sum(total) as total').group('clients.id, firstname,lastname').paginate(page: params[:page])
   end
 
   def new
