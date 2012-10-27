@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017202820) do
+ActiveRecord::Schema.define(:version => 20121027130032) do
 
   create_table "admins", :force => true do |t|
     t.string   "firstname"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121017202820) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.date     "close_date"
+    t.decimal  "withholding",    :precision => 5,  :scale => 2
   end
 
 end
