@@ -21,6 +21,7 @@ fr:
   no_items_found: "Aucun enregistrement trouvé"
   add_account: "Créer un compte"
   connection: "Connexion"
+  duration_error: "La date de calcul doit être supérieur à la date de l'opération"
   
   links:
     delete: "Supprimer"
@@ -270,6 +271,9 @@ fr:
         country: "Pays"
         phone: "Téléphone"
       operation:
+        withdrawal: "Retrait"
+        deposit: "Dépôt"
+        remission: "Remise"
         value_date: "Date"
         close_date: "Date de calcul"
         operation_type: "Type d'opération"

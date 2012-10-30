@@ -1,9 +1,9 @@
 class Operation < ActiveRecord::Base
   belongs_to :account
   
-  DEPOSIT = 'deposit'
-  REMISSION = 'remission'
-  WITHDRAWAL = 'withdrawal'
+  DEPOSIT = I18n.t('activerecord.attributes.operation.deposit')
+  REMISSION = I18n.t('activerecord.attributes.operation.remission')
+  WITHDRAWAL = I18n.t('activerecord.attributes.operation.withdrawal')
 
   TRANSACTIONS = [DEPOSIT, WITHDRAWAL, REMISSION]
   
@@ -25,6 +25,7 @@ class Operation < ActiveRecord::Base
   validates :account_id, presence: true
   
   before_validation :check_balance, if: Proc.new { |op| op.operation_type == WITHDRAWAL }
+  before_validation :check_close_date, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
   before_save :calculate_total  
   
   private
@@ -49,19 +50,23 @@ class Operation < ActiveRecord::Base
     end
 
 
-    def calculate_duration
+    def calculate_duration      
       self.duration = (close_date - value_date).to_i
     end
 
     def check_balance
       self.sum ||= 0
       if account.operations.empty? || sum > account_balance
-        errors.add(:sum, t(:insufficient_balance, balance: account_balance, sum: sum))
+        errors.add(:sum, I18n.t(:insufficient_balance, balance: account_balance, sum: sum))
       end      
     end
     
     def account_balance
       account.operations.map(&:total).inject(:+)
+    end
+    
+    def check_close_date
+      errors[:base] << I18n.t(:duration_error) if value_date > close_date
     end
 
 
