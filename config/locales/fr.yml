@@ -25,7 +25,7 @@ fr:
   links:
     delete: "Supprimer"
     edit: "Modifier"
-    new: "Add %{model}"
+    new: "Ajouter %{model}"
     back_to_list: "Retour à la liste"
     home: "Accueil"
     operations: "Opérations"
