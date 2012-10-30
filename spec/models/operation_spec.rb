@@ -3,8 +3,9 @@ require 'spec_helper'
 describe Operation do
 
   let(:client) { create(:client) }
+  let(:account) { create(:account, client: client) }
 
-  before { @deposit_operation = build(:deposit, client: client, close_date: Date.today + 6.months, sum: 1000,
+  before { @deposit_operation = build(:deposit, account: account, close_date: Date.today + 6.months, sum: 1000,
                                       rate: 12, withholding: 12) }
 
   subject { @deposit_operation }
@@ -21,20 +22,20 @@ describe Operation do
   it { should respond_to(:close_date) }
   it { should respond_to(:withholding) }
 
-  its(:client) { should == client }
+  its(:account) { should == account }
 
   it { should be_valid }
 
   describe "accessible attributes" do
     it "should not allow access to client_id" do
       expect do
-        Operation.new(client_id: client.id)
+        Operation.new(account_id: account.id)
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 
-  describe "when client_id is not present" do
-    before { @deposit_operation.client_id = nil }
+  describe "when account_id is not present" do
+    before { @deposit_operation.account_id = nil }
     it { should_not be_valid }
   end
   
@@ -49,7 +50,7 @@ describe Operation do
   end  
 
   describe "when sum is not present" do
-    before { @deposit_operation.sum = '' }
+    before { @deposit_operation.sum = nil }
     it { should_not be_valid }
   end  
 
@@ -65,7 +66,7 @@ describe Operation do
   
   describe "when deposit or remission" do
     context "calculates the duration after save" do
-      subject { create(:deposit, sum: 1000, rate: 12, withholding: 12, client: client, value_date: Date.today, close_date: Date.today + 6.months )}
+      subject { create(:deposit, sum: 1000, rate: 12, withholding: 12, account: account, value_date: Date.today, close_date: Date.today + 6.months )}
       its(:duration) { should == 182 }
     end
     
@@ -101,14 +102,14 @@ describe Operation do
     end 
     
     context "calculates interests" do
-      subject { create(:deposit, client: client, sum: 1000, rate: 12, withholding: 12,
+      subject { create(:deposit, account: account, sum: 1000, rate: 12, withholding: 12,
             value_date: Date.today, close_date: Date.today + 6.months )}
       its(:total) { should_not be_blank }
       its(:interests) { should_not be_blank }
     end
 
     context "calculate interests and total correctly" do
-      subject { create(:deposit, client: client, sum: 1000, rate: 12, withholding: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      subject { create(:deposit, account: account, sum: 1000, rate: 12, withholding: 12, value_date: Date.today, close_date: Date.today + 6.months )}
       its(:interests) {should be_within(0.01).of(52.66)}
       its(:total) {should be_within(0.01).of(1052.66)}
     end
@@ -120,17 +121,17 @@ describe Operation do
     before(:each) {@deposit_operation.save }
     
     context "when requested sum does not exceed the balance" do
-      subject { build(:withdrawal, client: client, sum: 500) }
+      subject { build(:withdrawal, account: account, sum: 500) }
       it { should be_valid }
     end
     
     context "interests should not be calculated" do
-      subject { build(:withdrawal, client: client, sum: 500) }
+      subject { build(:withdrawal, account: account, sum: 500) }
       its(:interests) { should be_nil }
     end
      
     context "when requested sum exceeds the balance" do      
-      subject { build(:withdrawal, client: client, sum: 10000) }
+      subject { build(:withdrawal, account: account, sum: 10000) }
       it { should_not be_valid }
     end
   end  

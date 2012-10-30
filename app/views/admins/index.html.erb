@@ -1,5 +1,5 @@
-<%= provide(:title, 'All users') %>
-<h1>All users</h1>
+<%= provide(:title, t(:list_all, model: Admin.model_name.human.pluralize)) %>
+<h1><%= t(:list_all, model: Admin.model_name.human.pluralize) %></h1>
 
 <%= will_paginate %>
 

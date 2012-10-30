@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(params[:admin])
     if @admin.save
       sign_in @admin
-      flash[:success] = "User created with success"
+      flash[:success] = t(:created_success, model: Admin.model_name.human)
       redirect_to @admin
     else
       render "new"
@@ -30,7 +30,7 @@ class AdminsController < ApplicationController
 
   def update
     if @admin.update_attributes(params[:admin])
-      flash[:success] = "Profile updated"
+      flash[:success] = t(:updated_success, model: Admin.model_name.human)
       sign_in @admin
       redirect_to @admin
     else
@@ -40,7 +40,7 @@ class AdminsController < ApplicationController
 
   def destroy
     Admin.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = t(:destroyed_success, model: Admin.model_name.human)
     redirect_to admins_url
   end
 

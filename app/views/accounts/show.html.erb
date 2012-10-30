@@ -1,0 +1,31 @@
+<% provide(:title, @account.client.full_name) %>
+<h1><%= @account.client.full_name %></h1>
+
+<% if @operations.empty? %>
+    <h2><%= t(:no_items_found)%></h2>
+<% else %>
+    <h2><%= t(:list_all, model: Operation.model_name.human.pluralize)%></h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.operation.value_date')%></th>
+        <th><%= t('activerecord.attributes.operation.operation_type')  %></th>
+        <th><%= t('activerecord.attributes.operation.sum')%></th>
+        <th><%= t('activerecord.attributes.operation.rate') %></th>
+        <th><%= t('activerecord.attributes.operation.close_date') %>></th>
+        <th><%= t('activerecord.attributes.operation.duration') %></th>
+        <th><%= t('activerecord.attributes.operation.interests') %></th>
+        <th><%= t('activerecord.attributes.operation.withholding') %></th>
+        <th><%= t('activerecord.attributes.operation.total') %></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @operations %>
+      </tbody>
+    </table>
+    <%= will_paginate @operations %>
+<% end %>
+
+<p><%= link_to t('links.new', model: Operation.model_name.human), new_account_operation_path(@account) %>|<%= link_to t('links.back_to_list'), @account.client %></p>

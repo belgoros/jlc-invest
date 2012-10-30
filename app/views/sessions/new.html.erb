@@ -1,17 +1,17 @@
-<% provide(:title, 'Sign in') %>
-<h1>Sign in</h1>
+<% provide(:title, t(:connection)) %>
+<h1><%=  t(:connection) %></h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-        <%= f.label :email %>
+        <%= f.label :email, t('activerecord.attributes.admin.email') %>
         <%= f.text_field :email %>
 
-        <%= f.label :password %>
+        <%= f.label :password, t('activerecord.attributes.admin.password') %>
         <%= f.password_field :password %>
 
-        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+        <%= f.submit  t('links.sign_in'), class: "btn btn-large btn-primary" %>
     <% end %>
 
   </div>

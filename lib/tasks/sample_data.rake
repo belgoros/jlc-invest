@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_clients
+    make_accounts
     make_operations
   end
 end
@@ -13,7 +14,7 @@ def make_users
                 password: 'admin123',
                 password_confirmation: 'admin123')
 
-  50.times do |n|
+  35.times do |n|
     firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
     email = "example-#{n+1}@jlc-invset.com"
@@ -30,7 +31,7 @@ end
 def make_clients
   Faker::Config.locale = :fr
 
-  50.times do |n|
+  35.times do |n|
     firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
     street = Faker::Address.street_name
@@ -51,16 +52,26 @@ def make_clients
 
 end
 
-def make_operations  
+def make_accounts
   clients = Client.all(limit: 35)
   3.times do
     clients.each do |client|
-      client.operations.create!(value_date: Date.today,
+      client.accounts.create!
+    end
+  end
+end
+
+def make_operations
+  range = 100..1000
+  accounts = Account.all(limit: 35)
+  3.times do
+    accounts.each do |account|
+      account.operations.create!(value_date: Date.today,
       operation_type: Operation::DEPOSIT,
-      sum: 1000.0 + 20.0 * client.id,
-      rate: client.id/10.0 + 1,
+      sum: 1000.0 + range.to_a.sample,
+      rate: account.id/10.0 + 1,
       withholding: 12,
-      close_date: Date.today + client.id.months)
+      close_date: Date.today + account.id.months)
     end
   end  
 end

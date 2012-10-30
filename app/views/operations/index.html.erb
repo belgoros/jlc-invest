@@ -1,14 +1,14 @@
-<%= provide(:title, 'All operations') %>
+<%= provide(:title, t(:list_all, model: Operation.model_name.human.pluralize)) %>
 
-<h1>All operations</h1>
+<h2><%= t(:list_all, model: Operation.model_name.human.pluralize) %></h2>
 
 <%= will_paginate %>
 <table class="table table-striped">
   <thead>
       <tr>        
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Sum</th>
+        <th><%= t('activerecord.attributes.client.firstname') %></th>
+        <th><%= t('activerecord.attributes.client.lastname') %></th>
+        <th><%= t('activerecord.attributes.operation.sum') %></th>
       </tr>
     </thead>
   <tbody>

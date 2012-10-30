@@ -1,5 +1,5 @@
 class Operation < ActiveRecord::Base
-  belongs_to :client  
+  belongs_to :account
   
   DEPOSIT = 'deposit'
   REMISSION = 'remission'
@@ -22,7 +22,7 @@ class Operation < ActiveRecord::Base
   validates :value_date, presence: true
   validates :close_date, presence: true, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
   validates :withholding, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
-  validates :client_id, presence: true
+  validates :account_id, presence: true
   
   before_validation :check_balance, if: Proc.new { |op| op.operation_type == WITHDRAWAL }
   before_save :calculate_total  
@@ -40,11 +40,11 @@ class Operation < ActiveRecord::Base
     end
     
     def calculate_interests
-      withholding_off = interest_without_withholding
-      self.interests = withholding_off - withholding_off * withholding.to_f/100
+      brut_interests = calculate_brut_interests
+      self.interests = brut_interests - brut_interests * withholding.to_f/100
     end
 
-    def interest_without_withholding
+    def calculate_brut_interests
       sum.to_f * duration/365 * (rate.to_f/100)
     end
 
@@ -53,14 +53,15 @@ class Operation < ActiveRecord::Base
       self.duration = (close_date - value_date).to_i
     end
 
-    def check_balance      
-      if client.operations.empty? || sum > account_balance
-        errors.add(:sum, "#{sum} exceeds the actual balance") 
+    def check_balance
+      self.sum ||= 0
+      if account.operations.empty? || sum > account_balance
+        errors.add(:sum, t(:insufficient_balance, balance: account_balance, sum: sum))
       end      
     end
     
     def account_balance
-      client.operations.map(&:total).inject(:+)
+      account.operations.map(&:total).inject(:+)
     end
 
 

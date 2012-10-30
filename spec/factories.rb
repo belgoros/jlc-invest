@@ -18,9 +18,13 @@ FactoryGirl.define do
     sequence(:phone) { |n| "078-#{n}" }
   end
 
+  factory :account do
+    client
+  end
+
   factory :operation do
     value_date Date.today        
-    client
+    account
     
     factory :deposit do
       operation_type Operation::DEPOSIT   
@@ -37,4 +41,3 @@ FactoryGirl.define do
   end 
 
 end
-

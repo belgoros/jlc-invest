@@ -1,12 +1,41 @@
-# French translations for Ruby on Rails
-# by Christian Lescuyer (christian@flyingcoders.com)
-# contributors:
-#  - Sebastien Grosjean - ZenCocoon.com
-#  - Bruno Michel - http://github.com/nono
-#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
-# Emended by Benjamin des Gachons and Patrick Chew : <http://www.fitima.org/docs/fiche.pdf>
 
 fr:
+  will_paginate:
+      previous_label: "&#8592; Précédente"
+      next_label: "Suivante &#8594;"
+      page_gap: "&hellip;"
+
+  created_success: "%{model} créé avec succès"
+  destroyed_success: "%{model} supprimé avec succès"
+  updated_success: "%{model} modifié avec succès"
+  invalid_login: "Combinaison e-mail/mot de passe invalide"
+  base_title: "J.L.C. INVESTISSEMENT"
+  sign_in_required: "Vous devez être connecté"
+  insufficient_balance: "Le solde de votre compte %{balance} est inférieur à la somme demandée: %{sum}"
+  confirm_password: "Confirmer le mot de passe"
+  new: "Créer %{model}"
+  edit: "Modifier %{model}"
+  list_all: "Liste %{model}"
+  sign_up: "S'enregistrer"
+  are_you_sure: "Êtes-vous sur ?"
+  no_items_found: "Aucun enregistrement trouvé"
+  add_account: "Créer un compte"
+  connection: "Connexion"
+  
+  links:
+    delete: "Supprimer"
+    edit: "Modifier"
+    new: "Add %{model}"
+    back_to_list: "Retour à la liste"
+    home: "Accueil"
+    operations: "Opérations"
+    clients: "Clients"
+    account: "Compte"
+    profile: "Profile"
+    settings: "Modifier mes données"
+    sign_out: "Se déconnecter"
+    sign_in: "Se connecter"
+    back_to_account: "Retourner au compte"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -173,9 +202,9 @@ fr:
     select:
       prompt: "Veuillez sélectionner"
     submit:
-      create: "Créer un(e) %{model}"
-      update: "Modifier ce(tte) %{model}"
-      submit: "Enregistrer ce(tte) %{model}"
+      create: "Créer %{model}"
+      update: "Modifier %{model}"
+      submit: "Enregistrer %{model}"
 
   errors: &errors
     format: "%{attribute} %{message}"
@@ -217,6 +246,40 @@ fr:
   activemodel:
     errors:
       <<: *errors
-  activerecord:
+  activerecord:    
+    models:
+      admin: Adminitrateur
+      client: Client
+      account: Compte
+      operation: Opération      
+    attributes:
+      admin:
+        password: "Mot de passe"
+        password_digest: "Mot de passe"
+        email: "E-mail"
+        firstname: "Prénom"
+        lastname: "Nom"
+      client:
+        firstname: "Prénom"
+        lastname: "Nom"
+        street: "Rue"
+        house: "Numéro"
+        box: "Boîte"
+        zipcode: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        phone: "Téléphone"
+      operation:
+        value_date: "Date"
+        close_date: "Date de calcul"
+        operation_type: "Type d'opération"
+        duration: "Durée"
+        rate: "Taux"
+        interests: "Intérêts"
+        sum: "Somme"
+        withholding: "Précompte"
+        total: "Total"
+      account:
+        acc_number: "Numéro de compte"
     errors:
       <<: *errors

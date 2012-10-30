@@ -1,14 +1,14 @@
-<% provide(:title, "Edit operation") %>
-<h1>Update operation</h1>
+<% provide(:title, t(:edit, model: Operation.model_name.human)) %>
+<h2><%= t(:edit, model: Operation.model_name.human) %></h2>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for([@client, @operation]) do |f| %>
+    <%= form_for([@account, @operation]) do |f| %>
 
         <%= render 'fields', f: f %>
 
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        <%= f.submit class: "btn btn-large btn-primary" %>
     <% end %>
-    <%= link_to 'Back to List', client_path(@client) %>
+    <%= link_to t('links.back_to_list'), @account %>
   </div>
 </div>

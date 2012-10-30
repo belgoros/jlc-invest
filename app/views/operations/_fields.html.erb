@@ -1,40 +1,40 @@
 <script>
-  $(function() {
-    $("#operation_value_date" ).datepicker({altField: '#operation_value_date',altFormat: 'dd-mm-yy' });
-    $("#operation_close_date" ).datepicker({altField: '#operation_close_date',altFormat: 'dd-mm-yy' });
-    $('#operation_operation_type').change(function() {
-      var sel = $(this).val();      
-      if(sel == 'withdrawal') {
-        $("#remission").hide("slow");
-        $("#operation_rate").val("");        
-        $("#operation_close_date").val("");
-      }
-      else {
-        $("#remission").show("slow");
-      }
-    });  
-  });
-  
+    $(function () {
+        $("#operation_value_date").datepicker({altField:'#operation_value_date', altFormat:'dd-mm-yy' });
+        $("#operation_close_date").datepicker({altField:'#operation_close_date', altFormat:'dd-mm-yy' });
+        $('#operation_operation_type').change(function () {
+            var sel = $(this).val();
+            if (sel == 'withdrawal') {
+                $(".remission").hide("slow");
+                $("#operation_rate").val("");
+                $("#operation_close_date").val("");
+            }
+            else {
+                $(".remission").show("slow");
+            }
+        });
+    });
+
 </script>
 
-    
+
 <%= render 'shared/error_messages', object: f.object %>
 
 <%= f.label :value_date %>
 <%= f.text_field :value_date %>
 
 <%= f.label :operation_type %>
-<%= f.select :operation_type, Operation::TRANSACTIONS, :prompt => 'Select operation' %>
+<%= f.select :operation_type, Operation::TRANSACTIONS, prompt: true %>
 
 <%= f.label :sum %>
 <%= f.text_field :sum %>
-<div id="remission"
-<%= f.label :rate %>
-<%= f.text_field :rate %>
+<div class ="remission">
+    <%= f.label :rate %>
+    <%= f.text_field :rate %>
 
-<%= f.label :close_date %>
-<%= f.text_field :close_date %>
+    <%= f.label :close_date %>
+    <%= f.text_field :close_date %>
 
-<%= f.label :withholding %>
-<%= f.text_field :withholding %>
+    <%= f.label :withholding %>
+    <%= f.text_field :withholding %>
 </div>

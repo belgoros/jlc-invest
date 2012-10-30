@@ -1,52 +1,48 @@
 class OperationsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
-  before_filter :find_client, except: :index
+  before_filter :find_account, except: :index
 
   def index
-    @operations = Client.joins(:operations).select('firstname, lastname, sum(total) as total').group('clients.id, firstname,lastname').paginate(page: params[:page])
+    @operations = Account.joins(:client, :operations).select('clients.firstname, clients.lastname, sum(operations.total) as total').group('clients.id, clients.firstname, clients.lastname').order('clients.lastname').paginate(page: params[:page])
   end
 
   def new
-    @operation = @client.operations.new
+    @operation = @account.operations.new
   end
 
   def create
-    @operation = @client.operations.new(params[:operation])
+    @operation = @account.operations.new(params[:operation])
     if @operation.save
-      flash[:success] = "Operation created with success"
-      redirect_to @client
+      flash[:success] = t(:created_success, model: Operation.model_name.human)
+      redirect_to @account
     else
       render "new"
     end
   end
 
   def edit
-    @operation = @client.operations.find(params[:id])
-  end
-
-  def show
-    @operation = @client.operations.find(params[:id])
-  end
+    @operation = @account.operations.find(params[:id])
+  end  
 
   def update
-    @operation = @client.operations.find(params[:id])
+    @operation = @account.operations.find(params[:id])
     if @operation.update_attributes(params[:operation])
-      flash[:success] = "Operation updated"
-      redirect_to @client
+      flash[:success] = t(:updated_success, model: Operation.model_name.human)
+      redirect_to @account
     else
       render 'edit'
     end
   end
 
   def destroy
-    @client.operations.find(params[:id]).destroy
-    flash[:success] = "Operation destroyed."
-    redirect_to @client
+    @account.operations.find(params[:id]).destroy
+    flash[:success] = t(:destroyed_success, model: Operation.model_name.human)
+    redirect_to @account
   end
 
 
   private
-  def find_client
-    @client = Client.find(params[:client_id])
+  def find_account
+    @account = Account.find(params[:account_id])
   end
 end

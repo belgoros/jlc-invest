@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  has_many :operations, dependent: :destroy
+  has_many :accounts, dependent: :destroy
   default_scope order: 'clients.lastname'
   attr_accessible :firstname, :lastname, :street, :house, :box, :zipcode, :city, :country, :phone
 

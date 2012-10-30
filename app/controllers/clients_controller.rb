@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(params[:client])
     if @client.save
-      flash[:success] = "Client created with success"
+      flash[:success] = t(:created_success, model: Client.model_name.human)
       redirect_to clients_path
     else
       render "new"
@@ -25,13 +25,13 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-    @operations = @client.operations.paginate(page: params[:page])    
+    @accounts = @client.accounts.paginate(page: params[:page])    
   end
 
   def update
     @client = Client.find(params[:id])
     if @client.update_attributes(params[:client])
-      flash[:success] = "Profile updated"
+      flash[:success] = t(:updated_success, model: Client.model_name.human)
       redirect_to @client
     else
       render 'edit'
@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
 
   def destroy
     Client.find(params[:id]).destroy
-    flash[:success] = "Client destroyed."
+    flash[:success] = t(:destroyed_success, model: Client.model_name.human)
     redirect_to clients_url
   end
 end
