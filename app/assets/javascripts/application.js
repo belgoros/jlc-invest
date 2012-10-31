@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= jquery-ui-1.9.0.custom.min
-//= jquery-1.8.2
+//= require bootstrap-datepicker
 //= require_tree .
