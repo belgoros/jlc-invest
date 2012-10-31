@@ -14,8 +14,8 @@ class Admin < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   before_save do |user|
-    user.email = email.downcase.strip
-    user.firstname = firstname.capitalize.strip
+    user.email = email.downcase.strip    
+    user.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
     user.lastname = lastname.upcase.strip
   end
 
