@@ -7,6 +7,7 @@ gem 'faker', '~> 1.1.2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.8'
 gem 'jquery-rails'
+gem 'bootstrap-datepicker-rails', '~> 0.6.24'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
@@ -25,7 +26,7 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails', '4.1.0'  
   gem 'database_cleaner', '0.8.0'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
