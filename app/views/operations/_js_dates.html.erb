@@ -4,8 +4,8 @@
         $('#operation_close_date').datepicker({startDate: "01/01/2012", autoclose: true, weekStart: 1, language: "fr", format: "dd/mm/yyyy", todayHighlight: true});
         
         $('#operation_operation_type').change(function () {
-            var sel = $(this).prop('selectedIndex');           
-            if (sel == 1) {
+            var sel = $(this).val();
+            if (sel == '<%= Operation::WITHDRAWAL %>') {
                 $(".remission").hide("slow");
                 $("#operation_rate").val("");
                 $("#operation_close_date").val("");
