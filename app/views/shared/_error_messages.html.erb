@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
     <div id="error_explanation">
       <div class="alert alert-error">
-        <%= t('errors.template.header', model: object.class, count: object.errors.count) %>
+        <%= t('errors.template.header', model: object.class.model_name.human, count: object.errors.count) %>
         <!--
         <%= pluralize(object.errors.count, "error") %>. -->
       </div>
