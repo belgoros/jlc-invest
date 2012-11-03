@@ -17,8 +17,8 @@ describe Operation do
   it { should respond_to(:value_date) }
   it { should respond_to(:interests) }
   it { should respond_to(:total) }
-  it { should respond_to(:client_id) }
-  it { should respond_to(:client) }
+  it { should respond_to(:account_id) }
+  it { should respond_to(:account) }
   it { should respond_to(:close_date) }
   it { should respond_to(:withholding) }
 
@@ -66,8 +66,8 @@ describe Operation do
   
   describe "when deposit or remission" do
     context "calculates the duration after save" do
-      subject { create(:deposit, sum: 1000, rate: 12, withholding: 12, account: account, value_date: Date.today, close_date: Date.today + 6.months )}
-      its(:duration) { should == 182 }
+      subject { create(:deposit, sum: 1000, rate: 12, withholding: 12, account: account, value_date: Date.today, close_date: Date.today + 182.days )}
+      its(:duration) { should be_within(1).of(182) }
     end
     
     context "when rate is not present" do
@@ -109,7 +109,7 @@ describe Operation do
     end
 
     context "calculate interests and total correctly" do
-      subject { create(:deposit, account: account, sum: 1000, rate: 12, withholding: 12, value_date: Date.today, close_date: Date.today + 6.months )}
+      subject { create(:deposit, account: account, sum: 1000, rate: 12, withholding: 12, value_date: Date.today, close_date: Date.today + 182.days )}
       its(:interests) {should be_within(0.01).of(52.66)}
       its(:total) {should be_within(0.01).of(1052.66)}
     end
