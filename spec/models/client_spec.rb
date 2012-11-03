@@ -20,7 +20,7 @@ describe Client do
   it { should respond_to(:zipcode) }
   it { should respond_to(:city) }
   it { should respond_to(:country) }
-  it { should respond_to(:operations) }
+  it { should respond_to(:accounts) }
 
   it { should be_valid }
 
@@ -109,26 +109,15 @@ describe Client do
     it { should_not be_valid }
   end
 
-  describe "operation associations" do
+  describe "account associations" do
 
-    before { @client.save }
+    before { @client.save }    
 
-    let!(:older_operation) do
-      create(:deposit, client: @client, value_date: 10.days.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12, withholding: 12)
-    end
-    let!(:newer_operation) do
-      create(:deposit, client: @client, value_date: 1.day.ago.to_date, close_date: Date.today + 3.months, sum: 1000, rate:12, withholding: 12)
-    end
-
-    it "should have the right operations in the right order" do
-      @client.operations.should == [newer_operation, older_operation]
-    end
-
-    it "should destroy associated operations" do
-      operations = @client.operations
+    it "should destroy associated accounts" do
+      accounts = @client.accounts
       @client.destroy
-      operations.each do |operation|
-        Operation.find_by_id(operation.id).should be_nil
+      accounts.each do |account|
+        Account.find_by_id(account.id).should be_nil
       end
     end
   end
