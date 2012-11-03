@@ -6,33 +6,34 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1', text: 'Sign in') }
-    it { should have_selector('title', text: 'Sign in') }
+    it { should have_selector('h1', text: I18n.t(:connection)) }
+    it { should have_selector('title', text: full_title(I18n.t(:connection))) }
 
     describe "signin" do
       before { visit signin_path }
 
       describe "with invalid information" do
-        before { click_button "Sign in" }
+        before { click_button I18n.t('links.sign_in') }
 
-        it { should have_selector('title', text: 'Sign in') }
-        it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+        it { should have_selector('title', text: I18n.t(:connection)) }
+        it { should have_selector('div.alert.alert-error', text: I18n.t(:invalid_login)) }
       end
 
       describe "with valid information" do
-        let(:admin) { FactoryGirl.create(:admin) }
+        let(:admin) { create(:admin) }
         before { sign_in admin }
 
-        it { should have_selector('title', text: admin.full_name) }
-        it { should have_link('Operations', href: operations_path) }
-        it { should have_link('Profile', href: admin_path(admin)) }
-        it { should have_link('Settings', href: edit_admin_path(admin)) }
-        it { should have_link('Sign out', href: signout_path) }
-        it { should_not have_link('Sign in', href: signin_path) }
+        it { should have_selector('title', text: full_title(I18n.t(:list_all, model: Client.model_name.human.pluralize))) }
+        it { should have_link(I18n.t('links.home'), href: root_path) }
+        it { should have_link(I18n.t('links.operations'), href: operations_path) }
+        it { should have_link(I18n.t('links.profile'), href: admin_path(admin)) }
+        it { should have_link(I18n.t('links.settings'), href: edit_admin_path(admin)) }
+        it { should have_link(I18n.t('links.sign_out'), href: signout_path) }
+        it { should_not have_link(I18n.t('links.sign_in'), href: signin_path) }
 
         describe "followed by signout" do
-          before { click_link "Sign out" }
-          it { should have_link('Sign in') }
+          before { click_link I18n.t('links.sign_out')}
+          it { should have_link(I18n.t('links.sign_in')) }
         end
 
       end
@@ -42,19 +43,19 @@ describe "Authentication" do
   describe "authorization" do
 
     describe "for non-signed-in users" do
-      let(:admin) { FactoryGirl.create(:admin) }
+      let(:admin) { create(:admin) }
 
       describe "when attempting to visit a protected page" do
         before do
           visit edit_admin_path(admin)
-          fill_in "Email", with: admin.email
-          fill_in "Password", with: admin.password
-          click_button "Sign in"
+          fill_in I18n.t('activerecord.attributes.admin.email'), with: admin.email
+          fill_in I18n.t('activerecord.attributes.admin.password'), with: admin.password
+          click_button I18n.t('links.sign_in')
         end
 
         describe "after signing in" do
           it "should render the desired protected page" do
-            page.should have_selector('title', text: 'Edit user')
+            page.should have_selector('title', text: full_title(I18n.t('links.edit', model: Admin.model_name.human)))
           end
         end
       end
@@ -63,7 +64,7 @@ describe "Authentication" do
 
         describe "visiting the edit page" do
           before { visit edit_admin_path(admin) }
-          it { should have_selector('title', text: 'Sign in') }
+          it { should have_selector('title', text: full_title(I18n.t(:edit, model: Admin.model_name.human))) }
         end
 
         describe "submitting to the update action" do
@@ -73,19 +74,19 @@ describe "Authentication" do
 
         describe "visiting the Admin index" do
           before { visit admins_path }
-          it { should have_selector('title', text: 'Sign in') }
+          it { should have_selector('title', text: full_title(I18n.t(:connection))) }
         end
       end
     end
 
     describe "as wrong user" do
-      let(:admin) { FactoryGirl.create(:admin) }
-      let(:wrong_user) { FactoryGirl.create(:admin, email: "wrong@example.com") }
+      let(:admin) { create(:admin) }
+      let(:wrong_user) { create(:admin, email: "wrong@example.com") }
       before { sign_in admin }
 
       describe "visiting Admins#edit page" do
         before { visit edit_admin_path(wrong_user) }
-        it { should_not have_selector('title', text: full_title('Edit user')) }
+        it { should_not have_selector('title', text: full_title(I18n.t(:edit, model: Admin.model_name.human ))) }
       end
 
       describe "submitting a PUT request to the Admins#update action" do
