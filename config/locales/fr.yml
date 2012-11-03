@@ -249,7 +249,7 @@ fr:
       <<: *errors
   activerecord:    
     models:
-      admin: Adminitrateur
+      admin: Administrateur
       client: Client
       account: Compte
       operation: Opération      
