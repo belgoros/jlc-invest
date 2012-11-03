@@ -16,7 +16,7 @@ fr:
   new: "Créer %{model}"
   edit: "Modifier %{model}"
   list_all: "Liste %{model}"
-  sign_up: "S'enregistrer"
+  sign_up: "Registration"
   are_you_sure: "Êtes-vous sur ?"
   no_items_found: "Aucun enregistrement trouvé"
   add_account: "Créer un compte"
