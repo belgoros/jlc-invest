@@ -2,9 +2,9 @@ include ApplicationHelper
 
 def sign_in(user)
   visit signin_path
-  fill_in "Email", with: user.email
-  fill_in "Password", with: user.password
-  click_button "Sign in"
+  fill_in I18n.t('activerecord.attributes.admin.email'), with: user.email
+  fill_in I18n.t('activerecord.attributes.admin.password'), with: user.password
+  click_button I18n.t('links.sign_in')
   # Sign in when not using Capybara as well.
   cookies[:remember_token] = user.remember_token
 end
