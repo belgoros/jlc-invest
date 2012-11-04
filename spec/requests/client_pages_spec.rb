@@ -12,8 +12,8 @@ describe "Client Pages" do
       visit clients_path
     end
 
-    it { should have_selector('title', text: 'All clients') }
-    it { should have_selector('h1', text: 'All clients') }
+    it { should have_selector('title', text: full_title(I18n.t(:list_all, model: Client.model_name.human.pluralize))) }
+    it { should have_selector('h2', text: I18n.t(:list_all, model: Client.model_name.human.pluralize)) }
 
     before(:all) { 31.times { create(:client) } }
     after(:all) { Client.delete_all }
@@ -31,20 +31,20 @@ describe "Client Pages" do
     end
 
     describe "delete links" do
-      it { should have_link('delete') }
+      it { should have_link(I18n.t('links.delete')) }
 
-      it { should have_link('delete', href: client_path(Client.first)) }
+      it { should have_link(I18n.t('links.delete'), href: client_path(Client.first)) }
       it "should be able to delete a client" do
-        expect { click_link('delete') }.to change(Client, :count).by(-1)
+        expect { click_link(I18n.t('links.delete')) }.to change(Client, :count).by(-1)
       end
     end
 
     describe "edit links" do
-      it { should have_link('edit') }
+      it { should have_link(I18n.t('links.edit')) }
     end
     
     describe "operations links" do
-      it { should have_link('operations') }
+      it { should have_link(I18n.t('links.operations')) }
     end
   end
 
@@ -57,38 +57,37 @@ describe "Client Pages" do
     end
 
     describe "page" do
-      it { should have_selector('h1', text: "Update client profile") }
-      it { should have_selector('title', text: "Edit client") }
-      it { should have_link('Back to List', href: clients_path) }
+      it { should have_selector('h2', text: I18n.t(:edit, model: Client.model_name.human)) }
+      it { should have_selector('title', text: full_title(I18n.t(:edit, model: Client.model_name.human))) }
+      it { should have_link(I18n.t('links.back_to_list'), href: clients_path) }
     end
   end
 
-  describe "client operations page" do
+  describe "client accounts page" do
     let(:admin) { create(:admin) }
     let(:client) { create(:client) }
-    let(:deposit) { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2, withholding: 12) }
+    let(:account) { create(:account, client: client) }
     before do
       sign_in admin
-      31.times { create(:deposit, client: client, close_date: Date.today + 3.months, sum: 1200, rate: 2, withholding: 12) }
+      31.times { create(:account, client: client) }
       visit client_path(client)      
     end
     
-    after { client.operations.delete_all}
+    after { client.accounts.delete_all}
 
     describe "page" do
-      it { should have_selector('h1', text: client.full_name) }
-      it { should have_selector('title', text: client.full_name) }
-      it { should have_link('Back to List', href: clients_path) }
+      it { should have_selector('h2', text: client.full_name) }
+      it { should have_selector('title', text: full_title(client.full_name)) }
+      it { should have_link(I18n.t('links.back_to_list'), href: clients_path) }
     end
     
-    describe "operations pagination" do
+    describe "accounts pagination" do
       it { should have_selector('div.pagination') }
 
-      it "should list each operation" do
-        Operation.paginate(page: 1).each do |operation|
-          page.should have_selector('td', text: operation.sum.to_s)
-          page.should have_link('edit', href: edit_client_operation_path(client, operation))
-          page.should have_link('delete', href: client_operation_path(client, operation))
+      it "should list each account" do
+        Account.paginate(page: 1).each do |account|
+          page.should have_selector('td', text: account.acc_number)          
+          page.should have_link(I18n.t('links.delete'), href: account_path(account))
         end
       end      
     end
@@ -97,25 +96,25 @@ describe "Client Pages" do
 
   describe "new client page" do
     let(:admin) { create(:admin) }
-    let(:submit) { "Create client" }
+    let(:submit) { I18n.t('helpers.submit.create', model: Client.model_name.human) }
     before do
       sign_in admin
       visit new_client_path
     end
 
     describe "with valid information" do
-      it { should have_selector('h1', text: "New client") }
-      it { should have_selector('title', text: "New client") }
-      it { should have_link('Back to List', href: clients_path) }
+      it { should have_selector('h1', text: I18n.t(:new, model: Client.model_name.human)) }
+      it { should have_selector('title', text: full_title(I18n.t(:new, model: Client.model_name.human))) }
+      it { should have_link(I18n.t('links.back_to_list'), href: clients_path) }
 
       before do
-        fill_in "Firstname", with: "Jean"
-        fill_in "Lastname", with: "Dupont"
-        fill_in "Street", with: "Rue Crampon"
-        fill_in "House", with: "12A"
-        fill_in "Zipcode", with: "7500"
-        fill_in "City", with: "Tournai"
-        fill_in "Country", with: "Belgique"
+        fill_in I18n.t('activerecord.attributes.client.firstname'), with: "Jean"
+        fill_in I18n.t('activerecord.attributes.client.lastname'), with: "Dupont"
+        fill_in I18n.t('activerecord.attributes.client.street'), with: "Rue Crampon"
+        fill_in I18n.t('activerecord.attributes.client.house'), with: "12A"
+        fill_in I18n.t('activerecord.attributes.client.zipcode'), with: "7500"
+        fill_in I18n.t('activerecord.attributes.client.city'), with: "Tournai"
+        fill_in I18n.t('activerecord.attributes.client.country'), with: "Belgique"
       end
 
       it "should create a client" do
@@ -125,9 +124,9 @@ describe "Client Pages" do
       describe "after saving the user" do
         before { click_button submit }
 
-        it { should have_selector('title', text: 'All clients') }
-        it { should have_selector('div.alert.alert-success', text: 'Client created with success') }
-        it { should have_link('New client') }
+        it { should have_selector('title', text: full_title(I18n.t(:list_all, model: Client.model_name.human.pluralize))) }
+        it { should have_selector('div.alert.alert-success', text: I18n.t(:created_success, model: Client.model_name.human)) }
+        it { should have_link(I18n.t('links.new', model: Client.model_name.human)) }
       end
     end
   end
