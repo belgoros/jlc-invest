@@ -16,9 +16,15 @@ describe Account do
   it { should respond_to(:operations) } 
   
 
-  describe "has a generated number" do
+  describe "account number" do
     before { @account.save }    
     its(:acc_number) { should_not be_nil }
+    
+    it "has a generated number increased by one" do
+      last = client.accounts.last
+      new_account = create(:account, client: client)
+      (new_account.acc_number.split('-').last.to_i - last.acc_number.split('-').last.to_i).should == 1
+    end
   end  
   
 end
