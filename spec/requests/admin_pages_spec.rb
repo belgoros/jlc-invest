@@ -96,14 +96,13 @@ describe "Admin Pages" do
     end
 
     describe "page" do
-      it { should have_selector('h1', text: I18n.t(:edit, model: Admin.model_name.human)) }
+      it { should have_selector('h2', text: I18n.t(:edit, model: Admin.model_name.human)) }
       it { should have_selector('title', text: full_title(I18n.t(:edit, model: Admin.model_name.human))) }
     end
 
     describe "with invalid information" do
-      pending "fix error content"
-#      before { click_button I18n.t('helpers.submit.update', model: Admin.model_name.human) }      
-#      it { should have_content(I18n.t('errors.template.header', model: Admin.model_name.human, count: admin.errors.count)) }
+      before { click_button I18n.t('helpers.submit.update', model: Admin.model_name.human) }      
+      it { should have_content(I18n.t(:form_errors)) }
     end
 
     describe "with valid information" do
