@@ -21,9 +21,9 @@ describe "Authentication" do
 
       describe "with valid information" do
         let(:admin) { create(:admin) }
-        before { sign_in admin }
+        before { sign_in admin }        
 
-        it { should have_selector('title', text: full_title(I18n.t(:list_all, model: Client.model_name.human.pluralize))) }
+        it { should have_selector('title', text: full_title(admin.full_name)) }
         it { should have_link(I18n.t('links.home'), href: root_path) }
         it { should have_link(I18n.t('links.operations'), href: operations_path) }
         it { should have_link(I18n.t('links.profile'), href: admin_path(admin)) }
@@ -64,7 +64,7 @@ describe "Authentication" do
 
         describe "visiting the edit page" do
           before { visit edit_admin_path(admin) }
-          it { should have_selector('title', text: full_title(I18n.t(:edit, model: Admin.model_name.human))) }
+          it { should have_selector('title', text: full_title(I18n.t(:connection))) }
         end
 
         describe "submitting to the update action" do
