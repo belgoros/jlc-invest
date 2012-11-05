@@ -1,4 +1,2 @@
-<p>
-<a href="https://www.railsonfire.com/projects/b96b7f10-08eb-0130-9ec0-123139182b35/status"></a>
-</p>
 JLC Invest application.
+https://www.railsonfire.com/projects/b96b7f10-08eb-0130-9ec0-123139182b35/status
