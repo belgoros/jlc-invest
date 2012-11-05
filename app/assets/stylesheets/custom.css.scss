@@ -144,3 +144,9 @@ input, textarea, select, .uneditable-input {
     }
   }
 }
+
+/* table cells */
+
+.table td.rightCell {
+  text-align: right;
+}
