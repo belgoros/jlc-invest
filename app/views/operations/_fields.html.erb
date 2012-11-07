@@ -16,7 +16,7 @@
     <%= f.text_field :rate %>
 
     <%= f.label :close_date %>
-    <%= f.text_field :close_date, value: @operation.new_record? ? '' : l(@operation.close_date) %>
+    <%= f.text_field :close_date, value: (@operation.new_record? || @operation.close_date.blank? ? '' : l(@operation.close_date)) %>
 
     <%= f.label :withholding %>
     <%= f.text_field :withholding %>
