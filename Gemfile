@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.8'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails', '~> 0.6.24'
+gem 'prawn', '~> 1.0.0.rc1'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
