@@ -1,13 +1,15 @@
 <tr>
+  <td class ="rightCell"><%= operation.id %></td>
   <td><%= l(operation.value_date)%></td>
   <td><%= operation.operation_type%></td>
-  <td class ="rightCell"><%= number_with_precision(operation.sum, precision: 2) %></td>
-  <td class ="rightCell"><%= number_with_precision(operation.rate, precision: 2)%></td>
+  <td class ="rightCell"><%= number_to_currency(operation.sum) %></td>
+  <td class ="rightCell"><%= number_to_percentage(operation.rate, precision: 2)%></td>
   <td><%= l(operation.close_date) if operation.close_date %></td>
-  <td><%= operation.duration%></td>
-  <td class ="rightCell"><%= number_with_precision(operation.interests, precision: 2)%></td>
-  <td class ="rightCell"><%= number_with_precision(operation.withholding, precision: 2)%></td>
-  <td class ="rightCell"><%= number_with_precision(operation.total, precision: 2)%></td>
+  <td class ="rightCell"><%= operation.duration %></td>
+  <td class ="rightCell"><%= number_to_currency(operation.interests)%></td>
+  <td class ="rightCell"><%= number_to_percentage(operation.withholding, precision: 2)%></td>
+  <td class ="rightCell"><%= number_to_currency(operation.total)%></td>  
+  <td><%= link_to t('links.printing'), account_operation_path(operation.account, operation, format: :pdf) %></td>
   <td><%= link_to t('links.edit'), edit_account_operation_path(operation.account, operation)%></td>
   <td><%= link_to t('links.delete'), account_operation_path(operation.account, operation), method: :delete, confirm: t(:are_you_sure)%></td>
 </tr>
