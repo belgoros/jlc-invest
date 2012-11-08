@@ -16,12 +16,12 @@ class Operation < ActiveRecord::Base
   validates :operation_type, presence: true, inclusion: {in: TRANSACTIONS}
 
   validates :rate, presence: true, format: {with: VALID_DECIMAL_REGEX}, 
-          numericality: {greater_than: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
+          numericality: {greater_than_or_equal_to: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
 
   validates :sum, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}
   validates :value_date, presence: true
   validates :close_date, presence: true, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
-  validates :withholding, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
+  validates :withholding, presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than_or_equal_to: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
   validates :account_id, presence: true
   
   before_validation :check_balance, if: Proc.new { |op| op.operation_type == WITHDRAWAL }
