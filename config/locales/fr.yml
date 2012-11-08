@@ -17,7 +17,7 @@ fr:
   edit: "Modifier %{model}"
   list_all: "Liste %{model}"
   sign_up: "Registration"
-  are_you_sure: "Êtes-vous sur ?"
+  are_you_sure: "Êtes-vous sûr ?"
   no_items_found: "Aucun enregistrement trouvé"
   add_account: "Créer un compte"
   connection: "Connexion"
