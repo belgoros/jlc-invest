@@ -6,7 +6,7 @@ JlcInvest::Application.routes.draw do
   resources :clients
 
   resources :accounts, only: [:create, :destroy, :show] do
-    resources :operations, only: [:new, :create, :edit, :update, :destroy]
+    resources :operations, only: [:new, :create, :edit, :show, :update, :destroy]
   end
 
   resources :sessions, only: [:new, :create, :destroy]
