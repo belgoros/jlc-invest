@@ -37,6 +37,9 @@ class Operation < ActiveRecord::Base
           self.total = interests + sum
         else
           self.total = -sum
+          self.duration = nil
+          self.rate = nil
+          self.interests = nil
         end
       end
 
@@ -57,12 +60,12 @@ class Operation < ActiveRecord::Base
       def check_balance
         self.sum ||= 0
         if account.operations.empty? || sum > account_balance
-          errors.add(:base, I18n.t(:insufficient_balance, balance: account_balance, sum: sum))
+          errors.add(:base, I18n.t(:insufficient_balance, balance: account_balance.round(2), sum: sum))
         end      
       end
 
       def account_balance
-        account.operations.map(&:total).inject(:+)
+        account.balance
       end
 
       def check_close_date              
