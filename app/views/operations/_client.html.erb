@@ -1,5 +1,5 @@
 <tr>
   <td><%= client.lastname%></td>
   <td><%= client.firstname%></td>
-  <td class ="rightCell"><%= number_with_precision(client.total, precision: 2)%></td>
+  <td class ="rightCell"><%= number_to_currency(client.total)%></td>
 </tr>
