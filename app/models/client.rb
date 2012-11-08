@@ -25,4 +25,8 @@ class Client < ActiveRecord::Base
   def full_name
     ["#{firstname}", "#{lastname}"].join(' ')
   end
+  
+  def zip_city_country
+    zipcode + ' ' + city + ' ' + country
+  end
 end
