@@ -1,5 +1,5 @@
 class OperationsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
   before_filter :find_account, except: :index
 
   def index
@@ -22,7 +22,18 @@ class OperationsController < ApplicationController
 
   def edit
     @operation = @account.operations.find(params[:id])
-  end  
+  end 
+  
+  def show
+    @operation = @account.operations.find(params[:id])    
+    report = OperationReport.new()        
+    output = report.to_pdf(@operation)    
+    respond_to do |format|
+      format.pdf do
+        send_data output, type: :pdf, disposition: "inline"
+      end
+    end
+  end
 
   def update
     @operation = @account.operations.find(params[:id])
