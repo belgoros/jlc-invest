@@ -150,3 +150,17 @@ input, textarea, select, .uneditable-input {
 .table td.rightCell {
   text-align: right;
 }
+
+.table th {
+  text-align: center;
+}
+
+.table th.total {
+    text-align: right;
+    background-color: #D9EDF7;
+}
+
+.table th.sum {
+    text-align: right;
+    background-color: #F2DEDE;
+}
