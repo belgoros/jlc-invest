@@ -22,7 +22,17 @@ fr:
   add_account: "Créer un compte"
   connection: "Connexion"
   duration_error: "La date de calcul doit être supérieur à la date de l'opération"
-  form_errors: "erreurs"
+  form_errors: "erreurs"  
+  
+  receipt:
+    date: "Date"
+    receipt_nbr: "Reçu Nr."
+    account_number: "Compte Nr.:"
+    issued_to: "Reçu/Remis à M/Mme:"
+    address: "Adresse:"
+    house: "Nr."
+    box: "Bte"
+    client_signature: "Signature du Client"    
   
   links:
     delete: "Supprimer"
@@ -38,6 +48,7 @@ fr:
     sign_out: "Se déconnecter"
     sign_in: "Se connecter"
     back_to_account: "Retourner au compte"
+    printing: "Imprimer"
   date:
     formats:
       default: "%d/%m/%Y"
