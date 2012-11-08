@@ -8,6 +8,10 @@ class Account < ActiveRecord::Base
   validates :client_id, presence: true
 
   before_save :generate_account_number
+  
+  def balance
+    operations.map(&:total).inject(:+)
+  end
 
   private
 
