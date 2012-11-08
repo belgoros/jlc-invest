@@ -13,7 +13,8 @@ describe Account do
   it { should respond_to(:acc_number) }
   it { should respond_to(:client_id) }
   it { should respond_to(:client) }
-  it { should respond_to(:operations) } 
+  it { should respond_to(:operations) }
+  it { should respond_to (:balance) }
   
 
   describe "account number" do
