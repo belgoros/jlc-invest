@@ -55,5 +55,6 @@ class OperationsController < ApplicationController
   private
   def find_account
     @account = Account.find(params[:account_id])
+    @balance = @account.balance
   end
 end
