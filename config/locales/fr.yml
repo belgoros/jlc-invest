@@ -5,9 +5,9 @@ fr:
       next_label: "Suivante &#8594;"
       page_gap: "&hellip;"
 
-  created_success: "%{model} créé avec succès"
-  destroyed_success: "%{model} supprimé avec succès"
-  updated_success: "%{model} modifié avec succès"
+  created_success: "%{model} créé(e) avec succès"
+  destroyed_success: "%{model} supprimé(e) avec succès"
+  updated_success: "%{model} modifié(e) avec succès"
   invalid_login: "Combinaison e-mail/mot de passe invalide"
   base_title: "J.L.C. INVESTISSEMENT"
   sign_in_required: "Vous devez être connecté"
@@ -22,12 +22,13 @@ fr:
   add_account: "Créer un compte"
   connection: "Connexion"
   duration_error: "La date de calcul doit être supérieur à la date de l'opération"
-  form_errors: "erreurs"  
+  form_errors: "erreurs"
+  account_balance: "Solde"
   
   receipt:
     date: "Date"
     receipt_nbr: "Reçu Nr."
-    account_number: "Compte Nr.:"
+    account_number: "Compte Nr."
     issued_to: "Reçu/Remis à M/Mme:"
     address: "Adresse:"
     house: "Nr."
