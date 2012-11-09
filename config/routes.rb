@@ -6,6 +6,7 @@ JlcInvest::Application.routes.draw do
   resources :clients
 
   resources :accounts, only: [:create, :destroy, :show] do
+    get 'report', on: :member
     resources :operations, only: [:new, :create, :edit, :show, :update, :destroy]
   end
 
