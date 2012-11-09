@@ -1,8 +1,8 @@
 class AccountsController < ApplicationController
   before_filter :signed_in_user
+  before_filter :find_client, only: [:create, :destroy]
 
   def create
-    @client = Client.find(params[:account][:client_id])
     @client.accounts.create!
     flash[:success] = t(:created_success, model: Account.model_name.human)
     redirect_to @client
@@ -14,10 +14,25 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    @client = Account.find(params[:id]).client
     @client.accounts.find(params[:id]).destroy
     flash[:success] = t(:destroyed_success, model: Account.model_name.human)
     redirect_to @client
   end
+
+  def report
+    @account = Account.find(params[:id])
+    report = AccountReport.new()
+    output = report.to_pdf(@account)
+    respond_to do |format|
+      format.pdf do
+        send_data output, type: :pdf, disposition: "inline"
+      end
+    end
+  end
+
+  private
+    def find_client
+      @client = Client.find(params[:account][:client_id])
+    end
 
 end
