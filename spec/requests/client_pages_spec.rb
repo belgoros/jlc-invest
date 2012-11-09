@@ -86,7 +86,8 @@ describe "Client Pages" do
 
       it "should list each account" do
         Account.paginate(page: 1).each do |account|
-          page.should have_selector('td', text: account.acc_number)          
+          page.should have_selector('td', text: account.acc_number)
+          page.should have_link(I18n.t('links.printing'), href: report_account_path(account, format: :pdf))
           page.should have_link(I18n.t('links.delete'), href: account_path(account))
         end
       end      
