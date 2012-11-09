@@ -112,7 +112,7 @@ module Report
     x_axe += (10.mm + Report::FIELD_SPACE)
     bounding_box([x_axe, y_axe], width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
       pad(5) do
-        text (client.box.blank? ? ' ' : operation.account.client.box), align: :center
+        text (client.box.blank? ? ' ' : client.box), align: :center
         transparent(Report::TRANSPARENT_LEVEL) { stroke_bounds }
       end
     end
