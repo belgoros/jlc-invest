@@ -1,4 +1,5 @@
 include ApplicationHelper
+include ActionView::Helpers::NumberHelper
 
 def sign_in(user)
   visit signin_path
