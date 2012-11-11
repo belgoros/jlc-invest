@@ -2,8 +2,8 @@ class OperationsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
   before_filter :find_account, except: :index
 
-  def index
-    @operations = Account.joins(:client, :operations).select('clients.firstname, clients.lastname, sum(operations.total) as total').group('clients.id, clients.firstname, clients.lastname').order('clients.lastname').paginate(page: params[:page])
+  def index    
+    @operations = Account.operations_by_client.paginate(page: params[:page])
   end
 
   def new

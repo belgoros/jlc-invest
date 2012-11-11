@@ -2,6 +2,7 @@ class Account < ActiveRecord::Base
   attr_accessible :acc_number, :client_id
   belongs_to :client
   has_many :operations, dependent: :destroy
+  scope :operations_by_client, joins(:client, :operations).select('clients.firstname, clients.lastname, sum(operations.total) as total').group('clients.id, clients.firstname, clients.lastname').order('clients.lastname')
 
   SEPARATOR = '-'
 
