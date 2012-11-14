@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
     if @client.update_attributes(params[:client])
       flash[:success] = t(:updated_success, model: Client.model_name.human)
-      redirect_to @client
+      redirect_to clients_path
     else
       render 'edit'
     end
@@ -41,6 +41,6 @@ class ClientsController < ApplicationController
   def destroy
     Client.find(params[:id]).destroy
     flash[:success] = t(:destroyed_success, model: Client.model_name.human)
-    redirect_to clients_url
+    redirect_to clients_path
   end
 end
