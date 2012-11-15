@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :find_client, only: [:create, :destroy]
+  before_filter :find_client, only: :create
 
   def create
     @client.accounts.create!
@@ -14,7 +14,9 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    @client.accounts.find(params[:id]).destroy
+    @account = Account.find(params[:id])
+    @client = @account.client
+    @account.destroy
     flash[:success] = t(:destroyed_success, model: Account.model_name.human)
     redirect_to @client
   end
