@@ -5,7 +5,9 @@
   <div class="span6 offset3" style="text-align: right;  background-color: #D9EDF7;">
     <%= t('activerecord.models.account') %>:<%= @account.acc_number %>
   </div>
+</div>
 
+<div class="row">
   <div class="span6 offset3" style="text-align: right;  background-color: #F2DEDE;">
     <%= t(:account_balance) %>:<%= number_to_currency(@balance) %>
   </div>
