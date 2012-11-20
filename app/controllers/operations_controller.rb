@@ -2,8 +2,10 @@ class OperationsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
   before_filter :find_account, except: :index
 
-  def index    
-    @operations = Account.operations_by_client.paginate(page: params[:page])
+  def index       
+    all_operations = Client.accounts_sum
+    @operations = all_operations.paginate(page: params[:page])        
+    @total = all_operations.map(&:accounts_balance).inject(:+) unless all_operations.empty?
   end
 
   def new
