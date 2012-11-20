@@ -80,7 +80,7 @@ describe "Admin Pages" do
         before { click_button submit }
         let(:user) { Admin.find_by_email('user@example.com') }
 
-        it { should have_selector('title', text: full_title(user.full_name)) }
+        it { should have_selector('title', text: I18n.t(:list_all, model: Client.model_name.human.pluralize)) }
         it { should have_selector('div.alert.alert-success', text: I18n.t(:created_success, model: Admin.model_name.human)) }
         it { should have_link(I18n.t('links.sign_out')) }
       end
@@ -118,7 +118,7 @@ describe "Admin Pages" do
         click_button I18n.t('helpers.submit.update', model: Admin.model_name.human)
       end
 
-      it { should have_selector('title', text: new_firstname.capitalize + ' ' + new_lastname.upcase) }
+      it { should have_selector('title', text: I18n.t(:list_all, model: Client.model_name.human.pluralize)) }
       it { should have_selector('div.alert.alert-success') }
       it { should have_link(I18n.t('links.sign_out'), href: signout_path) }
       specify { admin.reload.firstname.should == new_firstname.capitalize }
