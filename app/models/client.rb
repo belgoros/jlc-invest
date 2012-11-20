@@ -10,7 +10,10 @@ class Client < ActiveRecord::Base
   validates :zipcode, presence: true, length: {maximum: 5}
   validates :city, presence: true, length: {maximum: 50}
   validates :country, presence: true, length: {maximum: 50}
-  validates :phone, length: {maximum: 50}
+  validates :phone, length: {maximum: 50}  
+  
+  scope :accounts_sum, includes(:accounts => :operations).order('clients.lastname')  
+  
 
   before_save do |client|
     client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
@@ -28,5 +31,10 @@ class Client < ActiveRecord::Base
   
   def zip_city_country
     zipcode + ' ' + city + ' ' + country
+  end 
+  
+  def accounts_balance
+    accounts.map(&:balance).inject(:+) unless accounts.empty?      
   end
+  
 end
