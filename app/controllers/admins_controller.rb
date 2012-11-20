@@ -15,7 +15,7 @@ class AdminsController < ApplicationController
     if @admin.save
       sign_in @admin
       flash[:success] = t(:created_success, model: Admin.model_name.human)
-      redirect_to @admin
+      redirect_to :root
     else
       render "new"
     end
@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
     if @admin.update_attributes(params[:admin])
       flash[:success] = t(:updated_success, model: Admin.model_name.human)
       sign_in @admin
-      redirect_to @admin
+      redirect_to :root
     else
       render 'edit'
     end
