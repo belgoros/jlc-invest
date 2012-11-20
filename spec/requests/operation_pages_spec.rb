@@ -38,10 +38,10 @@ describe "Operations page" do
     it { should have_selector('div.pagination') }
 
     it "should list each operation" do
-      Account.operations_by_client.paginate(page: 1).each do |client|
+      Client.accounts_sum.paginate(page: 1).each do |client|
         page.should have_selector('td', text: client.firstname)
         page.should have_selector('td', text: client.lastname)
-        page.should have_selector('td', text: number_to_currency(client.total))
+        page.should have_selector('td', text: number_to_currency(client.accounts_balance))
       end
     end
   end
