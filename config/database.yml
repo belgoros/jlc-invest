@@ -3,13 +3,11 @@ development:
   encoding: unicode
   database: jlc_invest_development
   pool: 5
-  username: camser123
-  password: camser123
+  host: localhost
 
 test:
   adapter: postgresql
   encoding: unicode
   database: jlc_invest_test
   pool: 5
-  username: camser123
-  password: camser123
+  host: localhost
