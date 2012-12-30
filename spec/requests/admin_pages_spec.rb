@@ -49,7 +49,7 @@ describe "Admin Pages" do
     it { should have_selector('h1', text: admin.full_name) }
     it { should have_selector('title', text: full_title(admin.full_name)) }
   end
-
+=begin
   describe "signup page" do
     before { visit signup_path }
     let(:submit) { I18n.t('helpers.submit.create', model: Admin.model_name.human) }
@@ -87,7 +87,7 @@ describe "Admin Pages" do
     end
 
   end
-
+=end
   describe "edit" do
     let(:admin) { FactoryGirl.create(:admin) }
     before do
