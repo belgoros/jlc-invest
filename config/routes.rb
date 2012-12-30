@@ -12,7 +12,7 @@ JlcInvest::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup', to: 'admins#new'
+  #match '/signup', to: 'admins#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/operations', to: "operations#index", :via => :get
