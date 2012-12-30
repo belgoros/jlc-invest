@@ -23,14 +23,17 @@ group :test, :development do
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.0'
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'rb-inotify', '0.8.8', :require => false
+  gem 'libnotify', '0.5.9', :require => false
 end
 
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.1.0'  
   gem 'database_cleaner', '0.8.0'
-  gem 'rb-inotify', '0.8.8'
-  gem 'libnotify', '0.5.9'
+  gem 'growl', '1.0.3'
+  
 end
 
 group :production do
