@@ -10,6 +10,8 @@ class AccountReport < Prawn::Document
     write_title
     write_account_number(account)
     write_date
+    write_client_box(account.client)
+    write_address_box(account.client)
     write_total(account)
     draw_data_table(account)
     write_signatures
