@@ -33,7 +33,8 @@ fr:
     address: "Adresse:"
     house: "Nr."
     box: "Bte"
-    client_signature: "Signature du Client"    
+    client_signature: "Signature du Client"
+    title: "M/Mme"    
   
   links:
     delete: "Supprimer"
