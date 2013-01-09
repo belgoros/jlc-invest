@@ -49,17 +49,18 @@ module Report
     end
   end
 
-  def write_client_box(client)
+  def write_client_box(client, opts = {})
     move_down 10.mm
     y_axe = cursor
     x_axe = bounds.left + 10.mm
     bounding_box([x_axe, y_axe], width: 45.mm ) do
       pad(5) do
-        text I18n.t('receipt.issued_to')
+        text opts[:title]    #I18n.t('receipt.title')
       end
     end
-
-    x_axe += (45.mm + Report::FIELD_SPACE)
+    title_pad = 45.mm
+    title_pad = opts[:title_pad] if opts[:title_pad]  
+    x_axe += (title_pad + Report::FIELD_SPACE)
     bounding_box([x_axe, y_axe], width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
       pad(5) do
         text client.full_name, indent_paragraphs: 10

@@ -10,7 +10,7 @@ class AccountReport < Prawn::Document
     write_title
     write_account_number(account)
     write_date
-    write_client_box(account.client)
+    write_client_box(account.client, { title: I18n.t('receipt.title'), title_pad: 20.mm })
     write_address_box(account.client)
     write_total(account)
     draw_data_table(account)
@@ -102,7 +102,7 @@ class AccountReport < Prawn::Document
 
     end
 
-    table(table_data, header: true, position: x_axe, width: bounds.right - x_axe - Report::RIGHT_BORDER_SPACE) do
+    table(table_data, header: true, position: x_axe, cell_style: {padding: [10, 5, 10, 5] }, width: bounds.right - x_axe - Report::RIGHT_BORDER_SPACE) do
       row(0).font_style = :bold
       row(0).size = 8
       row(0).align = :center

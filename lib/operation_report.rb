@@ -11,7 +11,7 @@ class OperationReport < Prawn::Document
       write_title    
       write_receipt_and_date(operation) 
       write_account_number(operation.account)
-      write_client_box(operation.account.client)
+      write_client_box(operation.account.client, title: I18n.t('receipt.issued_to'))
       write_address_box(operation.account.client)
       draw_data_table(operation)
       write_signatures
