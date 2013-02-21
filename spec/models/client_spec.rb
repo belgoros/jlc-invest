@@ -112,6 +112,8 @@ describe Client do
   describe "account associations" do
 
     before { @client.save }    
+    let!(:old_account) { create(:account, client: @client) }
+    let!(:new_account) { create(:account, client: @client) }
 
     it "should destroy associated accounts" do
       accounts = @client.accounts
