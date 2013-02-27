@@ -1,4 +1,4 @@
-<%= provide(:title, t(:list_all, model: Client.model_name.human.pluralize)) %>
+<% provide(:title, t(:list_all, model: Client.model_name.human.pluralize)) %>
 <% if @clients.empty? %>
   <h2><%= t(:no_items_found) %></h2>
 <% else %>

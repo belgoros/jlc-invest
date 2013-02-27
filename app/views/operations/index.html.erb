@@ -1,4 +1,4 @@
-<%= provide(:title, t(:list_all, model: Operation.model_name.human.pluralize)) %>
+<% provide(:title, t(:list_all, model: Operation.model_name.human.pluralize)) %>
 
 <h2><%= t(:list_all, model: Operation.model_name.human.pluralize) %></h2>
 <% if @operations.empty? %>
