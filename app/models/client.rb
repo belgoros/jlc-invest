@@ -34,7 +34,9 @@ class Client < ActiveRecord::Base
   end 
   
   def accounts_balance
-    accounts.map(&:balance).inject(:+) unless accounts.empty?      
+    balance = 0.0
+    balance = accounts.map(&:balance).inject(:+) unless accounts.empty?  
+    balance    
   end
   
 end
