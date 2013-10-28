@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+#ruby=1.9.3-p327
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'bcrypt-ruby', '3.0.1'
@@ -31,9 +32,9 @@ end
 group :test do
   gem 'rake', '~> 10.0.3'
   gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'  
+  gem 'factory_girl_rails', '4.1.0'
   gem 'database_cleaner', '0.8.0'
-  gem 'growl', '1.0.3'  
+  gem 'growl', '1.0.3'
 end
 
 group :production do
