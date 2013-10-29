@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
 
   def destroy
     @account = Account.find(params[:id])
-    @client = @account.client
+    @client  = @account.client
     @account.destroy
     flash[:success] = t(:destroyed_success, model: Account.model_name.human)
     redirect_to @client
@@ -23,8 +23,8 @@ class AccountsController < ApplicationController
 
   def report
     @account = Account.find(params[:id])
-    report = AccountReport.new()
-    output = report.to_pdf(@account)
+    report   = AccountReport.new()
+    output   = report.to_pdf(@account)
     respond_to do |format|
       format.pdf do
         send_data output, type: :pdf, disposition: "inline"

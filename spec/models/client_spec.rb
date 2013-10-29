@@ -111,7 +111,7 @@ describe Client do
 
   describe "account associations" do
 
-    before { @client.save }    
+    before { @client.save }
     let!(:old_account) { create(:account, client: @client) }
     let!(:new_account) { create(:account, client: @client) }
 
@@ -123,10 +123,10 @@ describe Client do
       end
     end
   end
-  
+
   describe "it calculates accounts balance" do
-    before do 
-       Account.delete_all 
+    before do
+       Account.delete_all
        @client_with_acccount =  create(:client)
      end
     context "when client has no accounts" do
@@ -134,16 +134,17 @@ describe Client do
         @client_with_acccount.accounts_balance.should == 0
       end
     end
-    
+
     context "when client has an account with an operation" do
       it "should have the balance greater than zero" do
         account = create(:account)
-        deposit_operation = create(:deposit, account: account, close_date: Date.today + 6.months, sum: 1000,
-                                                          rate: 12, withholding: 12)        
-         account.client.accounts_balance.should be > 0  
-      end     
-    end    
+        deposit_operation = create(:deposit,
+                                    account: account,
+                                    close_date: Date.today + 6.months,
+                                    sum: 1000,
+                                    rate: 12, withholding: 12)
+         account.client.accounts_balance.should be > 0
+      end
+    end
   end
-
-
 end

@@ -4,39 +4,38 @@ class Client < ActiveRecord::Base
   attr_accessible :firstname, :lastname, :street, :house, :box, :zipcode, :city, :country, :phone
 
   validates :firstname, presence: true, length: {maximum: 50}
-  validates :lastname, presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: "firstname"}
-  validates :street, presence: true, length: {maximum: 50}
-  validates :house, presence: true, length: {maximum: 5}
-  validates :zipcode, presence: true, length: {maximum: 5}
-  validates :city, presence: true, length: {maximum: 50}
-  validates :country, presence: true, length: {maximum: 50}
-  validates :phone, length: {maximum: 50}  
-  
-  scope :accounts_sum, includes(:accounts => :operations).order('clients.lastname')  
-  
+  validates :lastname,  presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: "firstname"}
+  validates :street,    presence: true, length: {maximum: 50}
+  validates :house,     presence: true, length: {maximum: 5}
+  validates :zipcode,   presence: true, length: {maximum: 5}
+  validates :city,      presence: true, length: {maximum: 50}
+  validates :country,   presence: true, length: {maximum: 50}
+  validates :phone,     length: {maximum: 50}
+
+  scope :accounts_sum, includes(accounts: :operations).order('clients.lastname')
+
 
   before_save do |client|
     client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
-    client.lastname = lastname.upcase.strip
-    client.street = street.capitalize.strip
-    client.zipcode = zipcode.strip
-    client.city = city.capitalize.strip
-    client.country = country.upcase.strip
-    client.phone = phone.strip unless phone.blank?
+    client.lastname  = lastname.upcase.strip
+    client.street    = street.capitalize.strip
+    client.zipcode   = zipcode.strip
+    client.city      = city.capitalize.strip
+    client.country   = country.upcase.strip
+    client.phone     = phone.strip unless phone.blank?
   end
 
   def full_name
     ["#{firstname}", "#{lastname}"].join(' ')
   end
-  
+
   def zip_city_country
     zipcode + ' ' + city + ' ' + country
-  end 
-  
+  end
+
   def accounts_balance
     balance = 0.0
-    balance = accounts.map(&:balance).inject(:+) unless accounts.empty?  
-    balance    
+    balance = accounts.map(&:balance).inject(:+) unless accounts.empty?
+    balance
   end
-  
 end

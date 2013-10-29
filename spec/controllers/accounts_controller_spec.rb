@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AccountsController do
 
-  let(:admin) { create(:admin) }
+  let(:admin)  { create(:admin) }
   let(:client) { create(:client) }
 
   before(:each) { sign_in admin }
@@ -43,8 +43,7 @@ describe AccountsController do
     it "creates a PDF report for a specified account" do
       get :report, id: @account,  format: :pdf
       response.content_type.should eq("application/pdf")
-      response.headers["Content-Disposition"].should eq("inline")      
+      response.headers["Content-Disposition"].should eq("inline")
     end
   end
-
 end

@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]  
+  before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
 
   def index
     @clients = Client.paginate(page: params[:page])
@@ -24,8 +24,8 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
-    @accounts = @client.accounts.paginate(page: params[:page])    
+    @client   = Client.find(params[:id])
+    @accounts = @client.accounts.paginate(page: params[:page])
   end
 
   def update

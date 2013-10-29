@@ -37,5 +37,4 @@ describe "Account operations pages" do
       end
     end
   end
-
 end

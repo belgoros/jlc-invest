@@ -19,7 +19,8 @@ describe "Operations page" do
     accounts = Account.all(limit: 35)
     3.times do
       accounts.each do |account|
-        create(:deposit, value_date: Date.today,
+        create(:deposit,
+               value_date: Date.today,
                sum: 1000,
                rate: 2.5,
                withholding: 12,
@@ -31,7 +32,7 @@ describe "Operations page" do
   end
 
   it { should have_selector('title', text: I18n.t(:list_all, model: Operation.model_name.human.pluralize)) }
-  it { should have_selector('h2', text: I18n.t(:list_all, model: Operation.model_name.human.pluralize)) }
+  it { should have_selector('h2',    text: I18n.t(:list_all, model: Operation.model_name.human.pluralize)) }
 
   describe "pagination" do
 

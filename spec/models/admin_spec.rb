@@ -116,5 +116,4 @@ describe Admin do
     before { @admin.save }
     its(:remember_token) { should_not be_blank }
   end
-
 end

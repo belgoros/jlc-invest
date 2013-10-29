@@ -14,9 +14,9 @@ class Admin < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   before_save do |user|
-    user.email = email.downcase.strip    
+    user.email     = email.downcase.strip
     user.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
-    user.lastname = lastname.upcase.strip
+    user.lastname  = lastname.upcase.strip
   end
 
   before_save :create_remember_token

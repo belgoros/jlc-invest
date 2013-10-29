@@ -26,7 +26,7 @@ Spork.prefork do
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-    
+
     #include FactoryGirl syntax to simplify calls to factories
     config.include FactoryGirl::Syntax::Methods
 
@@ -48,7 +48,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
 end
 
 

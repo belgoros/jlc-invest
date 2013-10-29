@@ -1,11 +1,11 @@
 class OperationsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
-  before_filter :find_account, except: :index
+  before_filter :find_account,   except: :index
 
-  def index       
+  def index
     all_operations = Client.accounts_sum
-    @operations = all_operations.paginate(page: params[:page])        
-    @total = all_operations.map(&:accounts_balance).inject(:+) unless all_operations.empty?
+    @operations    = all_operations.paginate(page: params[:page])
+    @total         = all_operations.map(&:accounts_balance).inject(:+) unless all_operations.empty?
   end
 
   def new
@@ -24,12 +24,12 @@ class OperationsController < ApplicationController
 
   def edit
     @operation = @account.operations.find(params[:id])
-  end 
-  
+  end
+
   def show
-    @operation = @account.operations.find(params[:id])    
-    report = OperationReport.new()        
-    output = report.to_pdf(@operation)    
+    @operation = @account.operations.find(params[:id])
+    report     = OperationReport.new()
+    output     = report.to_pdf(@operation)
     respond_to do |format|
       format.pdf do
         send_data output, type: :pdf, disposition: "inline"
@@ -55,8 +55,9 @@ class OperationsController < ApplicationController
 
 
   private
-  def find_account
-    @account = Account.find(params[:account_id])
-    @balance = @account.balance
-  end
+
+    def find_account
+      @account = Account.find(params[:account_id])
+      @balance = @account.balance
+    end
 end

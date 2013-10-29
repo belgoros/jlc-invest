@@ -6,7 +6,7 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1', text: I18n.t(:connection)) }
+    it { should have_selector('h1',    text: I18n.t(:connection)) }
     it { should have_selector('title', text: full_title(I18n.t(:connection))) }
 
     describe "signin" do
@@ -21,7 +21,7 @@ describe "Authentication" do
 
       describe "with valid information" do
         let(:admin) { create(:admin) }
-        before { sign_in admin }        
+        before { sign_in admin }
 
         it { should have_selector('title', text: full_title(admin.full_name)) }
         it { should have_link(I18n.t('links.home'), href: root_path) }
@@ -95,5 +95,4 @@ describe "Authentication" do
       end
     end
   end
-
 end

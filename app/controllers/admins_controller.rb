@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update]
 
   def index
     @admins = Admin.paginate(page: params[:page])
@@ -46,9 +46,8 @@ class AdminsController < ApplicationController
 
   private
 
-  def correct_user
-    @admin = Admin.find(params[:id])
-    redirect_to(root_path) unless current_user?(@admin)
-  end
-
+    def correct_user
+      @admin = Admin.find(params[:id])
+      redirect_to(root_path) unless current_user?(@admin)
+    end
 end
