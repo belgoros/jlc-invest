@@ -1,4 +1,3 @@
-
 fr:
   will_paginate:
       previous_label: "&#8592; Précédente"
@@ -24,7 +23,7 @@ fr:
   duration_error: "La date de calcul doit être supérieur à la date de l'opération"
   form_errors: "erreurs"
   account_balance: "Solde"
-  
+
   receipt:
     date: "Date"
     receipt_nbr: "Reçu Nr."
@@ -34,8 +33,8 @@ fr:
     house: "Nr."
     box: "Bte"
     client_signature: "Signature du Client"
-    title: "M/Mme"    
-  
+    title: "M/Mme"
+
   links:
     delete: "Supprimer"
     edit: "Modifier"
@@ -261,12 +260,12 @@ fr:
   activemodel:
     errors:
       <<: *errors
-  activerecord:    
+  activerecord:
     models:
       admin: Administrateur
       client: Client
       account: Compte
-      operation: Opération      
+      operation: Opération
     attributes:
       admin:
         password: "Mot de passe"
