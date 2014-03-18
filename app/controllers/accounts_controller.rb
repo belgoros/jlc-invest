@@ -37,4 +37,8 @@ class AccountsController < ApplicationController
       @client = Client.find(params[:account][:client_id])
     end
 
+    def account_params
+      params.require(:account).permit(:acc_number, :client_id)
+    end
+
 end

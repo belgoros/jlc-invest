@@ -1,7 +1,6 @@
 class Client < ActiveRecord::Base
   has_many :accounts, dependent: :destroy
-  default_scope order: 'clients.lastname'
-  attr_accessible :firstname, :lastname, :street, :house, :box, :zipcode, :city, :country, :phone
+  default_scope { order('lastname')}
 
   validates :firstname, presence: true, length: {maximum: 50}
   validates :lastname,  presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: "firstname"}
@@ -12,7 +11,7 @@ class Client < ActiveRecord::Base
   validates :country,   presence: true, length: {maximum: 50}
   validates :phone,     length: {maximum: 50}
 
-  scope :accounts_sum, includes(accounts: :operations).order('clients.lastname')
+  scope :accounts_sum, -> {includes(accounts: :operations).order('clients.lastname') }
 
 
   before_save do |client|

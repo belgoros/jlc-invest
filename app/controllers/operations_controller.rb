@@ -60,4 +60,8 @@ class OperationsController < ApplicationController
       @account = Account.find(params[:account_id])
       @balance = @account.balance
     end
+
+    def operation_params
+      params.require(:operation).permit(:operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date, :withholding)
+    end
 end

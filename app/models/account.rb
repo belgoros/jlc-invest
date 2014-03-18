@@ -1,5 +1,4 @@
 class Account < ActiveRecord::Base
-  attr_accessible :acc_number, :client_id
   belongs_to :client
   has_many :operations, dependent: :destroy
 

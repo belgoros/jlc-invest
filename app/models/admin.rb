@@ -2,15 +2,13 @@ class Admin < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessible :email, :firstname, :lastname, :password_digest, :remember_token, :password, :password_confirmation
-
   validates :firstname, presence: true, length: {maximum: 50}
   validates :lastname, presence: true, length: {maximum: 50}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
   before_save do |user|
