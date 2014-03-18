@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 gem 'rails',          '~> 4.0.3'
-gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bcrypt-ruby',    '~> 3.1.5'
 gem 'faker',          '~> 1.3.0'
 gem 'will_paginate',  '~> 3.0.5'
@@ -17,15 +17,11 @@ gem 'sass-rails',   '~> 4.0.1'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'uglifier',     '>= 2.4.0'
 
+gem 'turbolinks'
+
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.1'
-  gem 'guard-rspec', '~> 4.2.8'
-  gem 'guard-spork', '~> 1.5.1'
-  gem 'spork',       '~> 0.9.2'
-  gem 'rb-fsevent', :require => false
-  gem 'rb-inotify', :require => false
-  gem 'libnotify',  :require => false
   gem 'quiet_assets', '~> 1.0.2'
 end
 
@@ -34,7 +30,6 @@ group :test do
   gem 'capybara',           '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'database_cleaner',   '~> 1.2.0'
-  gem 'growl'
 end
 
 group :production do
