@@ -113,7 +113,7 @@ footer {
 max-width: 300px;
 padding: 19px 29px 29px;
 margin: 0 auto 20px;
-background-color: 
+background-color:
 #fff;
 border: 1px solid #e5e5e5;
 -webkit-border-radius: 5px;
@@ -152,9 +152,9 @@ input, textarea, select, .uneditable-input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid;
     }
   }
 }
