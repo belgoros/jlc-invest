@@ -1,7 +1,7 @@
 <% provide(:title, t(:new, model: Client.model_name.human)) %>
-<h1><%= t(:new, model: Client.model_name.human) %></h1>
-<div class="row">
-  <div class="span6 offset3">
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3'>
+    <h1><%= t(:new, model: Client.model_name.human) %></h1>
     <%= form_for(@client) do |f| %>
         <%= render 'fields', f: f %>
         <%= f.submit class: "btn btn-large btn-primary" %>

@@ -1,5 +1,5 @@
 <% provide(:title, t(:connection)) %>
-<h1><%=  t(:connection) %></h1>
+<h1><%= t(:connection) %></h1>
 
 <%= form_for(:session, url: sessions_path, html: {class: 'form-signin'}) do |f| %>
   <%= f.label :email, t('activerecord.attributes.admin.email') %>
