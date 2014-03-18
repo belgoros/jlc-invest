@@ -30,14 +30,6 @@ describe Operation do
 
   it { should be_valid }
 
-  describe "accessible attributes" do
-    it "should not allow access to client_id" do
-      expect do
-        Operation.new(account_id: account.id)
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
-
   describe "when account_id is not present" do
     before { @deposit_operation.account_id = nil }
     it { should_not be_valid }
