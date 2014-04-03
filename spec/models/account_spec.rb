@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe Account do
   let(:client) { create(:client) }
-  before { @account = build(:account, client: client) }
 
-  subject { @account }
+  subject(:account) { build(:account, client: client) }
 
   its(:client) { should == client }
 
@@ -18,7 +17,7 @@ describe Account do
 
 
   describe "account number" do
-    before { @account.save }
+    before { account.save }
     its(:acc_number) { should_not be_nil }
 
     it "has a generated number increased by one" do

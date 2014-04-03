@@ -5,14 +5,12 @@ describe Operation do
   let(:client) { create(:client) }
   let(:account) { create(:account, client: client) }
 
-  before { @deposit_operation = build(:deposit,
+  subject(:deposit_operation) {build(:deposit,
                                       account: account,
                                       close_date: Date.today + 6.months,
                                       sum: 1000,
                                       rate: 12,
                                       withholding: 12) }
-
-  subject { @deposit_operation }
 
   it { should respond_to(:operation_type) }
   it { should respond_to(:duration) }
@@ -31,29 +29,29 @@ describe Operation do
   it { should be_valid }
 
   describe "when account_id is not present" do
-    before { @deposit_operation.account_id = nil }
+    before { deposit_operation.account_id = nil }
     it { should_not be_valid }
   end
 
   describe "when value date is not present" do
-    before { @deposit_operation.value_date = nil }
+    before { deposit_operation.value_date = nil }
     it { should_not be_valid }
   end
 
   describe "when operation type is not present" do
-    before { @deposit_operation.operation_type = nil }
+    before { deposit_operation.operation_type = nil }
     it { should_not be_valid }
   end
 
   describe "when sum is not present" do
-    before { @deposit_operation.sum = nil }
+    before { deposit_operation.sum = nil }
     it { should_not be_valid }
   end
 
   describe "when sum format is not valid" do
     sums = %w[0 1,75 azerty -12]
     sums.each do |wrong_sum|
-      before { @deposit_operation.sum = wrong_sum }
+      before { deposit_operation.sum = wrong_sum }
       it { should_not be_valid }
     end
   end
@@ -67,24 +65,24 @@ describe Operation do
     end
 
     context "when rate is not present" do
-      before { @deposit_operation.rate = nil }
+      before { deposit_operation.rate = nil }
       it { should_not be_valid }
     end
 
     context "when withholding is not present" do
-      before { @deposit_operation.withholding = nil }
+      before { deposit_operation.withholding = nil }
       it { should_not be_valid }
     end
 
     context "when close date is not present" do
-      before { @deposit_operation.close_date = nil }
+      before { deposit_operation.close_date = nil }
       it { should_not be_valid }
     end
 
     context "when rate format is not valid" do
       rates = %w[0 1,75 azerty -12]
       rates.each do |rate|
-        before { @deposit_operation.rate = rate }
+        before { deposit_operation.rate = rate }
         it { should_not be_valid }
       end
     end
@@ -92,7 +90,7 @@ describe Operation do
     context "when withholding format is not valid" do
       values = %w[0 1,75 azerty -12]
       values.each do |value|
-        before { @deposit_operation.withholding = value }
+        before { deposit_operation.withholding = value }
         it { should_not be_valid }
       end
     end
@@ -126,7 +124,7 @@ describe Operation do
   #  Withdrawal operation
 
   describe "withdrawal operation" do
-    before(:each) {@deposit_operation.save }
+    before(:each) {deposit_operation.save }
 
     context "when requested sum does not exceed the balance" do
       subject { build(:withdrawal, account: account, sum: 500) }
