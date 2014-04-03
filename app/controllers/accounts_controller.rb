@@ -4,8 +4,7 @@ class AccountsController < ApplicationController
 
   def create
     @client.accounts.create!
-    flash[:success] = t(:created_success, model: Account.model_name.human)
-    redirect_to @client
+    redirect_to @client, notice: t(:created_success, model: Account.model_name.human)
   end
 
   def show
@@ -17,13 +16,12 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @client  = @account.client
     @account.destroy
-    flash[:success] = t(:destroyed_success, model: Account.model_name.human)
-    redirect_to @client
+    redirect_to @client, notice: t(:destroyed_success, model: Account.model_name.human)
   end
 
   def report
     @account = Account.find(params[:id])
-    report   = AccountReport.new()
+    report   = AccountReport.new
     output   = report.to_pdf(@account)
     respond_to do |format|
       format.pdf do

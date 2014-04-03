@@ -13,10 +13,9 @@ class OperationsController < ApplicationController
   end
 
   def create
-    @operation = @account.operations.new(params[:operation])
+    @operation = @account.operations.new(operation_params)
     if @operation.save
-      flash[:success] = t(:created_success, model: Operation.model_name.human)
-      redirect_to @account
+      redirect_to @account, notice: t(:created_success, model: Operation.model_name.human)
     else
       render "new"
     end
@@ -39,9 +38,8 @@ class OperationsController < ApplicationController
 
   def update
     @operation = @account.operations.find(params[:id])
-    if @operation.update_attributes(params[:operation])
-      flash[:success] = t(:updated_success, model: Operation.model_name.human)
-      redirect_to @account
+    if @operation.update_attributes(operation_params)
+      redirect_to @account, notice: t(:updated_success, model: Operation.model_name.human)
     else
       render 'edit'
     end
@@ -49,8 +47,7 @@ class OperationsController < ApplicationController
 
   def destroy
     @account.operations.find(params[:id]).destroy
-    flash[:success] = t(:destroyed_success, model: Operation.model_name.human)
-    redirect_to @account
+    redirect_to @account, notice: t(:destroyed_success, model: Operation.model_name.human)
   end
 
 

@@ -12,8 +12,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      flash[:success] = t(:created_success, model: Client.model_name.human)
-      redirect_to clients_path
+      redirect_to clients_path, notice: t(:created_success, model: Client.model_name.human)
     else
       render "new"
     end
@@ -31,8 +30,7 @@ class ClientsController < ApplicationController
   def update
     @client = Client.find(params[:id])
     if @client.update_attributes(client_params)
-      flash[:success] = t(:updated_success, model: Client.model_name.human)
-      redirect_to clients_path
+      redirect_to clients_path, notice: t(:updated_success, model: Client.model_name.human)
     else
       render 'edit'
     end
@@ -40,8 +38,7 @@ class ClientsController < ApplicationController
 
   def destroy
     Client.find(params[:id]).destroy
-    flash[:success] = t(:destroyed_success, model: Client.model_name.human)
-    redirect_to clients_path
+    redirect_to clients_path, notice: t(:destroyed_success, model: Client.model_name.human)
   end
 
   private
