@@ -1,8 +1,10 @@
 module SessionsHelper
 
   def sign_in(user)
-    cookies.permanent[:remember_token] = user.remember_token
-    current_user = user
+    remember_token = Admin.new_remember_token
+    cookies.permanent[:remember_token] = remember_token
+    user.update_attribute(:remember_token, Admin.hash(remember_token))
+    self.current_user = user
   end
 
   def signed_in?
@@ -14,7 +16,8 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= Admin.find_by_remember_token(cookies[:remember_token])
+    remember_token  = Admin.hash(cookies[:remember_token])
+    @current_user ||= Admin.find_by(remember_token: remember_token)
   end
 
   def current_user?(user)
@@ -22,8 +25,9 @@ module SessionsHelper
   end
 
   def sign_out
-    current_user = nil
+    current_user.update_attribute(:remember_token, Admin.hash(Admin.new_remember_token))
     cookies.delete(:remember_token)
+    self.current_user = nil
   end
 
   def store_location
