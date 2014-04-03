@@ -45,7 +45,8 @@ RSpec.configure do |config|
 
   config.mock_with :rspec
 
-  config.include Capybara::DSL
+  # Uncomment to use old (non-features spec)
+  # config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
