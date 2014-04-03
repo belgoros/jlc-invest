@@ -1,0 +1,5 @@
+li
+  = link_to admin.full_name, admin
+  - if !current_user?(admin)
+    ' |
+    = link_to t('links.delete'), admin, method: :delete, data: {confirm: t(:are_you_sure)}

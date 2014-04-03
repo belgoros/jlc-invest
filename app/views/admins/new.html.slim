@@ -1,0 +1,8 @@
+= provide(:title, t(:sign_up))
+h1 = t(:sign_up)
+.row
+  .span6.offset3
+    = form_for(@admin) do |f|
+        = render 'fields', f: f
+
+        = f.submit class: "btn btn-large btn-primary"

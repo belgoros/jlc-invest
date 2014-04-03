@@ -1,0 +1,9 @@
+= provide(:title, t(:list_all, model: Admin.model_name.human.pluralize))
+h1 = t(:list_all, model: Admin.model_name.human.pluralize)
+
+= will_paginate
+
+ul.users
+  = render @admins
+
+= will_paginate

@@ -1,6 +1,0 @@
-<tr>
-  <td><%= link_to account.acc_number, account %></td>
-  <td class ="rightCell"><%= number_to_currency(account.balance) %></td>
-  <td><%= link_to t('links.printing'), report_account_path(account, format: :pdf) %></td>
-  <td><%= link_to t('links.delete'), account, method: :delete, data: {confirm: t(:are_you_sure)}%></td>
-</tr>

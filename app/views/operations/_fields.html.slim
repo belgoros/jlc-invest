@@ -1,0 +1,22 @@
+= render 'js_dates'
+
+
+= render 'shared/error_messages', object: f.object
+
+= f.label :value_date
+= f.text_field :value_date, value: (@operation.value_date.blank? ? '' : l(@operation.value_date))
+
+= f.label :operation_type
+= f.select :operation_type, Operation::TRANSACTIONS, prompt: true
+
+= f.label :sum
+= f.text_field :sum
+.remission
+    = f.label :rate
+    = f.text_field :rate
+
+    = f.label :close_date
+    = f.text_field :close_date, value: (@operation.close_date.blank? ? '' : l(@operation.close_date))
+
+    = f.label :withholding
+    = f.text_field :withholding
