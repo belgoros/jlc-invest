@@ -1,26 +1,26 @@
 class Client < ActiveRecord::Base
   has_many :accounts, dependent: :destroy
-  default_scope { order('lastname')}
+  default_scope { order('lastname') }
 
-  validates :firstname, presence: true, length: {maximum: 50}
-  validates :lastname,  presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: "firstname"}
-  validates :street,    presence: true, length: {maximum: 50}
-  validates :house,     presence: true, length: {maximum: 5}
-  validates :zipcode,   presence: true, length: {maximum: 5}
-  validates :city,      presence: true, length: {maximum: 50}
-  validates :country,   presence: true, length: {maximum: 50}
-  validates :phone,     length: {maximum: 50}
+  validates :firstname, presence: true, length: { maximum: 50 }
+  validates :lastname,  presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false, scope: "firstname" }
+  validates :street,    presence: true, length: { maximum: 50 }
+  validates :house,     presence: true, length: { maximum: 5  }
+  validates :zipcode,   presence: true, length: { maximum: 5  }
+  validates :city,      presence: true, length: { maximum: 50 }
+  validates :country,   presence: true, length: { maximum: 50 }
+  validates :phone,     length: { maximum: 50 }
 
-  scope :accounts_sum, -> {includes(accounts: :operations).order('clients.lastname') }
+  scope :accounts_sum, -> { includes(accounts: :operations).order('clients.lastname') }
 
 
   before_save do |client|
     client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
-    client.lastname  = lastname.upcase.strip
-    client.street    = street.capitalize.strip
+    client.lastname  = lastname.strip.upcase
+    client.street    = street.strip.capitalize
     client.zipcode   = zipcode.strip
-    client.city      = city.capitalize.strip
-    client.country   = country.upcase.strip
+    client.city      = city.strip.capitalize
+    client.country   = country.strip.upcase
     client.phone     = phone.strip unless phone.blank?
   end
 
