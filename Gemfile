@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails', '~> 1.3.0.1'
 gem 'prawn',          '~> 1.0.0.rc1'
 gem 'pg',             '~> 0.17.1'
+gem 'slim-rails'
 
 gem 'sass-rails',   '~> 4.0.1'
 gem 'coffee-rails', '~> 4.0.1'
@@ -23,6 +24,7 @@ gem 'turbolinks'
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'quiet_assets', '~> 1.0.2'
+  gem 'thin'
 end
 
 group :test do
