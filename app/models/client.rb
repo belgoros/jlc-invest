@@ -19,8 +19,6 @@ class Client < ActiveRecord::Base
   end
 
   before_save do |client|
-    #client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
-    #client.lastname  = lastname.strip.upcase
     client.street    = street.strip.capitalize
     client.zipcode   = zipcode.strip
     client.city      = city.strip.capitalize
