@@ -13,10 +13,14 @@ class Client < ActiveRecord::Base
 
   scope :accounts_sum, -> { includes(accounts: :operations).order('clients.lastname') }
 
+  before_validation do |client|
+    client.firstname = firstname.strip.split('-').map(&:capitalize).join('-') unless firstname.blank?
+    client.lastname  = lastname.strip.upcase unless lastname.blank?
+  end
 
   before_save do |client|
-    client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
-    client.lastname  = lastname.strip.upcase
+    #client.firstname = firstname.strip.split('-').map(&:capitalize).join('-')
+    #client.lastname  = lastname.strip.upcase
     client.street    = street.strip.capitalize
     client.zipcode   = zipcode.strip
     client.city      = city.strip.capitalize
@@ -33,7 +37,7 @@ class Client < ActiveRecord::Base
   end
 
   def accounts_balance
-    balance = 0.0
+    balance = 0
     balance = accounts.map(&:balance).inject(:+) unless accounts.empty?
     balance
   end
