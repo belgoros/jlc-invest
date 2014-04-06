@@ -114,27 +114,28 @@ describe Client do
     end
   end
 
-  describe "it calculates accounts balance" do
+  describe '#account_balance' do
     before do
-       Account.delete_all
-       client_with_acccount =  create(:client)
-     end
-    context "when client has no accounts" do
-      it "should have the balance of zero" do
-        client_with_acccount.accounts_balance.should == 0
+      Account.delete_all
+      @client_with_no_accoounts = create(:client)
+    end
+
+    context 'when a client has no accounts' do
+      specify 'his accounts balance should be zero' do
+        expect(@client_with_no_accoounts.accounts_balance).to eq(0)
       end
     end
 
-    context "when client has an account with an operation" do
-      it "should have the balance greater than zero" do
-        account = create(:account)
-        deposit_operation = create(:deposit,
-                                    account: account,
-                                    close_date: Date.today + 6.months,
-                                    sum: 1000,
-                                    rate: 12, withholding: 12)
-         account.client.accounts_balance.should be > 0
+    context 'when a client has an account with an operation' do
+      before do
+        @account = create(:account)
+        create(:deposit, account: @account, close_date: Date.today + 6.months, sum: 1000, rate: 12, withholding: 12 )
+      end
+
+      specify 'his accounts balance should be greater than zero' do
+        expect(@account.client.accounts_balance).to be > 0
       end
     end
   end
+
 end
