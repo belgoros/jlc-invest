@@ -1,7 +1,7 @@
 = provide(:title, t(:new, model: Client.model_name.human))
 .row
   div class='col-md-6 col-md-offset-3'
-    h1><%= t(:new, model: Client.model_name.human)
+    h1 = t(:new, model: Client.model_name.human)
     = form_for @client, html: { class: 'form-horizontal', role: 'form'} do |f|
         = render 'fields', f: f
         .form-group
