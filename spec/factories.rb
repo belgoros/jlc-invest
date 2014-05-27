@@ -16,9 +16,14 @@ FactoryGirl.define do
     house      { Faker::Address.building_number}
     zipcode    { Faker::Address.zip_code }
     city       { Faker::Address.city }
-    country    { Faker::Address.country }
+    country    { Faker::Address.default_country }
     phone      { Faker::PhoneNumber.phone_number }
+
+    factory :invalid_client do
+      lastname nil
+    end
   end
+
 
   factory :account do
     client
