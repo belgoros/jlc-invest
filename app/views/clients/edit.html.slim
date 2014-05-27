@@ -1,10 +1,9 @@
 = provide(:title, t(:edit, model: Client.model_name.human))
-h2 = t(:edit, model: Client.model_name.human)
-
-.row
-  .span6.offset3
-    = form_for(@client) do |f|
-        = render 'fields', f: f
-
-        = f.submit class: "btn btn-large btn-primary"
-    = link_to t('links.back_to_list'), clients_path
+.col-md-6.col-md-offset-3
+  h1 = t(:edit, model: Client.model_name.human)
+  = form_for @client, html: { class: 'form-horizontal', role: 'form'} do |f|
+    = render 'fields', f: f
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        = f.submit class: "btn btn-primary btn-large"
+  = link_to t('links.back_to_list'), clients_path
