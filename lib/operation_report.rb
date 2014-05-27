@@ -77,13 +77,14 @@ class OperationReport < Prawn::Document
 
     table(data,
           position: x_axe,
+          cell_style: { padding: [10, 5, 10, 5] },
           width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
 
       row(0).font_style = :bold
       row(0).size = 10
       row(0).align = :center
       row(1).columns(1..7).align = :center
-      row(1).size = 10
+      row(1).size = 9
     end
   end
 
