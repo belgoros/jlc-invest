@@ -17,7 +17,7 @@ def make_users
   35.times do |n|
     firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
-    email = "example-#{n+1}@jlc-invset.com"
+    email = Faker::Internet.email
     password = "password"
     Admin.create!(firstname: firstname,
                   lastname: lastname,
@@ -73,5 +73,5 @@ def make_operations
       withholding: 12,
       close_date: Date.today + account.id.months)
     end
-  end  
+  end
 end
