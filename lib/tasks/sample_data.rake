@@ -31,7 +31,7 @@ end
 def make_clients
   Faker::Config.locale = :fr
 
-  35.times do |n|
+  35.times do
     firstname = Faker::Name.first_name
     lastname = Faker::Name.last_name
     street = Faker::Address.street_name
