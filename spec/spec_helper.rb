@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'faker'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -44,6 +45,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.mock_with :rspec
+
+  #Set FR locale for Faker gem
+  Faker::Config.locale = :fr
 
   # Uncomment to use old (non-features spec)
   # config.include Capybara::DSL
