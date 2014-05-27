@@ -23,7 +23,7 @@ gem 'turbolinks'
 
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.14.1'
+  gem 'rspec-rails', '~> 2.14.2'
   gem 'quiet_assets', '~> 1.0.2'
   gem 'thin'
 end
