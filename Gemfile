@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+#ruby '2.1.0'
+ruby '2.0.0'
 
 gem 'rails',          '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -10,7 +11,7 @@ gem 'will_paginate',  '~> 3.0.5'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails', '~> 1.3.0.1'
-gem 'prawn',          '~> 1.0.0.rc1'
+gem 'prawn',          '~> 1.0.0'
 gem 'pg',             '~> 0.17.1'
 gem 'slim-rails'
 
