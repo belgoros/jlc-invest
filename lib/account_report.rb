@@ -68,7 +68,7 @@ class AccountReport < Prawn::Document
     x_axe += (25.mm + Report::FIELD_SPACE)
     bounding_box([x_axe, y_axe], width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
       pad(5) do
-        text number_to_currency(account.balance), align: :right, style: :bold
+        text number_to_currency(account.balance), align: :center, style: :bold
         transparent(Report::TRANSPARENT_LEVEL) { stroke_bounds }
       end
     end
