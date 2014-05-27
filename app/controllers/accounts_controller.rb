@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :find_client, only: :create
+  before_action :signed_in_user
+  before_action :find_client, only: :create
 
   def create
     @client.accounts.create!

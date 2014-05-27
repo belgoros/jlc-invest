@@ -1,6 +1,6 @@
 class OperationsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
-  before_filter :find_account,   except: :index
+  before_action :signed_in_user, only: [:index, :new, :edit, :show, :update, :destroy]
+  before_action :find_account,   except: :index
 
   def index
     all_operations = Client.accounts_sum
