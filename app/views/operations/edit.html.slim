@@ -1,22 +1,22 @@
 = provide(:title, t(:edit, model: Operation.model_name.human))
-h1 = t(:edit, model: Operation.model_name.human)
+.col-md-6.col-md-offset-3
+  h1 = t(:edit, model: Operation.model_name.human)
 
-.row
-  div class="span6 offset3" style="text-align: right;  background-color: #D9EDF7;"
+  .row style="text-align: right;  background-color: #D9EDF7;"
     = t('activerecord.models.account')
     ' :
     = @account.acc_number
 
-.row
-  div class="span6 offset3" style="text-align: right;  background-color: #F2DEDE;"
+  .row style="text-align: right;  background-color: #F2DEDE;"
     = t(:account_balance)
     ' :
     = number_to_currency(@balance)
-.row
-  .span6.offset3
-    = form_for([@account, @operation]) do |f|
 
-        = render 'fields', f: f
+  = form_for([@account, @operation], html: { class: 'form-horizontal', role: 'form'}) do |f|
 
-        = f.submit class: "btn btn-large btn-primary"
-    = link_to t('links.back_to_list'), @account
+      = render 'fields', f: f
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          = f.submit class: "btn btn-large btn-primary"
+
+  = link_to t('links.back_to_list'), @account

@@ -1,22 +1,35 @@
 = render 'js_dates'
 
+.form-group
+  .col-sm-offset-3.col-sm-9
+    = render 'shared/error_messages', object: f.object
 
-= render 'shared/error_messages', object: f.object
+.form-group
+  = f.label :value_date, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :value_date, value: (@operation.value_date.blank? ? '' : l(@operation.value_date)), class: "form-control"
 
-= f.label :value_date
-= f.text_field :value_date, value: (@operation.value_date.blank? ? '' : l(@operation.value_date))
+.form-group
+  = f.label :operation_type, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.select :operation_type, Operation::TRANSACTIONS, {prompt: true}, {class: "form-control"}
 
-= f.label :operation_type
-= f.select :operation_type, Operation::TRANSACTIONS, prompt: true
+.form-group
+  = f.label :sum, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :sum, class: "form-control"
 
-= f.label :sum
-= f.text_field :sum
-.remission
-    = f.label :rate
-    = f.text_field :rate
+#remission.form-group
+  = f.label :rate, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :rate, class: "form-control"
 
-    = f.label :close_date
-    = f.text_field :close_date, value: (@operation.close_date.blank? ? '' : l(@operation.close_date))
+.form-group
+  = f.label :close_date, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :close_date, value: (@operation.close_date.blank? ? '' : l(@operation.close_date)), class: "form-control"
 
-    = f.label :withholding
-    = f.text_field :withholding
+.form-group
+  = f.label :withholding, class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :withholding, class: "form-control"
