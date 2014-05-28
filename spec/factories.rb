@@ -5,8 +5,8 @@ FactoryGirl.define do
     firstname  { Faker::Name.first_name }
     lastname   { Faker::Name.last_name }
     email      { Faker::Internet.email }
-    password "Admin123"
-    password_confirmation "Admin123"
+    password "secret"
+    password_confirmation "secret"
   end
 
   factory :client do
