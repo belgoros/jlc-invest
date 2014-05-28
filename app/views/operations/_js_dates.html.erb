@@ -2,10 +2,10 @@
     $(function () {
         $('#operation_value_date').datepicker({startDate: "01/01/2012", autoclose: true, weekStart: 1, language: "fr", format: "dd/mm/yyyy", todayHighlight: true});
         $('#operation_close_date').datepicker({startDate: "01/01/2012", autoclose: true, weekStart: 1, language: "fr", format: "dd/mm/yyyy", todayHighlight: true});
-        
-        
+
+
         if ($('#operation_operation_type').val() == '<%= Operation::WITHDRAWAL %>') {
-                $(".remission").hide("slow");
+                $("#remission").hide("slow");
                 $("#operation_rate").val("");
                 $("#operation_close_date").val("");
                 $("#operation_withholding").val("");
@@ -13,13 +13,13 @@
         $('#operation_operation_type').change(function () {
             var sel = $(this).val();
             if (sel == '<%= Operation::WITHDRAWAL %>') {
-                $(".remission").hide("slow");
+                $("#remission").hide("slow");
                 $("#operation_rate").val("");
                 $("#operation_close_date").val("");
                 $("#operation_withholding").val("");
             }
             else {
-                $(".remission").show("slow");
+                $("#remission").show("slow");
             }
         });
     });
