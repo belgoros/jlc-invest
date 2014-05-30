@@ -11,9 +11,9 @@ describe OperationsController do
   end
 
   describe "GET #index" do
-    it "renders the :index view" do
-      visit operations_path
-      response.should render_template :index
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template :index
     end
   end
 
@@ -27,7 +27,7 @@ describe OperationsController do
 
     it "redirects to the client accounts page" do
       post :create, operation: attributes_for(:deposit, sum: 1000, rate: 2, close_date: (Date.today + 6.months), withholding: 12, account: account), account_id: account.id
-      response.should redirect_to account
+      expect(response).to redirect_to account
     end
   end
 
@@ -46,10 +46,10 @@ describe OperationsController do
   end
 
   describe "PDF generation" do
-    it "creates a PDF report for a specified account operation" do
+    it "returns a PDF file inline" do
       get :show, id: @operation, account_id: account.id, format: :pdf
-      response.content_type.should eq("application/pdf")
-      response.headers["Content-Disposition"].should eq("inline")
+      expect(response.headers['Content-Type']).to have_content 'pdf'
+      expect(response.content_type).to eq("application/pdf")
     end
   end
 end
