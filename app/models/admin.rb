@@ -18,7 +18,7 @@ class Admin < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
-  def self.hash(token)
+  def self.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
 
@@ -34,11 +34,10 @@ class Admin < ActiveRecord::Base
 
   protected :normalize_admin_identity
 
-
   private
 
-  def create_remember_token
-    self.remember_token = Admin.hash(Admin.new_remember_token)
-  end
+    def create_remember_token
+      self.remember_token = Admin.digest(Admin.new_remember_token)
+    end
 
 end
