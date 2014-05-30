@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
+  before_action :signed_in_user
 
   def index
     @clients = Client.paginate(page: params[:page])
