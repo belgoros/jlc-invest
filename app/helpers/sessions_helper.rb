@@ -3,7 +3,7 @@ module SessionsHelper
   def sign_in(user)
     remember_token = Admin.new_remember_token
     cookies.permanent[:remember_token] = remember_token
-    user.update_attribute(:remember_token, Admin.hash(remember_token))
+    user.update_attribute(:remember_token, Admin.digest(remember_token))
     self.current_user = user
   end
 
@@ -16,7 +16,7 @@ module SessionsHelper
   end
 
   def current_user
-    remember_token  = Admin.hash(cookies[:remember_token])
+    remember_token  = Admin.digest(cookies[:remember_token])
     @current_user ||= Admin.find_by(remember_token: remember_token)
   end
 
@@ -25,7 +25,7 @@ module SessionsHelper
   end
 
   def sign_out
-    current_user.update_attribute(:remember_token, Admin.hash(Admin.new_remember_token))
+    current_user.update_attribute(:remember_token, Admin.digest(Admin.new_remember_token))
     cookies.delete(:remember_token)
     self.current_user = nil
   end
