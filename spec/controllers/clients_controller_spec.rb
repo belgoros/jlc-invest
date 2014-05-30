@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe ClientsController do
+  let(:admin) { create(:admin) }
+
+  before { sign_in(admin) }
 
   describe 'GET #index' do
     it "populates an array of all clients" do
