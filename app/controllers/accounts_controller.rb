@@ -21,6 +21,12 @@ class AccountsController < ApplicationController
 
   def report
     @account = Account.find(params[:id])
+    if @account.operations.empty?
+      flash[:error]  = "Oups, no operations found for this account!"
+      redirect_to root_path
+      return
+    end
+
     report   = AccountReport.new
     output   = report.to_pdf(@account)
     respond_to do |format|
