@@ -12,7 +12,7 @@
 .form-group
   = f.label :operation_type, class: "col-sm-3 control-label"
   .col-sm-9
-    = f.select :operation_type, Operation::TRANSACTIONS, {prompt: true}, {class: "form-control"}
+    = f.select :operation_type, Operation::TRANSACTIONS, {prompt: true}, {class: "form-control input-lg"}
 
 .form-group
   = f.label :sum, class: "col-sm-3 control-label"
