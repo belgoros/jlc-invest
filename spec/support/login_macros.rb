@@ -5,4 +5,8 @@ module LoginMacros
     fill_in I18n.t('activerecord.attributes.admin.password'), with: user.password
     click_button I18n.t('links.sign_in')
   end
+
+  def sign_out_with_browser
+    click_link I18n.t('links.sign_out')
+  end
 end
