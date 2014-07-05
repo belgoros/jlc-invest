@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140530080400) do
   create_table "accounts", force: true do |t|
     t.integer  "client_id"
     t.string   "acc_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "admins", force: true do |t|
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140530080400) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20140530080400) do
     t.string   "zipcode"
     t.string   "city"
     t.string   "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "operations", force: true do |t|
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140530080400) do
     t.integer  "duration"
     t.decimal  "interests",      precision: 10, scale: 2
     t.decimal  "total",          precision: 10, scale: 2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
