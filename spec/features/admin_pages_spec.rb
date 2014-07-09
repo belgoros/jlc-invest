@@ -3,7 +3,6 @@ require 'spec_helper'
 feature "Admin Pages" do
 
   before(:all) { 30.times { create(:admin) } }
-  after(:all)  { Admin.delete_all }
 
   let(:admin) { create(:admin) }
 
