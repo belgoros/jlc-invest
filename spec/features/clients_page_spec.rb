@@ -3,16 +3,19 @@ require 'spec_helper'
 feature "Clients Page" do
 
   let(:admin)  { create(:admin) }
-  let(:client) { create(:client) }
+  #Create  client to be first to click on, see the spec
+  # "Client accounts page can be accessed via Edit link"
+  let(:client) { create(:client, lastname: "lastname_to_click") }
 
   background do
     sign_in_with_browser(admin)
     visit clients_path
   end
 
-  before(:all) { 31.times { create(:client) } }
-  after(:all) { Client.delete_all }
-
+  before(:all) do
+    Client.delete_all
+    31.times { create(:client) }
+  end
 
   scenario "Has index page with correct titles" do
     expect(page).to have_title(full_title(I18n.t(:list_all, model: Client.model_name.human.pluralize)))
