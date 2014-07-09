@@ -6,11 +6,9 @@ describe ClientsController do
   before(:each) { sign_in admin }
 
   describe 'GET #index' do
+    Client.delete_all
+    let!(:clients) { Array.new(3) { create(:client) } }
     it "populates an array of all clients" do
-      clients = []
-      3.times do
-        clients << create(:client)
-      end
 
       get :index
       expect(assigns(:clients)).to match_array(clients)
