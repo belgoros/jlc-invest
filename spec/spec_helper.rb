@@ -53,25 +53,12 @@ RSpec.configure do |config|
   #Set FR locale for Faker gem
   Faker::Config.locale = :fr
 
-  # Uncomment to use old (non-features spec)
-  # config.include Capybara::DSL
-
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end
-
   config.before(:each) do
     DatabaseCleaner.start
   end
-
   config.after(:each) do
     DatabaseCleaner.clean
   end
