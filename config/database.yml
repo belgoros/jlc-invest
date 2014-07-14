@@ -5,9 +5,12 @@ development:
   pool: 5
   host: localhost
 
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   database: jlc_invest_test
   pool: 5
   host: localhost
+
+cucumber:
+  <<: *test
