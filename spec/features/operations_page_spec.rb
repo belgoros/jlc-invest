@@ -15,8 +15,6 @@ feature "Operations page" do
     end
   end
 
-  after(:all) { Operation.delete_all }
-
   background do
     sign_in_with_browser(admin)
     visit operations_path

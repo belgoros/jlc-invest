@@ -12,8 +12,6 @@ feature "Account operations page" do
     visit account_path(account)
   end
 
-  after { account.operations.delete_all }
-
   scenario "has correct links and title" do
     expect(page).to have_selector('h1', text: client.full_name)
     expect(page).to have_selector('h2', text: I18n.t(:list_all, model: Operation.model_name.human.pluralize))

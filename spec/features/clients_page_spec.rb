@@ -13,7 +13,6 @@ feature "Clients Page" do
   end
 
   before(:all) do
-    Client.delete_all
     31.times { create(:client) }
   end
 
