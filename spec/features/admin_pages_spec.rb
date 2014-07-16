@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Admin Pages" do
+feature "Admin Pages", before_all_records: true do
 
   before(:all) { 30.times { create(:admin) } }
 

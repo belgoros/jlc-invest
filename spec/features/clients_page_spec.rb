@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Clients Page" do
+feature "Clients Page", before_all_records: true do
 
   let(:admin)  { create(:admin) }
   #Create  client to be first to click on, see the spec

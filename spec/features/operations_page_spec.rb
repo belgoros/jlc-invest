@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Operations page" do
+feature "Operations page", before_all_records: true do
 
   let(:admin) { create(:admin) }
 
