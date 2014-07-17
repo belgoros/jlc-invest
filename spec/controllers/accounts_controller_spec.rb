@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AccountsController do
+describe AccountsController, :type => :controller do
 
   let(:admin)  { create(:admin) }
   let(:client) { create(:client) }
