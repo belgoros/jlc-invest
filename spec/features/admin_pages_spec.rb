@@ -2,11 +2,10 @@ require 'spec_helper'
 
 feature "Admin Pages" do
 
-  before(:all) { 30.times { create(:admin) } }
-
-  let(:admin) { create(:admin) }
+  given(:admin) { create(:admin)}
 
   background do
+    30.times { create(:admin) }
     sign_in_with_browser(admin)
     visit admins_path
   end

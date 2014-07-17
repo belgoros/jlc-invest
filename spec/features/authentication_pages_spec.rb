@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "Authentication" do
-  let(:admin) { create(:admin) }
+  given(:admin) { create(:admin) }
 
   background do
     visit signin_path
