@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Clients Page" do
+feature "Clients Page", before_all_records: true do
 
   given(:admin)   { create(:admin)  }
   given!(:client) { create(:client) }

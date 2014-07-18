@@ -6,7 +6,6 @@ describe ClientsController, :type => :controller do
   before(:each) { sign_in admin }
 
   describe 'GET #index' do
-    Client.delete_all
     let!(:clients) { Array.new(3) { create(:client) } }
     it "populates an array of all clients" do
 
