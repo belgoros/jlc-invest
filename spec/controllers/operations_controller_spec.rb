@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OperationsController do
+describe OperationsController, :type => :controller do
   let(:admin) { create(:admin) }
   let(:client) { create(:client) }
   let(:account) { create(:account, client: client)}
@@ -41,7 +41,7 @@ describe OperationsController do
 
     it "redirects to the Account operations page" do
       delete :destroy, id: @operation, account_id: account.id
-      response.should redirect_to account
+      expect(response).to redirect_to account
     end
   end
 

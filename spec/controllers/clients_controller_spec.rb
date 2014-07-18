@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ClientsController do
+describe ClientsController, :type => :controller do
   let(:admin) { create(:admin) }
 
   before(:each) { sign_in admin }
