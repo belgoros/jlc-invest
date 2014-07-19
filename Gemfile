@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-#ruby '2.1.0'
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails',          '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -30,7 +29,7 @@ end
 
 group :test do
   gem 'rake',               '~> 10.1.1'
-  gem 'capybara',           '~> 2.2.1'
+  gem 'capybara',           '~> 2.4.1'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'database_cleaner',   '~> 1.2.0'
   gem 'launchy',            '~> 2.4.2'
