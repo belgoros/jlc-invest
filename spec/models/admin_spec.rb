@@ -44,8 +44,8 @@ describe Admin, :type => :model do
     it { is_expected.not_to be_valid }
   end
 
-  describe "when password confirmation is nil" do
-    before { admin.password_confirmation = nil }
+  describe "when password confirmation is empty" do
+    before { admin.password_confirmation = ' ' }
     it { is_expected.not_to be_valid }
   end
 
