@@ -7,15 +7,13 @@ class Operation < ActiveRecord::Base
 
   TRANSACTIONS = [DEPOSIT, WITHDRAWAL, REMISSION]
 
-  default_scope order: 'operations.value_date'
+  default_scope { order('value_date') }
 
-  attr_accessible :operation_type, :duration, :rate, :interests, :sum, :total, :value_date, :close_date, :withholding
-
-  VALID_DECIMAL_REGEX = /^\d+(\.)?(\d{0,2})?$/
+  VALID_DECIMAL_REGEX = /\A\d+(\.)?(\d{0,2})?\z/
 
   validates :operation_type, presence: true, inclusion: {in: TRANSACTIONS}
 
-  validates :rate, presence: true, format: {with: VALID_DECIMAL_REGEX},
+  validates :rate, presence: true, format: { with: VALID_DECIMAL_REGEX },
             numericality: {greater_than_or_equal_to: 0}, if: Proc.new { |op| op.operation_type != WITHDRAWAL }
 
   validates :sum,         presence: true, format: {with: VALID_DECIMAL_REGEX}, numericality: {greater_than: 0}

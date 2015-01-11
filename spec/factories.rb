@@ -1,22 +1,29 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :admin do
-    sequence(:firstname)  { |n| "firstname #{n}" }
-    sequence(:lastname)   { |n| "lastname #{n}" }
-    sequence(:email)      { |n| "person_#{n}@example.com" }
-    password "Admin123"
-    password_confirmation "Admin123"
+    firstname  { Faker::Name.first_name }
+    lastname   { Faker::Name.last_name }
+    email      { Faker::Internet.email }
+    password "secret"
+    password_confirmation "secret"
   end
 
   factory :client do
-    sequence(:firstname)  { |n| "firstname_#{n}" }
-    sequence(:lastname)   { |n| "lastname_#{n}" }
-    sequence(:street)     { |n| "street_#{n}" }
-    sequence(:house)      { |n| "1#{n}" }
-    sequence(:zipcode)    { |n| "1#{n}" }
-    sequence(:city)       { |n| "city_#{n}" }
-    sequence(:country)    { |n| "country_#{n}" }
-    sequence(:phone)      { |n| "078-#{n}" }
+    firstname  { Faker::Name.first_name }
+    lastname   { Faker::Name.last_name }
+    street     { Faker::Address.street_name }
+    house      { Faker::Address.building_number}
+    zipcode    { Faker::Address.zip_code }
+    city       { Faker::Address.city }
+    country    { Faker::Address.default_country }
+    phone      { Faker::PhoneNumber.phone_number }
+
+    factory :invalid_client do
+      lastname nil
+    end
   end
+
 
   factory :account do
     client

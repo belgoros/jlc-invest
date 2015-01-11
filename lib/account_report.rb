@@ -54,11 +54,11 @@ class AccountReport < Prawn::Document
       end
     end
   end
-  
+
   def write_total(account)
     x_axe = bounds.left + 120.mm
     y_axe = cursor
-    
+
     bounding_box([x_axe, y_axe], width: 25.mm) do
       pad(5) do
         text I18n.t('account_balance'),  align: :right
@@ -67,12 +67,12 @@ class AccountReport < Prawn::Document
 
     x_axe += (25.mm + Report::FIELD_SPACE)
     bounding_box([x_axe, y_axe], width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
-      pad(5) do 
-        text number_to_currency(account.balance), align: :right, style: :bold
+      pad(5) do
+        text number_to_currency(account.balance), align: :center, style: :bold
         transparent(Report::TRANSPARENT_LEVEL) { stroke_bounds }
       end
     end
-    
+
   end
 
   def draw_data_table(account)
@@ -102,7 +102,12 @@ class AccountReport < Prawn::Document
 
     end
 
-    table(table_data, header: true, position: x_axe, cell_style: {padding: [10, 5, 10, 5] }, width: bounds.right - x_axe - Report::RIGHT_BORDER_SPACE) do
+    table(table_data,
+          header: true,
+          position: x_axe,
+          cell_style: { padding: [10, 5, 10, 5] },
+          width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
+
       row(0).font_style = :bold
       row(0).size = 8
       row(0).align = :center

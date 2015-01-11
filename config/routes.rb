@@ -1,5 +1,4 @@
-JlcInvest::Application.routes.draw do  
-
+JlcInvest::Application.routes.draw do
   resources :admins
   root to: 'clients#index'
 
@@ -12,8 +11,9 @@ JlcInvest::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  #match '/signup', to: 'admins#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/operations', to: "operations#index", :via => :get
+  match '/signup',  to: 'admins#new',       via: 'get'
+  match '/signin',  to: 'sessions#new',     via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+
+  get '/operations', to: 'operations#index'
 end

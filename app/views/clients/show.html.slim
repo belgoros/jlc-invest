@@ -1,0 +1,24 @@
+= provide(:title, @client.full_name)
+h2 = @client.full_name
+
+- if @accounts.empty?
+  h2 = t(:no_items_found)
+- else
+  h2 = t(:list_all, model: Account.model_name.human.pluralize)
+  table.table.table-striped
+    thead
+      tr
+        th style="width: 70%" = t('activerecord.attributes.account.acc_number')
+        th style="width: 10%" = t(:account_balance)
+        th style="width: 10%"
+        th style="width: 10%"
+    tbody
+      = render @accounts
+  = will_paginate @accounts
+
+= render 'account_form'
+
+br
+.row
+  .col-md-2
+    = link_to t('links.back_to_list'), clients_path

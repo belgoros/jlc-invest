@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AccountsController do
+describe AccountsController, :type => :controller do
 
   let(:admin)  { create(:admin) }
   let(:client) { create(:client) }
@@ -16,7 +16,7 @@ describe AccountsController do
 
     it "redirects to the client accounts page" do
       post :create, account: {client_id: client.id}
-      response.should redirect_to client
+      expect(response).to redirect_to client
     end
   end
 
@@ -34,16 +34,24 @@ describe AccountsController do
 
     it "redirects to the clients accounts page" do
       delete :destroy, id: @account
-      response.should redirect_to client
+      expect(response).to redirect_to client
     end
   end
 
   describe "PDF generation" do
-    before { @account = create(:account, client: client) }
-    it "creates a PDF report for a specified account" do
-      get :report, id: @account,  format: :pdf
-      response.content_type.should eq("application/pdf")
-      response.headers["Content-Disposition"].should eq("inline")
+    let(:operation) do
+      create(:deposit,
+             close_date: Date.today + 6.months,
+             sum: 1000,
+             rate: 12,
+             withholding: 12)
+      end
+
+
+    it "returns a PDF file inline" do
+      get :report, id: operation.account, format: :pdf
+      expect(response.headers['Content-Type']).to have_content 'pdf'
+      expect(response.content_type).to eq("application/pdf")
     end
   end
 end

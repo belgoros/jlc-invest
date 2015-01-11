@@ -1,0 +1,5 @@
+tr
+  td = link_to account.acc_number, account
+  td.rightCell = number_to_currency(account.balance)
+  td = link_to_if(account.balance > 0, t('links.printing'), report_account_path(account, format: :pdf))
+  td = link_to t('links.delete'), account, method: :delete, data: { confirm: t(:are_you_sure) }

@@ -43,7 +43,7 @@ module Report
 
     bounding_box([bounds.right - 84, y_axe], width: 25.mm ) do
       pad(5) do
-        text account.acc_number, align: :center
+        text account.acc_number, align: :right
         transparent(Report::TRANSPARENT_LEVEL) { stroke_bounds }
       end
     end
@@ -59,7 +59,7 @@ module Report
       end
     end
     title_pad = 45.mm
-    title_pad = opts[:title_pad] if opts[:title_pad]  
+    title_pad = opts[:title_pad] if opts[:title_pad]
     x_axe += (title_pad + Report::FIELD_SPACE)
     bounding_box([x_axe, y_axe], width: (bounds.right - x_axe - Report::RIGHT_BORDER_SPACE)) do
       pad(5) do

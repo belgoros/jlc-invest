@@ -1,11 +1,10 @@
 class AccountsController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :find_client, only: :create
+  before_action :signed_in_user
+  before_action :find_client, only: :create
 
   def create
     @client.accounts.create!
-    flash[:success] = t(:created_success, model: Account.model_name.human)
-    redirect_to @client
+    redirect_to @client, notice: t(:created_success, model: Account.model_name.human)
   end
 
   def show
@@ -17,13 +16,18 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @client  = @account.client
     @account.destroy
-    flash[:success] = t(:destroyed_success, model: Account.model_name.human)
-    redirect_to @client
+    redirect_to @client, notice: t(:destroyed_success, model: Account.model_name.human)
   end
 
   def report
     @account = Account.find(params[:id])
-    report   = AccountReport.new()
+    if @account.operations.empty?
+      flash[:error]  = "Oups, no operations found for this account!"
+      redirect_to root_path
+      return
+    end
+
+    report   = AccountReport.new
     output   = report.to_pdf(@account)
     respond_to do |format|
       format.pdf do
@@ -35,6 +39,10 @@ class AccountsController < ApplicationController
   private
     def find_client
       @client = Client.find(params[:account][:client_id])
+    end
+
+    def account_params
+      params.require(:account).permit(:acc_number, :client_id)
     end
 
 end

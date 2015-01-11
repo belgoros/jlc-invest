@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :new, :edit, :update, :destroy]
+  before_action :signed_in_user
 
   def index
     @clients = Client.paginate(page: params[:page])
@@ -10,10 +10,9 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(params[:client])
+    @client = Client.new(client_params)
     if @client.save
-      flash[:success] = t(:created_success, model: Client.model_name.human)
-      redirect_to clients_path
+      redirect_to clients_path, notice: t(:created_success, model: Client.model_name.human)
     else
       render "new"
     end
@@ -30,9 +29,8 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find(params[:id])
-    if @client.update_attributes(params[:client])
-      flash[:success] = t(:updated_success, model: Client.model_name.human)
-      redirect_to clients_path
+    if @client.update_attributes(client_params)
+      redirect_to clients_path, notice: t(:updated_success, model: Client.model_name.human)
     else
       render 'edit'
     end
@@ -40,7 +38,11 @@ class ClientsController < ApplicationController
 
   def destroy
     Client.find(params[:id]).destroy
-    flash[:success] = t(:destroyed_success, model: Client.model_name.human)
-    redirect_to clients_path
+    redirect_to clients_path, notice: t(:destroyed_success, model: Client.model_name.human)
+  end
+
+  private
+  def client_params
+    params.require(:client).permit(:firstname, :lastname, :street, :house, :box, :zipcode, :city, :country, :phone)
   end
 end

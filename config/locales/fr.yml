@@ -48,7 +48,7 @@ fr:
     settings: "Modifier mes données"
     sign_out: "Se déconnecter"
     sign_in: "Se connecter"
-    back_to_account: "Retourner au compte"
+    back_to_account: "Retour vers le compte"
     printing: "Imprimer"
   date:
     formats:

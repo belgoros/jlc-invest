@@ -1,30 +1,36 @@
 require 'spec_helper'
 
-describe Account do
+describe Account, :type => :model do
   let(:client) { create(:client) }
-  before { @account = build(:account, client: client) }
 
-  subject { @account }
+  subject(:account) { build(:account, client: client) }
 
-  its(:client) { should == client }
+  describe '#client' do
+    subject { super().client }
+    it { is_expected.to eq(client) }
+  end
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 
-  it { should respond_to(:acc_number) }
-  it { should respond_to(:client_id) }
-  it { should respond_to(:client) }
-  it { should respond_to(:operations) }
-  it { should respond_to(:balance) }
+  it { is_expected.to respond_to(:acc_number) }
+  it { is_expected.to respond_to(:client_id) }
+  it { is_expected.to respond_to(:client) }
+  it { is_expected.to respond_to(:operations) }
+  it { is_expected.to respond_to(:balance) }
 
 
   describe "account number" do
-    before { @account.save }
-    its(:acc_number) { should_not be_nil }
+    before { account.save }
+
+    describe '#acc_number' do
+      subject { super().acc_number }
+      it { is_expected.not_to be_nil }
+    end
 
     it "has a generated number increased by one" do
       last = client.accounts.last
       new_account = create(:account, client: client)
-      (new_account.acc_number.split('-').last.to_i - last.acc_number.split('-').last.to_i).should == 1
+      expect(new_account.acc_number.split('-').last.to_i - last.acc_number.split('-').last.to_i).to eq(1)
     end
   end
 end

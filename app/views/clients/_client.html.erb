@@ -1,7 +1,0 @@
-<tr>
-  <td><%= link_to client.lastname, client %></td>
-  <td><%= link_to client.firstname, client %></td>
-  <td><%= client.phone %></td>  
-  <td><%= link_to t('links.edit'), edit_client_path(client) %></td>
-  <td><%= link_to t('links.delete'), client, method: :delete, confirm: t(:are_you_sure) %></td>
-</tr>

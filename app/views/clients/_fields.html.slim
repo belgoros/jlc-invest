@@ -1,0 +1,48 @@
+.form-group
+  .col-sm-offset-3.col-sm-9
+    = render 'shared/error_messages', object: f.object
+.form-group
+  = f.label :firstname, t('activerecord.attributes.client.firstname'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :firstname, class: "form-control"
+
+.form-group
+  = f.label :lastname, t('activerecord.attributes.client.lastname'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :lastname, class: "form-control"
+
+.form-group
+  = f.label :street, t('activerecord.attributes.client.street'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :street, class: "form-control"
+
+.form-group
+  = f.label :house, t('activerecord.attributes.client.house'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :house, class: "form-control"
+
+.form-group
+  = f.label :box, t('activerecord.attributes.client.box'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :box, class: "form-control"
+
+.form-group
+  = f.label :zipcode, t('activerecord.attributes.client.zipcode'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :zipcode, class: "form-control"
+
+
+.form-group
+  = f.label :city, t('activerecord.attributes.client.city'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :city, class: "form-control"
+
+.form-group
+  = f.label :country, t('activerecord.attributes.client.country'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :country, class: "form-control"
+
+.form-group
+  = f.label :phone, t('activerecord.attributes.client.phone'), class: "col-sm-3 control-label"
+  .col-sm-9
+    = f.text_field :phone, class: "form-control"

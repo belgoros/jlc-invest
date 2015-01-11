@@ -1,0 +1,39 @@
+= provide(:title, @account.client.full_name)
+h1 = @account.client.full_name
+
+- if @operations.empty?
+  h2 = t(:no_items_found)
+- else
+  h2
+    = t(:list_all, model: Operation.model_name.human.pluralize)
+    '   |
+    = t('activerecord.models.account')
+    ' :
+    = @account.acc_number
+  table.table.table-striped
+    thead
+      tr
+        th class="total" colspan="9" = t(:account_balance)
+        th.sum = number_to_currency(@account.balance)
+      tr
+        th #
+        th style="width: 7%"  = t('activerecord.attributes.operation.value_date')
+        th style="width: 7%"  = t('activerecord.attributes.operation.operation_type')
+        th style="width: 15%" = t('activerecord.attributes.operation.sum')
+        th style="width: 7%"  = t('activerecord.attributes.operation.rate')
+        th style="width: 7%"  = t('activerecord.attributes.operation.close_date')
+        th style="width: 5%"  = t('activerecord.attributes.operation.duration')
+        th style="width: 10%" = t('activerecord.attributes.operation.interests')
+        th style="width: 5%"  = t('activerecord.attributes.operation.withholding')
+        th style="width: 15%" = t('activerecord.attributes.operation.total')
+        th style="width: 7%"
+        th style="width: 7%"
+        th style="width: 7%"
+    tbody
+      = render @operations
+    = will_paginate @operations
+
+  p
+    = link_to t('links.new', model: Operation.model_name.human), new_account_operation_path(@account)
+    '   |
+    = link_to t('links.back_to_list'), @account.client

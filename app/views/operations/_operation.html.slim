@@ -1,0 +1,15 @@
+tr
+  td.rightCell = operation.id
+  td = l(operation.value_date)
+  td = operation.operation_type
+  td.rightCell = number_to_currency(operation.sum)
+  td.rightCell = number_to_percentage(operation.rate, precision: 2)
+  td = l(operation.close_date) if operation.close_date
+  td.rightCell = operation.duration
+  td.rightCell = number_to_currency(operation.interests)
+  td.rightCell = number_to_percentage(operation.withholding, precision: 2)
+  td.rightCell = number_to_currency(operation.total)
+  td = link_to t('links.printing'), account_operation_path(operation.account, operation, format: :pdf)
+  td = link_to t('links.edit'), edit_account_operation_path(operation.account, operation)
+  td = link_to t('links.delete'), account_operation_path(operation.account, operation), method: :delete,
+          data: {confirm: t(:are_you_sure)}
