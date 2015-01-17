@@ -42,7 +42,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_path, notice: t(:sign_in_required)
+      redirect_to signin_path, alert: t(:sign_in_required)
     end
   end
 end
