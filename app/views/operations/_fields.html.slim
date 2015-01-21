@@ -19,17 +19,18 @@
   .col-sm-9
     = f.text_field :sum, class: "form-control"
 
-#remission.form-group
-  = f.label :rate, class: "col-sm-3 control-label"
-  .col-sm-9
-    = f.text_field :rate, class: "form-control"
+#remission
+  .form-group
+    = f.label :rate, class: "col-sm-3 control-label"
+    .col-sm-9
+      = f.text_field :rate, class: "form-control"
 
-.form-group
-  = f.label :close_date, class: "col-sm-3 control-label"
-  .col-sm-9
-    = f.text_field :close_date, value: (@operation.close_date.blank? ? '' : l(@operation.close_date)), class: "form-control"
+  .form-group
+    = f.label :close_date, class: "col-sm-3 control-label"
+    .col-sm-9
+      = f.text_field :close_date, value: (@operation.close_date.blank? ? '' : l(@operation.close_date)), class: "form-control"
 
-.form-group
-  = f.label :withholding, class: "col-sm-3 control-label"
-  .col-sm-9
-    = f.text_field :withholding, class: "form-control"
+  .form-group
+    = f.label :withholding, class: "col-sm-3 control-label"
+    .col-sm-9
+      = f.text_field :withholding, class: "form-control"
