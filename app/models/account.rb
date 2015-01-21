@@ -2,21 +2,18 @@ class Account < ActiveRecord::Base
   belongs_to :client
   has_many :operations, dependent: :destroy
 
-  SEPARATOR = '-'
-
   validates :client_id, presence: true
-
   before_save :generate_account_number
 
+  SEPARATOR = '-'
+
   def balance
-    except_remissions     = deposits_and_withdrawals(operations)
+    except_remissions     = deposits_and_withdrawals(operations(force_reload: true))
     sum_except_remissions = except_remissions.map(&:total).inject(:+) || 0
     remissions_operations = remissions(operations)
     sum_except_remissions += remissions_operations.map(&:interests).inject(:+) unless remissions_operations.empty?
     sum_except_remissions
   end
-
-
 
   private
 

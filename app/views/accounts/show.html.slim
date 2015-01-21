@@ -33,7 +33,7 @@ h1 = @account.client.full_name
       = render @operations
     = will_paginate @operations
 
-  p
-    = link_to t('links.new', model: Operation.model_name.human), new_account_operation_path(@account)
-    '   |
-    = link_to t('links.back_to_list'), @account.client
+p
+  = link_to t('links.new', model: Operation.model_name.human), new_account_operation_path(@account)
+  '   |
+  = link_to t('links.back_to_list'), @account.client
