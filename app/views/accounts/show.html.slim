@@ -10,6 +10,7 @@ h1 = @account.client.full_name
     = t('activerecord.models.account')
     ' :
     = @account.acc_number
+  = will_paginate @operations
   table.table.table-striped
     thead
       tr
@@ -31,7 +32,7 @@ h1 = @account.client.full_name
         th style="width: 7%"
     tbody
       = render @operations
-    = will_paginate @operations
+  = will_paginate @operations
 
 p
   = link_to t('links.new', model: Operation.model_name.human), new_account_operation_path(@account)
