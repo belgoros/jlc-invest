@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
 gem 'rails',          '~> 4.2.0'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -14,15 +14,14 @@ gem 'prawn',          '~> 1.0.0'
 gem 'pg',             '~> 0.17.1'
 gem 'slim-rails'
 
-gem 'sass-rails',   '~> 4.0.1'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'sass-rails',   '~> 5.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier',     '>= 2.4.0'
 
 gem 'turbolinks'
 
-
 group :test, :development do
-  gem 'rspec-rails', '~> 3.0.1'
+  gem 'rspec-rails', '~> 3.2.0'
   gem 'quiet_assets', '~> 1.0.2'
   gem 'thin'
   gem 'better_errors', '~> 2.1.1'
