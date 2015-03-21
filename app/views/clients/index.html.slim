@@ -5,17 +5,17 @@
   h2 = t(:list_all, model: Client.model_name.human.pluralize)
 
   = will_paginate
-
-  table class="table table-striped"
-    thead
-      tr
-        th = t('activerecord.attributes.client.lastname')
-        th = t('activerecord.attributes.client.firstname')
-        th = t('activerecord.attributes.client.phone')
-        th
-        th
-    tbody
-      = render @clients
+  .table-responsive
+    table class="table table-striped"
+      thead
+        tr
+          th.col-xs-4= t('activerecord.attributes.client.lastname')
+          th.col-xs-3 = t('activerecord.attributes.client.firstname')
+          th.col.xs-3 = t('activerecord.attributes.client.phone')
+          th.col-xs-1
+          th.col-xs-1
+      tbody
+        = render @clients
 
   = will_paginate
 br

@@ -5,16 +5,17 @@ h2 = t(:list_all, model: Operation.model_name.human.pluralize)
   = t(:no_items_found)
 - else
   = will_paginate
-  table.table.table-striped
-    thead
-      tr
-        th class="total" colspan="2" #{t(:account_balance)}:
-        th.sum = number_to_currency(@total)
+  .table-responsive
+    table.table.table-striped
+      thead
         tr
-          th = t('activerecord.attributes.client.lastname')
-          th = t('activerecord.attributes.client.firstname')
-          th = t('activerecord.attributes.operation.sum')
-    tbody
-      = render partial: 'client', collection: @operations, as: :client
+          th class="total" colspan="2" #{t(:account_balance)}:
+          th.sum = number_to_currency(@total)
+          tr
+            th.col-xs-5 = t('activerecord.attributes.client.lastname')
+            th.col-xs-5 = t('activerecord.attributes.client.firstname')
+            th.col-xs-2 = t('activerecord.attributes.operation.sum')
+      tbody
+        = render partial: 'client', collection: @operations, as: :client
 
   = will_paginate
