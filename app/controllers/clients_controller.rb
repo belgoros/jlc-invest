@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client   = Client.find(params[:id])
+    @client = Client.accounts_with_operations(params[:id])
     @accounts = @client.accounts.paginate(page: params[:page])
   end
 

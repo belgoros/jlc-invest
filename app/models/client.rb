@@ -12,6 +12,7 @@ class Client < ActiveRecord::Base
   validates :phone,     length: { maximum: 50 }
 
   scope :accounts_sum, -> { includes(accounts: :operations).order('clients.lastname') }
+  scope :accounts_with_operations, -> (client_id) { includes(accounts: :operations).find(client_id)}
 
   before_validation do |client|
     client.firstname = firstname.strip.split('-').map(&:capitalize).join('-') unless firstname.blank?
