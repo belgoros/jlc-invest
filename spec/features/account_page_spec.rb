@@ -19,7 +19,6 @@ feature "Account page" do
     expect(page).to have_link(I18n.t('links.back_to_list'), href: clients_path)
     expect(page).to have_selector('th', text: I18n.t(:account_balance))
     expect(page).to have_link(I18n.t('links.printing'), href: report_account_path(account, format: :pdf))
-
   end
 
   scenario "has no printing link when no operations present" do
