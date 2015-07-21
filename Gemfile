@@ -26,6 +26,7 @@ group :test, :development do
   gem 'thin'
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test do
