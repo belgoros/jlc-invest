@@ -52,7 +52,7 @@ describe Operation, :type => :model do
   end
 
   describe "when sum format is not valid" do
-    sums = %w[0 1,75 azerty -12]
+    sums = %w[0 1,75 -12]
     sums.each do |wrong_sum|
       before { deposit_operation.sum = wrong_sum }
       it { is_expected.not_to be_valid }
@@ -87,7 +87,7 @@ describe Operation, :type => :model do
     end
 
     context "when rate format is not valid" do
-      rates = %w[0 1,75 azerty -12]
+      rates = %w[0 1,75 -12]
       rates.each do |rate|
         before { deposit_operation.rate = rate }
         it { is_expected.not_to be_valid }
@@ -95,7 +95,7 @@ describe Operation, :type => :model do
     end
 
     context "when withholding format is not valid" do
-      values = %w[0 1,75 azerty -12]
+      values = %w[0 1,75  -12]
       values.each do |value|
         before { deposit_operation.withholding = value }
         it { is_expected.not_to be_valid }
