@@ -4,5 +4,6 @@ rvm:
 script:
     - bundle exec rake db:migrate
     - bundle exec rspec
+    - dist: trusty
 before_script:
   - psql -c 'create database jlc_invest_test;' -U postgres
