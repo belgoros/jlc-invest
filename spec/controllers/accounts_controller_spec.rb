@@ -47,7 +47,6 @@ describe AccountsController, :type => :controller do
              withholding: 12)
       end
 
-
     it "returns a PDF file inline" do
       get :report, id: operation.account, format: :pdf
       expect(response.headers['Content-Type']).to have_content 'pdf'
