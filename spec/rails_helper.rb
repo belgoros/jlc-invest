@@ -66,6 +66,9 @@ RSpec.configure do |config|
   # Include Factory Girl syntax to simplify calls to factories
   config.include FactoryGirl::Syntax::Methods
 
+  #Include sign_in_with_browser to use Capybara
+  config.include LoginMacros
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
