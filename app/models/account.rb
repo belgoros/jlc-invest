@@ -8,7 +8,7 @@ class Account < ActiveRecord::Base
   SEPARATOR = '-'
 
   def balance
-    except_remissions     = deposits_and_withdrawals(operations(force_reload: true))
+    except_remissions     = deposits_and_withdrawals(operations)
     sum_except_remissions = except_remissions.map(&:total).inject(:+) || 0
     remissions_operations = remissions(operations)
     sum_except_remissions += remissions_operations.map(&:interests).inject(:+) unless remissions_operations.empty?

@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Account, :type => :model do
+RSpec.describe Account, :type => :model do
   let(:client) { create(:client) }
 
   subject(:account) { build(:account, client: client) }
