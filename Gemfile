@@ -4,7 +4,7 @@ ruby '2.6.2'
 
 gem 'rails',          '~> 5.2.0'
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'bcrypt'#,         '~> 3.1.7'
+gem 'bcrypt'
 gem 'faker',          '~> 1.9.3'
 gem 'will_paginate',  '~> 3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
@@ -21,8 +21,14 @@ gem 'uglifier',     '>= 4.1.20'
 gem 'turbolinks'
 
 group :test, :development do
-  gem 'rspec-rails', '~> 3.8.2'
+  gem 'rspec-rails', '~> 3.8'
   gem 'meta_request'
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'pry-rails'
+  gem 'listen'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'irb', require: false
 end
 
 group :test do
