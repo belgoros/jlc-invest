@@ -1,6 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe AccountsController, :type => :controller do
+# TODO sign_in can't be used in controller specs but in features specs only
+RSpec.describe AccountsController, type: :controller do
+=begin
 
   let(:admin)  { create(:admin) }
   let(:client) { create(:client) }
@@ -47,11 +49,11 @@ describe AccountsController, :type => :controller do
              withholding: 12)
       end
 
-
     it "returns a PDF file inline" do
       get :report, id: operation.account, format: :pdf
       expect(response.headers['Content-Type']).to have_content 'pdf'
       expect(response.content_type).to eq("application/pdf")
     end
   end
+=end
 end

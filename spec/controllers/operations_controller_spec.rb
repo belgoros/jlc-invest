@@ -1,6 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe OperationsController, :type => :controller do
+RSpec.describe OperationsController, type: :controller do
+=begin
   let(:admin) { create(:admin) }
   let(:client) { create(:client) }
   let(:account) { create(:account, client: client)}
@@ -52,4 +53,5 @@ describe OperationsController, :type => :controller do
       expect(response.content_type).to eq("application/pdf")
     end
   end
+=end
 end
