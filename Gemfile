@@ -5,20 +5,18 @@ ruby '2.6.1'
 gem 'rails',          '~> 5.2.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bcrypt'
-gem 'faker',          '~> 1.9.3'
 gem 'will_paginate',  '~> 3.1.7'
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-will_paginate', '~> 1.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails', '~> 1.8.0.1'
-gem 'prawn',          '~> 2.2.2'
+gem 'prawn', '~> 2.2.2'
 gem 'pg', '~> 1.1.4'
-gem 'slim-rails', '~> 3.2.0'
-
+gem 'slim-rails',   '~> 3.2.0'
 gem 'sass-rails',   '~> 5.0.7'
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier',     '>= 4.1.20'
-
 gem 'turbolinks'
+gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.8'
@@ -29,6 +27,7 @@ group :test, :development do
   gem 'listen'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'irb', require: false
+  gem 'faker', '~> 1.9.3'
 end
 
 group :test do
