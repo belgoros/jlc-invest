@@ -63,9 +63,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  # Include Factory Girl syntax to simplify calls to factories
-  config.include FactoryGirl::Syntax::Methods
-
   #Include sign_in_with_browser to use Capybara
   config.include LoginMacros
 

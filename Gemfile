@@ -33,11 +33,11 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rake',               '~> 12.3.2'
-  gem 'capybara',           '~> 3.15.0'
-  gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'database_cleaner',   '~> 1.7.0'
-  gem 'launchy',            '~> 2.4.3'
+  gem 'rake',              '~> 12.3.2'
+  gem 'capybara',          '~> 3.15.0'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.1'
+  gem 'database_cleaner',  '~> 1.7.0'
+  gem 'launchy',           '~> 2.4.3'
 end
 
 group :production do
