@@ -11,6 +11,3 @@ test: &test
   database: jlc_invest_test
   pool: 5
   host: localhost
-
-cucumber:
-  <<: *test
