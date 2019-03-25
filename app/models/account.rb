@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   belongs_to :client
   has_many :operations, dependent: :destroy
 

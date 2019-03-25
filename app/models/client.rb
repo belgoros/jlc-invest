@@ -1,4 +1,4 @@
-class Client < ActiveRecord::Base
+class Client < ApplicationRecordw
   has_many :accounts, dependent: :destroy
   default_scope { order('lastname') }
 

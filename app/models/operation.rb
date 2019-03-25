@@ -1,4 +1,4 @@
-class Operation < ActiveRecord::Base
+class Operation < ApplicationRecord
   belongs_to :account
 
   DEPOSIT     = I18n.t('activerecord.attributes.operation.deposit')
