@@ -21,6 +21,7 @@ gem 'bootsnap', '~> 1.3', '>= 1.3.2', require: false
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.8'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'meta_request'
   gem 'spring'
   gem 'spring-watcher-listen'
