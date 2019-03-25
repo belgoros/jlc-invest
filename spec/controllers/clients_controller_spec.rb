@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ClientsController, type: :controller do
-=begin
   let(:admin) { create(:admin) }
 
   before(:each) { sign_in admin }
@@ -33,7 +32,7 @@ RSpec.describe ClientsController, type: :controller do
 
   describe 'GET #edit' do
     let(:client) { create(:client)}
-    before { get :edit, id: client }
+    before { get :edit, params: {id: client} }
 
     it "assigns the requested client to @client" do
       expect(assigns(:client)).to eq client
@@ -46,7 +45,7 @@ RSpec.describe ClientsController, type: :controller do
 
   describe 'GET #show' do
     let(:client) { create(:client)}
-    before { get :show, id: client }
+    before { get :show, params: {id: client} }
 
     it "assigns the requested client to @client" do
       expect(assigns(:client)).to eq client
@@ -61,12 +60,12 @@ RSpec.describe ClientsController, type: :controller do
     context "with valid attributes" do
       it "saves the new client in the database" do
         expect {
-          post :create, client: attributes_for(:client)
+          post :create, params: { client: attributes_for(:client) }
         }.to change(Client, :count).by(1)
       end
 
       it "redirects to clients#index" do
-        post :create, client: attributes_for(:client)
+        post :create, params: { client: attributes_for(:client) }
         expect(response).to redirect_to clients_path
       end
     end
@@ -74,12 +73,12 @@ RSpec.describe ClientsController, type: :controller do
     context "with invalid attributes" do
       it "does not save the new client in the database" do
         expect {
-          post :create, client: attributes_for(:invalid_client)
+          post :create, params: { client: attributes_for(:invalid_client) }
         }.to_not change(Client, :count)
       end
 
       it "re-renders the :new template" do
-        post :create, client: attributes_for(:invalid_client)
+        post :create, params: { client: attributes_for(:invalid_client) }
         expect(response).to render_template :new
       end
     end
@@ -90,33 +89,33 @@ RSpec.describe ClientsController, type: :controller do
 
     context "valid attributes" do
       it "locates the requested @client" do
-        patch :update, id: client, client: attributes_for(:client)
+        patch :update, params: {id: client, client: attributes_for(:client) }
         expect(assigns(:client)).to eq(client)
       end
 
       it "changes @client's attributes" do
-        patch :update, id: client, client: attributes_for(:client, firstname: 'Larry', lastname: 'Smith')
+        patch :update, params: { id: client, client: attributes_for(:client, firstname: 'Larry', lastname: 'Smith') }
         client.reload
         expect(client.firstname).to eq("Larry")
         expect(client.lastname).to eq("SMITH")
       end
 
       it "redirects to the updated client" do
-        patch :update, id: client, client: attributes_for(:client)
+        patch :update, params: { id: client, client: attributes_for(:client)}
         expect(response).to redirect_to clients_path
       end
     end
 
     context "with invalid attributes" do
       it "does not change the client's attributes" do
-        patch :update, id: client, client: attributes_for(:client, firstname: 'Larry', lastname: nil)
+        patch :update, params: {id: client, client: attributes_for(:client, firstname: 'Larry', lastname: nil)}
         client.reload
         expect(client.firstname).to_not eq("Larry")
         expect(client.lastname).to eq("SMITH")
       end
 
       it "re-renders the edit template" do
-        patch :update, id: client, client: attributes_for(:invalid_client)
+        patch :update, params: {id: client, client: attributes_for(:invalid_client)}
         expect(response).to render_template :edit
       end
     end
@@ -127,14 +126,13 @@ RSpec.describe ClientsController, type: :controller do
 
     it "deletes the client" do
       expect {
-        delete :destroy, id: @client
+        delete :destroy, params: {id: @client}
       }.to change(Client, :count).by(-1)
     end
 
     it "redirects to clients#index" do
-      delete :destroy, id: @client
+      delete :destroy, params: {id: @client}
       expect(response).to redirect_to clients_path
     end
   end
-=end
 end
