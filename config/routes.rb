@@ -1,4 +1,4 @@
-JlcInvest::Application.routes.draw do
+Rails.application.routes.draw do
   resources :admins
   root to: 'clients#index'
 
