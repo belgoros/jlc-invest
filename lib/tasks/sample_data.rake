@@ -14,10 +14,10 @@ def make_users
                 password: 'admin123',
                 password_confirmation: 'admin123')
 
-  35.times do |n|
+  3.times do |n|
     firstname = Faker::Name.first_name
-    lastname = Faker::Name.last_name
-    email = Faker::Internet.email
+    lastname = Faker::Name.unique.last_name
+    email = Faker::Internet.unique.email
     password = "password"
     Admin.create!(firstname: firstname,
                   lastname: lastname,
@@ -31,9 +31,9 @@ end
 def make_clients
   Faker::Config.locale = :fr
 
-  35.times do
+  3.times do
     firstname = Faker::Name.first_name
-    lastname = Faker::Name.last_name
+    lastname = Faker::Name.unique.last_name
     street = Faker::Address.street_name
     house = Faker::Address.building_number
     city = Faker::Address.city
@@ -53,7 +53,7 @@ def make_clients
 end
 
 def make_accounts
-  clients = Client.all(limit: 35)
+  clients = Client.all
   3.times do
     clients.each do |client|
       client.accounts.create!
@@ -63,7 +63,7 @@ end
 
 def make_operations
   range = 100..1000
-  accounts = Account.all(limit: 35)
+  accounts = Account.all
   3.times do
     accounts.each do |account|
       account.operations.create!(value_date: Date.today,
