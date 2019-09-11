@@ -36,9 +36,6 @@ private
       self.total = interests + sum
     else
       self.total      = -sum
-      self.duration   = nil
-      self.rate       = nil
-      self.interests  = nil
     end
   end
 
