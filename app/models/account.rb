@@ -25,11 +25,11 @@ class Account < ApplicationRecord
       self.acc_number = year_prefix << SEPARATOR << sprintf("%05d", acc_suffix + 1)
     end
 
-    def deposits_and_withdrawals(items)
-      items.select {|op| op.operation_type != Operation::REMISSION }
+    def deposits_and_withdrawals(ops)
+      ops.select {|op| op.persisted? && op.operation_type != Operation::REMISSION }
     end
 
-    def remissions(items)
-      items.select {|op| op.operation_type == Operation::REMISSION }
+    def remissions(ops)
+      ops.select {|op| op.persisted? && op.operation_type == Operation::REMISSION }
     end
 end
