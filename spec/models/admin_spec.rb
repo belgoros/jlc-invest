@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Admin, :type => :model do
+RSpec.describe Admin, type: :model do
   subject(:admin) { build(:admin) }
 
   it { is_expected.to respond_to(:firstname) }

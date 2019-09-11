@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   belongs_to :client
   has_many :operations, dependent: :destroy
 
@@ -8,7 +8,7 @@ class Account < ActiveRecord::Base
   SEPARATOR = '-'
 
   def balance
-    except_remissions     = deposits_and_withdrawals(operations(force_reload: true))
+    except_remissions     = deposits_and_withdrawals(operations)
     sum_except_remissions = except_remissions.map(&:total).inject(:+) || 0
     remissions_operations = remissions(operations)
     sum_except_remissions += remissions_operations.map(&:interests).inject(:+) unless remissions_operations.empty?
@@ -25,11 +25,11 @@ class Account < ActiveRecord::Base
       self.acc_number = year_prefix << SEPARATOR << sprintf("%05d", acc_suffix + 1)
     end
 
-    def deposits_and_withdrawals(items)
-      items.select {|op| op.operation_type != Operation::REMISSION }
+    def deposits_and_withdrawals(ops)
+      ops.select {|op| op.persisted? && op.operation_type != Operation::REMISSION }
     end
 
-    def remissions(items)
-      items.select {|op| op.operation_type == Operation::REMISSION }
+    def remissions(ops)
+      ops.select {|op| op.persisted? && op.operation_type == Operation::REMISSION }
     end
 end

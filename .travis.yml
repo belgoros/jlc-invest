@@ -1,6 +1,8 @@
 language: ruby
 rvm:
-  - "2.4.0"
+  - "2.6.1"
+services:
+  - postgresql
 script:
     - bundle exec rake db:migrate
     - bundle exec rspec
