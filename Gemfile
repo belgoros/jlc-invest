@@ -29,7 +29,7 @@ group :test, :development do
   gem 'listen'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'irb', require: false
-  gem 'faker', '~> 1.9.3'
+  gem 'faker', '~> 2.2.2'
 end
 
 group :test do
