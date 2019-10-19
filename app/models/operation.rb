@@ -1,4 +1,4 @@
-class Operation < ActiveRecord::Base
+class Operation < ApplicationRecord
   belongs_to :account
 
   DEPOSIT     = I18n.t('activerecord.attributes.operation.deposit')
@@ -36,9 +36,6 @@ private
       self.total = interests + sum
     else
       self.total      = -sum
-      self.duration   = nil
-      self.rate       = nil
-      self.interests  = nil
     end
   end
 

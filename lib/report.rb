@@ -11,6 +11,8 @@ module Report
   RIGHT_BORDER_SPACE = 5.mm
   TRANSPARENT_LEVEL = 0.2
 
+  Prawn::Font::AFM.hide_m17n_warning = true
+
   def to_pdf(printable)
 
   end

@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Operation, :type => :model do
+RSpec.describe Operation, :type => :model do
 
   let(:client) { create(:client) }
   let(:account) { create(:account, client: client) }
