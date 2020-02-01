@@ -16,7 +16,11 @@ module JlcInvest
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.autoload_paths += %W(#{Rails.root}/lib)
+    # In Rails 5 autoloading is disabled for production environment by default
+    # Rails will load all the constants from eager_load_paths but if a constant is missing
+    # then it will not look in autoload_paths and will not attempt to load the missing constant
+    config.eager_load_paths << Rails.root.join('lib')
+
     I18n.config.enforce_available_locales = true
     config.i18n.default_locale = :fr
 
