@@ -15,42 +15,42 @@ ActiveRecord::Schema.define(version: 2014_05_30_080400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", id: :serial, force: :cascade do |t|
     t.integer "client_id"
-    t.string "acc_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "acc_number", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "email"
-    t.string "password_digest"
-    t.string "remember_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "admins", id: :serial, force: :cascade do |t|
+    t.string "firstname", limit: 255
+    t.string "lastname", limit: 255
+    t.string "email", limit: 255
+    t.string "password_digest", limit: 255
+    t.string "remember_token", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["remember_token"], name: "index_admins_on_remember_token"
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "phone"
-    t.string "street"
-    t.string "house"
-    t.string "box"
-    t.string "zipcode"
-    t.string "city"
-    t.string "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "clients", id: :serial, force: :cascade do |t|
+    t.string "firstname", limit: 255
+    t.string "lastname", limit: 255
+    t.string "phone", limit: 255
+    t.string "street", limit: 255
+    t.string "house", limit: 255
+    t.string "box", limit: 255
+    t.string "zipcode", limit: 255
+    t.string "city", limit: 255
+    t.string "country", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "operations", force: :cascade do |t|
+  create_table "operations", id: :serial, force: :cascade do |t|
     t.integer "account_id"
-    t.string "operation_type"
+    t.string "operation_type", limit: 255
     t.date "value_date"
     t.date "close_date"
     t.decimal "sum", precision: 10, scale: 2
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2014_05_30_080400) do
     t.integer "duration"
     t.decimal "interests", precision: 10, scale: 2
     t.decimal "total", precision: 10, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
