@@ -134,6 +134,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
+      racc (~> 1.4)
     pdf-core (0.7.0)
     pg (1.2.3)
     prawn (2.2.2)
@@ -150,7 +152,7 @@ GEM
     puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.5)
+    rack (2.2.6.2)
     rack-contrib (2.3.0)
       rack (~> 2.0)
     rack-test (2.0.2)
@@ -265,6 +267,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt
